@@ -1,0 +1,53 @@
+.navbar-local {
+	padding: 8px 10px;
+}
+
+.hr-local {
+	margin-right: 15px !important;
+	margin-top: 20px !important;
+}
+
+.languages_block {
+	border: 1px solid rgb(65, 64, 64);
+	border-radius: 20px;
+	padding: 7px 9px;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.dropdown-toggle::after {
+	font-size: 16px;
+}
+
+.share {
+	cursor: pointer;
+	background: #0b3251;
+	padding: 5px;
+	color: white;
+	border-radius: 4px;
+	margin-left: 15px;
+	transition: all .1s ease;
+	user-select: none;
+}
+
+.share:hover {
+	background: #2A4D85;
+}
+
+share:active {
+	background: #1c2e37;
+}
+
+.localReader {
+	position: fixed;
+	z-index: 99999;
+	color: white;
+	background: #0d3c61;
+	padding: 4px;
+	border-radius: 4px;
+	transition: .2s;
+	cursor: pointer;
+	opacity: 0;
+}

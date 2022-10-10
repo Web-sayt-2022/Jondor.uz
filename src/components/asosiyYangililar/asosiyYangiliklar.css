@@ -1,0 +1,102 @@
+.asosiy-yangiliklar-section .box-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.asosiy-yangiliklar-section .box {
+  overflow: hidden;
+}
+
+.asosiy-yangiliklar-section .paragraf {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  background-color: rgba(69, 116, 138, 0.6);
+}
+
+.asosiy-yangiliklar-section .paragraf p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: justify;
+  margin-bottom: 0;
+  padding: 0.5rem;
+  overflow: hidden;
+}
+
+.asosiy-yangiliklar-section .title,
+.asosiy-yangiliklar-section p {
+  font-size: 1.125rem;
+}
+
+.asosiy-yangiliklar-section .img-hokim {
+  height: 20.625rem;
+  width: 100%;
+  max-width: 28.125rem;
+  object-fit: cover;
+}
+
+.asosiy-yangiliklar-section .profile {
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(42, 77, 133, 0.6);
+}
+
+.asosiy-yangiliklar-section .boxes {
+  margin-top: 1.25rem;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 12.25rem;
+  gap: 0.5rem 1rem;
+}
+
+@media (max-width: 992px) {
+  .asosiy-yangiliklar-section .boxes {
+    grid-template-columns: 1fr;
+  }
+
+  .asosiy-yangiliklar-section .buxoro-img,
+  .asosiy-yangiliklar-section .logo {
+    height: 4.375rem;
+  }
+}
+
+.asosiy-yangiliklar-section .boxes a:nth-child(1) {
+  grid-row: 1/3;
+}
+
+.asosiy-yangiliklar-section .profile {
+  height: 3rem;
+  bottom: -3rem;
+  transition: 0.5s;
+}
+
+.asosiy-yangiliklar-section .card-hokim:hover .profile {
+  bottom: 0;
+}
+
+.asosiy-yangiliklar-section .profile i {
+  transition: 0.3s;
+}
+
+.asosiy-yangiliklar-section .profile i:hover {
+  color: #f58646 !important;
+  transform: scale(1.1);
+}
+
+.asosiy-yangiliklar-section .box-img {
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.asosiy-yangiliklar-section .boxes > a:hover .box-img {
+  transform: scale(1.1);
+}
