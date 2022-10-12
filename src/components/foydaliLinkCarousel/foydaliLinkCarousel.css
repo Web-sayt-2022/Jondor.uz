@@ -1,0 +1,42 @@
+/* .slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  background: green;
+  width: 50px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  right: 0;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+
+/* .custom-indicator {
+  bottom: -55px;
+  display: flex;
+  align-items: center;
+  
+  
+}
+
+.custom-indicator li {
+  width: 30px;
+  height: 30px;
+  filter: grayscale(100%);
+	margin-right: 30px;
+}
+
+.custom-indicator li.slick-active {
+  filter: grayscale(0%);
+} */ 

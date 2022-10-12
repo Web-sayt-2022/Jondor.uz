@@ -96,3 +96,111 @@ footer .karvon {
     margin: 0 auto;
   }
 }
+
+.scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  padding: 12px;
+  color: white;
+  background: #365ea9;
+  font-weight: 600;
+  opacity: 1;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  z-index: 9999;
+  transform: translateX(200%);
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+}
+
+.scrollToTop:hover {
+  background: #0b3251;
+  /*opacity: 0;*/
+}
+
+.scrollToTop i {
+  position: absolute;
+  inset: 0;
+  top: 25%;
+}
+
+.scrollToTop:hover i {
+  animation-name: arrowUp;
+  animation-timing-function: cubic-bezier(1, -0.02, 0.75, 1.38);
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes arrowUp {
+  0% {
+    top: 20%;
+  }
+
+  50% {
+    top: 50%;
+  }
+
+  100% {
+    top: 20%;
+  }
+}
+
+.navbar-local {
+  padding: 8px 10px;
+}
+
+.hr-local {
+  margin-right: 15px !important;
+  margin-top: 20px !important;
+}
+
+.languages_block {
+  border: 1px solid rgb(65, 64, 64);
+  border-radius: 20px;
+  padding: 7px 9px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.dropdown-toggle::after {
+  font-size: 16px;
+}
+
+.share {
+  cursor: pointer;
+  background: #0b3251;
+  padding: 5px;
+  color: white;
+  border-radius: 4px;
+  margin-left: 15px;
+  transition: all 0.1s ease;
+  user-select: none;
+}
+
+.share:hover {
+  background: #2a4d85;
+}
+
+share:active {
+  background: #1c2e37;
+}
+
+.localReader {
+  position: fixed;
+  z-index: 99999;
+  color: white;
+  background: #0d3c61;
+  padding: 4px;
+  border-radius: 4px;
+  transition: 0.2s;
+  cursor: pointer;
+  opacity: 0;
+}

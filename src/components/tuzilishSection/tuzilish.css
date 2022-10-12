@@ -1,0 +1,60 @@
+.tuzilish-section iframe {
+	width: 100%;
+	height: 25rem;
+	border: 0
+}
+
+.tuzilish-section .box {
+	display: flex;
+}
+
+.tuzilish-section .tumanlar {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: 3.125rem;
+	gap: 0.625rem;
+}
+
+.tuzilish-section .tumanlar div {
+	font-size: 1.125rem;
+	cursor: pointer;
+	transition: 0.3S;
+}
+
+.tuzilish-section .tumanlar div:hover {
+	background-color: #FFFFFF !important;
+	color: #45748a !important;
+}
+
+.tuzilish-section .tumanlar>div:nth-child(1) {
+	grid-column: span 2;
+}
+
+
+.tuzilish-section .vertical-carousel {
+	width: 100%;
+}
+
+.tuzilish-section .splide__list {
+	margin: 0;
+	padding: 0;
+	height: 25rem;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+
+.tuzilish-section .splide__list::-webkit-scrollbar {
+	width: 6px;
+}
+
+.tuzilish-section .splide__list::-webkit-scrollbar-track {
+	background-color: #FFF;
+}
+
+.tuzilish-section .splide__list::-webkit-scrollbar-thumb {
+	background-color: #2A4D85;
+	border-radius: 5px;
+}

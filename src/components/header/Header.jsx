@@ -226,7 +226,7 @@ const Header = () => {
                   className="uppercase navbar-nav-link dropdown-toggle"
                   data-toggle="dropdown"
                 >
-                  Viloyat Haqida
+                  Tuman Haqida
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
                   <a href="#" className="dropdown-item">
@@ -259,7 +259,7 @@ const Header = () => {
                   className="navbar-nav-link uppercase dropdown-toggle"
                   data-toggle="dropdown"
                 >
-                  Hokimlik to'g'risida
+                  Hokimlik haqida
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
                   <a href="#" className="dropdown-item">
@@ -383,7 +383,7 @@ const Header = () => {
                   className="navbar-nav-link uppercase dropdown-toggle"
                   data-toggle="dropdown"
                 >
-                  axborot xizmati
+                  Axborot xizmati
                 </a>
 
                 <div className="dropdown-menu dropdown-menu-left">
@@ -465,11 +465,11 @@ const Header = () => {
                   style={{ fontSize: "12px", padding: "16px" }}
                   className="navbar-nav-link uppercase"
                 >
-                  murojaat
+                  Murojaat
                 </a>
               </li>
 
-              <li className="nav-item dropdown">
+              {/* <li className="nav-item dropdown">
                 <a
                   href="#"
                   style={{ fontSize: "12px", padding: "16px" }}
@@ -496,7 +496,7 @@ const Header = () => {
                 >
                   OCHIQ MALUMOTLAR
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

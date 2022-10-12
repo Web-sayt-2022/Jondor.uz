@@ -61,7 +61,7 @@ const AsosiyYangililar = () => {
 
           <div className="boxes">
             <a
-              href="./deteile_news.html"
+              href="#"
               className="position-relative rounded box"
               style={{ height: "25rem" }}
             >

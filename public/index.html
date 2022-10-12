@@ -90,6 +90,8 @@
       referrerpolicy="no-referrer"
     />
 
+    
+
     <title>React App</title>
   </head>
   <body>
@@ -218,6 +220,61 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <!-- <script>
+      var owl = $(".owl-carousel");
+      owl.owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        dots: false,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            items: 1,
+          },
+          600: {
+            items: 2,
+          },
+          1000: {
+            items: 3,
+          },
+          1400: {
+            items: 5,
+          },
+        },
+      });
+      $(".play").on("click", function () {
+        owl.trigger("play.owl.autoplay", [3000]);
+      });
+      $(".stop").on("click", function () {
+        owl.trigger("stop.owl.autoplay");
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var splide = new Splide(".splide", {
+          type: "loop",
+          direction: "ttb",
+          autoplay: true,
+          drag: "free",
+          focus: "top",
+          height: "20rem",
+          perPage: 4,
+        });
+        splide.mount();
+      });
+
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "progressbar",
+        },
+        autoplay: {
+          delay: 5000,
+        },
+      });
+    </script> -->
     <script src="dist/js/splide.min.js"></script>
   </body>
 </html>

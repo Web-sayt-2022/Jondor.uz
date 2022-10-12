@@ -13,7 +13,7 @@ body {
 }
 
 
-.left-panel .aloqa-section .list-group span {
+/* .left-panel .aloqa-section .list-group span {
 	width: 50%;
 }
 
@@ -66,13 +66,13 @@ body {
 
 .left-panel .aloqa-section .ish-tartibi div ul li {
 	border: none;
-}
+} */
 
 .bg-primary {
 	background-color: #2a4d85 !important;
 }
 
-.asosiy-content {
+/* .asosiy-content {
 	display: grid;
 	grid-template-columns: 3fr 9fr;
 	gap: 1rem;
@@ -81,15 +81,15 @@ body {
 @media (max-width: 992px) {
 	.asosiy-content {
 			grid-template-columns: 1fr;
-	}
+	} */
 
 	.left-panel {
 			display: none;
 	}
-}
 
+/*
 .asosiy-content .dropdown-item.active {
-	/* background-color: rgba(42, 77, 133, 0.6); */
+	 background-color: rgba(42, 77, 133, 0.6); 
 	color: #2196F3;
 	font-weight: 600;
 	background-color: transparent;
@@ -103,7 +103,7 @@ body {
 .asosiy-content nav a {
 	font-size: 1.125rem;
 }
-
+*/
 @media print {
 	body * {
 			visibility: hidden;
@@ -142,7 +142,7 @@ body {
 }
 
 
-.asosiy-yangiliklar-section .box-img {
+/* .asosiy-yangiliklar-section .box-img {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
@@ -245,9 +245,9 @@ body {
 
 .asosiy-yangiliklar-section .boxes>a:hover .box-img {
 	transform: scale(1.1);
-}
+} */
 
-.yangiliklar-section .card-body {
+/* .yangiliklar-section .card-body {
 	height: 10rem;
 	max-height: 11.25rem;
 }
@@ -286,9 +286,9 @@ body {
 
 .yangiliklar-section .modal-backdrop+.yangiliklar-section .show {
 	opacity: 0.1 !important;
-}
+} */
 
-.yunalishlar-section .boxes {
+/* .yunalishlar-section .boxes {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1.5rem;
@@ -348,9 +348,9 @@ body {
 	font-weight: 600;
 	text-align: center;
 	text-transform: uppercase;
-}
+} */
 
-.davlat-hokimiyati-section .davlat-sektor {
+/* .davlat-hokimiyati-section .davlat-sektor {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 0.5rem;
@@ -459,9 +459,9 @@ body {
 	.davlat-hokimiyati-section .sectorlar {
 			grid-template-columns: 1fr;
 	}
-}
+} */
 
-.tuzilish-section iframe {
+/* .tuzilish-section iframe {
 	width: 100%;
 	height: 25rem;
 	border: 0
@@ -491,7 +491,7 @@ body {
 
 .tuzilish-section .tumanlar>div:nth-child(1) {
 	grid-column: span 2;
-}
+} */
 
 
 
@@ -652,7 +652,7 @@ color: #FFF;
 	margin-bottom: 0;
 }
 
-.tuzilish-section .vertical-carousel {
+/* .tuzilish-section .vertical-carousel {
 	width: 100%;
 }
 
@@ -678,15 +678,15 @@ color: #FFF;
 .tuzilish-section .splide__list::-webkit-scrollbar-thumb {
 	background-color: #2A4D85;
 	border-radius: 5px;
-}
+} */
 
-.davlat-hokimiyati-section .splide__slide {
+/* .davlat-hokimiyati-section .splide__slide {
 	display: flex;
 	align-items: center;
 	background-color: #FFF;
 	cursor: pointer;
 	height: 3rem;
-}
+} */
 
 /* .splide__track {
 overflow-y: scroll;
@@ -703,7 +703,7 @@ background-color: #FFF;
 color: #FFF;
 } */
 
-.davlat-hokimiyati-section .splide__slide img {
+/* .davlat-hokimiyati-section .splide__slide img {
 	width: 4rem;
 	height: 4rem;
 	object-fit: cover;
@@ -746,7 +746,7 @@ color: #FFF;
 
 .davlat-hokimiyati-section .vertical-carousel {
 	width: 100%;
-}
+} */
 
 
 .bg-primary,
@@ -859,37 +859,9 @@ color: #FFF;
 	display: none;
 }
 
-.homiylar-section .homiylar {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	gap: 1rem;
-}
 
-.homiylar-section .homiy {
-	height: 250px;
-	background-color: #f0fbff;
-	color: #0074b4;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	font-size: 1rem;
-	text-align: center;
-	position: relative;
-}
 
-.homiylar-section .homiy img {
-	position: absolute;
-	top: 30px;
-}
-
-.homiylar-section .homiy p {
-	position: absolute;
-	top: 150px;
-}
-
-.footer-menu {
+/* .footer-menu {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -901,4 +873,4 @@ color: #FFF;
 
 .footer-menu li:last-child {
 	margin-left: auto;
-}
+} */
