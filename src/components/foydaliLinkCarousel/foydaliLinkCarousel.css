@@ -39,4 +39,8 @@
 
 .custom-indicator li.slick-active {
   filter: grayscale(0%);
-} */ 
+} */
+
+.slick-slide {
+  cursor: pointer;
+}

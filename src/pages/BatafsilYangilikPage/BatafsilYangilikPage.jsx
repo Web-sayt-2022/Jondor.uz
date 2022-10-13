@@ -9,7 +9,7 @@ const BatafsilYangilikPage = () => {
     <>
       <Header />
       <AsosiyContent />
-      {/* <FoydaliLinkCarousel/> */}
+      <FoydaliLinkCarousel/>
       <Footer />
     </>
   );

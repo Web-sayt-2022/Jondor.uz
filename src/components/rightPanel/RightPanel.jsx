@@ -1,7 +1,12 @@
 import React from "react";
 import CarouselNews from "../carousel/CarouselNews";
 import "./rightPanel.css";
+import { useLocation, useParams } from "react-router-dom";
 const RightPanel = () => {
+  const location = useLocation();
+  const params = useParams();
+  console.log(params);
+
   return (
     <section className="right-panel mt-4">
       <div
@@ -41,7 +46,7 @@ const RightPanel = () => {
                 <CarouselNews />
               </div>
 
-              <div className="mb-3" style={{marginTop: "100px"}}>
+              <div className="mb-3" style={{ marginTop: "100px" }}>
                 <p>
                   Tezyurar va zamonaviy poyezd chiyillagancha to‘xtadi. Issiq va
                   quruq havoga chiqqanimizda bizni zulmat qamrab oldi. Qadimgi

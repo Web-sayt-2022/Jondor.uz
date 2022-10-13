@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./asosiyYangiliklar.css";
 import d1Image from "../../images/d1.jpg";
 import d2Image from "../../images/d2.jpg";
 import d3Image from "../../images/d3.jpg";
+import { useNavigate, Link } from "react-router-dom";
+import { axiosInstance } from "../../config";
 
 const AsosiyYangililar = () => {
+  const navigate = useNavigate();
+
+  // barcha asosiy yangiliklarni o'qib olish
+  // useEffect(() => {
+  //   let isMounted = true;
+
+  //   const getData = async () => {
+  //     try {
+  //       const res = await axiosInstance.get("");
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getData();
+
+  //   return () => (isMounted = false);
+  // }, []);
+
+  const navigateHandler = () => {
+    navigate("/yangilik_batafsil", {
+      state: {
+        name: "Keldiyor",
+      },
+    });
+  };
+
   return (
     <section className="asosiy-yangiliklar-section bg-light">
       <div className="row px-2 mt-3 pb-0">
@@ -61,9 +89,9 @@ const AsosiyYangililar = () => {
 
           <div className="boxes">
             <a
-              href="#"
               className="position-relative rounded box"
               style={{ height: "25rem" }}
+              onClick={navigateHandler}
             >
               <img src={d1Image} alt="" className="box-img" />
               <div className="paragraf">
@@ -75,8 +103,8 @@ const AsosiyYangililar = () => {
               </div>
             </a>
 
-            <a
-              href="./deteile_news.html"
+            <Link
+              to="/yangilik_batafsil"
               className="position-relative rounded box"
             >
               <img src={d2Image} alt="" className="box-img" />
@@ -87,12 +115,9 @@ const AsosiyYangililar = () => {
                   ipsum totam, voluptatum, excepturi soluta magni at.
                 </p>
               </div>
-            </a>
+            </Link>
 
-            <a
-              href="./deteile_news.html"
-              className="position-relative rounded box"
-            >
+            <a href="#1" className="position-relative rounded box">
               <img src={d3Image} alt="" className="box-img" />
               <div className="paragraf">
                 <p className="text-light">

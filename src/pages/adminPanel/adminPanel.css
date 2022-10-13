@@ -1,0 +1,87 @@
+.richtexteditor {
+  height: 100vh;
+}
+
+.nav-tabs-solid-custom .nav-link.active {
+  background-color: #fff;
+  color: #000;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
+}
+
+.nav-tabs-solid-custom
+  .nav-link.active
+  .nav-tabs-solid-custom
+  .nav-link.active
+  span {
+  color: red !important;
+}
+
+/* file upload */
+.border_dash {
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed silver;
+}
+.fileList {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.fileList li {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  text-align: center;
+  max-height: 300px !important;
+}
+.fileList img {
+  width: 100%;
+  height: 170px !important;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.fileList li i {
+  width: 100%;
+}
+
+.image_bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.input_text_content {
+  width: 100%;
+}
+.image_bottom input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.image_bottom input:focus {
+  outline: none;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.buttons button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #2272f2;
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+}
+.buttons button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

@@ -11,11 +11,11 @@
 }
 
 .slick-prev {
-  left: 0;
+  left: 40px;
 }
 
 .slick-next {
-  right: 0;
+  right: 40px;
 }
 
 .slick-prev::before,
@@ -39,3 +39,4 @@
 .custom-indicator li.slick-active {
   filter: grayscale(0%);
 }
+
