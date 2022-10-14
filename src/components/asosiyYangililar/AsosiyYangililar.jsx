@@ -1,35 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./asosiyYangiliklar.css";
-import d1Image from "../../images/d1.jpg";
-import d2Image from "../../images/d2.jpg";
-import d3Image from "../../images/d3.jpg";
-import { useNavigate, Link } from "react-router-dom";
-import { axiosInstance } from "../../config";
+import { useNavigate } from "react-router-dom";
+import { urlFile } from "../../config";
 
-const AsosiyYangililar = () => {
+
+const AsosiyYangililar = ({ news }) => {
   const navigate = useNavigate();
 
-  // barcha asosiy yangiliklarni o'qib olish
-  // useEffect(() => {
-  //   let isMounted = true;
-
-  //   const getData = async () => {
-  //     try {
-  //       const res = await axiosInstance.get("");
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getData();
-
-  //   return () => (isMounted = false);
-  // }, []);
-
-  const navigateHandler = () => {
+  const navigateHandler = (dat) => {
     navigate("/yangilik_batafsil", {
-      state: {
-        name: "Keldiyor",
-      },
+      state: dat,
     });
   };
 
@@ -88,45 +68,29 @@ const AsosiyYangililar = () => {
           </div>
 
           <div className="boxes">
-            <a
-              className="position-relative rounded box"
-              style={{ height: "25rem" }}
-              onClick={navigateHandler}
-            >
-              <img src={d1Image} alt="" className="box-img" />
-              <div className="paragraf">
-                <p className="text-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  sit quis nobis, quia illo numquam repellat autem voluptatem
-                  ipsum totam, voluptatum, excepturi soluta magni at.
-                </p>
-              </div>
-            </a>
-
-            <Link
-              to="/yangilik_batafsil"
-              className="position-relative rounded box"
-            >
-              <img src={d2Image} alt="" className="box-img" />
-              <div className="paragraf">
-                <p className="text-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  sit quis nobis, quia illo numquam repellat autem voluptatem
-                  ipsum totam, voluptatum, excepturi soluta magni at.
-                </p>
-              </div>
-            </Link>
-
-            <a href="#1" className="position-relative rounded box">
-              <img src={d3Image} alt="" className="box-img" />
-              <div className="paragraf">
-                <p className="text-light">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-                  sit quis nobis, quia illo numquam repellat autem voluptatem
-                  ipsum totam, voluptatum, excepturi soluta magni at.
-                </p>
-              </div>
-            </a>
+            {news?.length > 0 &&
+              news.map(
+                (dat, index) =>
+                  dat.actual && (
+                    <a
+                      key={index}
+                      className="position-relative rounded box"
+                      style={{ height: "25rem" }}
+                      onClick={() => navigateHandler(dat)}
+                    >
+                      <img
+                        src={
+                          urlFile + "file/view/" + dat.images[0].generatedName
+                        }
+                        alt=""
+                        className="box-img"
+                      />
+                      <div className="paragraf">
+                        <p className="text-light">{dat.uzTitle}</p>
+                      </div>
+                    </a>
+                  )
+              )}
           </div>
         </div>
       </div>

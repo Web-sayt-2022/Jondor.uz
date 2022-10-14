@@ -6,3 +6,5 @@ export const axiosInstance = axios.create({
   // 	"Authorization": "Bearer "+token
   // }
 });
+
+export const urlFile = "http://192.168.30.104:9090/buxoroUZ/api/v1/";

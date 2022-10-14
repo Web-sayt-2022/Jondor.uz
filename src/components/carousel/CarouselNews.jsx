@@ -3,9 +3,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./carouselNews.css";
-import { carouselData } from "./CarouselData";
 import { ArrowBackIos } from "@mui/icons-material";
 import { ArrowForwardIos } from "@mui/icons-material";
+import { urlFile } from "../../config";
 
 const PreviousBtn = (props) => {
   const { className, onClick } = props;
@@ -26,7 +26,7 @@ const NextBtn = (props) => {
   );
 };
 
-const CarouselNews = () => {
+const CarouselNews = ({ state }) => {
   const settings = {
     autoplay: true,
     autoplaySpeed: 2000,
@@ -109,43 +109,33 @@ const CarouselNews = () => {
         // infinite
         prevArrow={<PreviousBtn />}
         nextArrow={<NextBtn />}
-        customPaging={(i) => {
-          return (
-            <div>
-              <img
-                src={carouselData[i]}
-                alt=""
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  objectFit: "cover",
-                  borderRadius: "5px",
-                }}
-              />
-            </div>
-          );
-        }}
+        customPaging={(i) => (
+          <div>
+            <img
+              src={urlFile + "file/view/" + state?.images[i]?.generatedName}
+              alt=""
+              className="customImg"
+            />
+          </div>
+        )}
         dotsClass="slick-dots custom-indicator"
       >
-        {
-          // { renderSlides }
-          carouselData.map((item, idx) => (
-            <div key={idx}>
+        {state?.images?.length > 0 &&
+          state.images.map((src, index) => (
+            <div key={index}>
               <img
-                src={item}
+                src={urlFile + "file/view/" + src.generatedName}
                 alt=""
                 style={{
                   width: "100%",
                   height: "auto",
-
                   maxHeight: "450px",
                   borderRadius: "5px",
                   objectFit: "contain",
                 }}
               />
             </div>
-          ))
-        }
+          ))}
       </Slider>
     </div>
   );

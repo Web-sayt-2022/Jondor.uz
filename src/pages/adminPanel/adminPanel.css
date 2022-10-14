@@ -25,9 +25,11 @@
   border: 1px dashed silver;
 }
 .fileList {
+  width: 100%;
   list-style: none;
   display: flex;
   align-items: flex-start;
+  gap: 5px;
   flex-wrap: wrap;
 }
 .fileList li {
@@ -37,6 +39,10 @@
   padding: 5px;
   text-align: center;
   max-height: 300px !important;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: rgb(237, 237, 237);
+  /* margin: auto; */
 }
 .fileList img {
   width: 100%;
@@ -44,8 +50,19 @@
   object-fit: cover;
   border-radius: 5px;
 }
+.fileList span {
+  height: 38px;
+}
 .fileList li i {
   width: 100%;
+  text-align: right;
+  cursor: pointer;
+  color: rgb(215, 41, 75);
+  font-size: 16px;
+  transition: all ease-in 0.12s;
+}
+.fileList li i:hover {
+  color: rgb(192, 46, 75);
 }
 
 .image_bottom {
@@ -59,7 +76,7 @@
 }
 .image_bottom input {
   width: 100%;
-  padding: 5px;
+  padding: 3px;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
@@ -71,7 +88,8 @@
   align-items: center;
   gap: 5px;
 }
-.buttons button {
+.buttons button,
+.buttons label {
   border: none;
   border-radius: 5px;
   padding: 5px;
@@ -80,8 +98,14 @@
   font-weight: 400;
   font-size: 13px;
 }
-.buttons button {
+.buttons button,
+.buttons label {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.buttons label {
+  cursor: pointer;
+  margin: 0;
 }

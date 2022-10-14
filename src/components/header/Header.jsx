@@ -1,11 +1,11 @@
 import React from "react";
-
+import "./header.css";
 const Header = () => {
   return (
     <>
       <nav
         className="navbar-local navbar d-flex justify-content-between flex-md-row flex-column align-items-center"
-        style={{background: "white"}}
+        style={{ background: "white" }}
       >
         <div className="languages_block d-flex align-items-center justify-content-between w-md-auto w-100">
           <img
@@ -21,16 +21,19 @@ const Header = () => {
               textTransform: "capitalize",
             }}
           >
-            <a href="#" style={{ fontSize: "16px" }} className="lan_active">
+            <a href="#1" style={{ fontSize: "16px" }} className="lan_active">
               O'zbekcha
-            </a>
-            <a href="#" style={{ fontSize: "16px" }}>
+            </a>{" "}
+            |
+            <a href="#1" style={{ fontSize: "16px" }}>
               Ўзбекча
-            </a>
-            <a href="#" style={{ fontSize: "16px" }}>
+            </a>{" "}
+            |
+            <a href="#1" style={{ fontSize: "16px" }}>
               Russian
             </a>
-            <a href="#" style={{ fontSize: "16px" }}>
+            |
+            <a href="#1" style={{ fontSize: "16px" }}>
               English
             </a>
           </div>
@@ -78,7 +81,7 @@ const Header = () => {
                   </div>
                   <div className="col-3">
                     <a
-                      href="#"
+                      href="#1"
                       className="view-box mx-auto simple-view d-block text-body text-center p-3"
                     >
                       <b style={{ fontSize: "18px" }}>A</b>
@@ -87,7 +90,7 @@ const Header = () => {
 
                   <div className="col-3">
                     <a
-                      href="#"
+                      href="#1"
                       className="view-box mx-auto grey-view d-block text-body text-center p-3"
                     >
                       <b style={{ fontSize: "18px" }}>A</b>
@@ -96,7 +99,7 @@ const Header = () => {
 
                   <div className="col-3">
                     <a
-                      href="#"
+                      href="#1"
                       className="view-box mx-auto dark-view d-block text-body text-center p-3"
                     >
                       <b style={{ fontSize: "18px" }}>A</b>
@@ -105,7 +108,7 @@ const Header = () => {
 
                   <div className="col-3">
                     <a
-                      href="#"
+                      href="#1"
                       className="view-box mx-auto withoutImg-view d-block text-body text-center p-3"
                     >
                       <img
@@ -131,7 +134,7 @@ const Header = () => {
                       </span>
                       <input
                         type="range"
-                        value="0"
+                        defaultValue="0"
                         min="0"
                         max="50"
                         style={{ height: "40px", width: "100%" }}
@@ -235,26 +238,26 @@ const Header = () => {
                   <a href="./konstitutsiya.html" className="dropdown-item">
                     KONSTITUTSIYASI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     DAVLAT RAMZLARI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     MILLIY BAYRAMLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     MILLIY VALYUTA
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     DAVLAT MUKOFOTLARI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HUDUDI VA AHOLI
                   </a>
                 </div>
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="#1"
                   style={{ fontSize: "12px", padding: "16px" }}
                   className="navbar-nav-link uppercase dropdown-toggle"
                   data-toggle="dropdown"
@@ -262,35 +265,35 @@ const Header = () => {
                   Hokimlik haqida
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HOKIMLIK FUNKSIYA VA VAZIFALARI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     XALQ DEPUTATLARI BUXORO VILOYATI KENGASHI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     RAHBARIYAT
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     TARKIBIY TUZILMANING
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     SXEMATIK KO'RINISHI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     TARKIBIY BO'LINMALAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HOKIMLIKKA MUROJAAT
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HOKIMLIK TARIXI
                   </a>
                 </div>
               </li>
               <li className="nav-item dropdown" style={{ fontSize: "16px" }}>
                 <a
-                  href="#"
+                  href="#1"
                   style={{ fontSize: "12px", padding: "16px" }}
                   className="navbar-nav-link uppercase dropdown-toggle"
                   data-toggle="dropdown"
@@ -301,39 +304,39 @@ const Header = () => {
                   className="dropdown-menu dropdown-menu-left"
                   style={{ fontSize: "16px", textTransform: "uppercase" }}
                 >
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     DAVLAT DASTURI DOIRASIDA AMALGA OSHIRILGAN ISHLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     MUVOFIQLASHTIRUVCHI MASLAHAT ORGANLAR <br />
                     RAHBARLARI(KOMISSIYALAR, KENGASHLAR, QO'MITALAR)
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HOKIMLIKNING TASHKILOT VA IDORALAR BILAN HAMKORLIGI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     XALQARO HAMKORLIK
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     INVESTITSION FAOLIYAT
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     LOYIHALAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     TENDERLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     E'LONLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     VAKANSIYALAR
                   </a>
                 </div>
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="#1"
                   style={{ fontSize: "12px", padding: "16px" }}
                   className="navbar-nav-link uppercase dropdown-toggle"
                   data-toggle="dropdown"
@@ -341,44 +344,44 @@ const Header = () => {
                   Hujjatlar
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     QONUNCHILIK
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     DAVLAT DASTURLARI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     VILOYAT DASTURLARI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     NORMATIV HUQUQIY HUJJATLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HOKIMLIKNING ME'YORIY HUQUQIY HUJJATLARI
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     XALQARO SHARTNOMALAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     TADBIRKORLIK SUBYEKTLARIGA OID HUJJATLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     YERLAR TO'G'RISIDA MA'LUMOT
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     STATISTIK, TAHLILIY, MA'RUZA VA AXBOROTLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     ME'YORIY HUQUQIY HUJJATLAR LOYIHALARINI MUHOKAMALASH
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     O'Z KUCHINI YO'QOTGAN HUJJATLAR
                   </a>
                 </div>
               </li>
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="#1"
                   style={{ fontSize: "12px", padding: "16px" }}
                   className="navbar-nav-link uppercase dropdown-toggle"
                   data-toggle="dropdown"
@@ -447,13 +450,13 @@ const Header = () => {
                   Mahalliylashtirish
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     QONUNCHILIK
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     STATISTIK HISOBOTLAR
                   </a>
-                  <a href="#" className="dropdown-item">
+                  <a href="#1" className="dropdown-item">
                     HUDUDIY IMPORT TAHLILI
                   </a>
                 </div>

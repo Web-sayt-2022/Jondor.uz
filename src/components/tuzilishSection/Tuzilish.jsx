@@ -42,8 +42,8 @@ const Tuzilish = () => {
               </a>
               <iframe
                 src="https://yandex.uz/map-widget/v1/-/CCUNyQe~cC"
-                frameborder="1"
-                allowfullscreen="true"
+                frameBorder="1"
+                allowFullScreen={true}
                 style={{ position: "relative" }}
               ></iframe>
             </div>

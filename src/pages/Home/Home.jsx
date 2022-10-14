@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AsosiyYangililar from "../../components/asosiyYangililar/AsosiyYangililar";
 import DavlatHokimiyati from "../../components/davlatHokimiyatiSection/DavlatHokimiyati";
 import Footer from "../../components/footer/Footer";
@@ -10,22 +10,29 @@ import Yonalishlar from "../../components/yonalishlarSection/Yonalishlar";
 import { axiosInstance } from "../../config";
 
 export default function Home() {
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axiosInstance.get("/book");
+  const [news, setNews] = useState([]);
 
-  //     } catch (error) {}
-  //   };
+  useEffect(() => {
+    let isMounted = true;
+    const fetchData = async () => {
+      try {
+        const res = await axiosInstance.get("/news/getForHome");
+        // console.log(res.data);
+        if (isMounted) setNews(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
 
-  //   fetchData();
-  // }, []);
+    return () => (isMounted = false);
+  }, []);
 
   return (
     <>
       <Header />
-      <AsosiyYangililar />
-      <Yangiliklar />
+      <AsosiyYangililar news={news} />
+      <Yangiliklar news={news} />
       <Yonalishlar />
       <DavlatHokimiyati />
       <Tuzilish />

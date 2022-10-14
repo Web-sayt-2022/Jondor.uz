@@ -39,4 +39,7 @@
 .custom-indicator li.slick-active {
   filter: grayscale(0%);
 }
-
+.customImg {
+  width: 60px;
+  height: 60px;
+}

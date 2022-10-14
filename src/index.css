@@ -867,3 +867,27 @@ color: #FFF;
 .css-1pahdxg-control {
   height: 56px !important;
 }
+
+/* ckeditor */
+.cke_contents {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 30px 0 !important;
+}
+.cke_wysiwyg_div {
+  border: 1px solid lightgray !important;
+  border-radius: 5px !important;
+  width: 630px !important;
+  height: 891px !important;
+  padding: 30px !important;
+}
+.cke_toolbox {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+.cke_toolgroup {
+  display: flex !important;
+  align-items: center !important;
+}

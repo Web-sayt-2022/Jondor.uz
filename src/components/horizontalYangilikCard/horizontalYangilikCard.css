@@ -1,0 +1,33 @@
+.blog-horizontal .card-img-actions {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal .card-img-actions {
+    width: 45%;
+    float: left;
+    max-width: 25rem;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal-xs .card-img-actions {
+    width: 35%;
+    max-width: 12.5rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal-sm .card-img-actions {
+    width: 40%;
+    max-width: 18.75rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal-lg .card-img-actions {
+    width: 50%;
+    max-width: 31.25rem;
+  }
+}

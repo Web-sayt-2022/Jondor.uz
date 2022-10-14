@@ -1,11 +1,13 @@
 import React from "react";
 import CarouselNews from "../carousel/CarouselNews";
+import { useLocation } from "react-router-dom";
 import "./rightPanel.css";
-import { useLocation, useParams } from "react-router-dom";
+import parse from "html-react-parser";
+
 const RightPanel = () => {
-  const location = useLocation();
-  const params = useParams();
-  console.log(params);
+  const { state } = useLocation();
+  console.log(state);
+  // console.log(state);
 
   return (
     <section className="right-panel mt-4">
@@ -30,87 +32,23 @@ const RightPanel = () => {
       <div className="col-xl-12 p-0" id="printarea">
         <div className="card">
           <div className="card-body">
-            <h1 className="font-weight-semibold  w-100">
-              Buxoro, O‘zbekiston Sayohat kundaliklari: Virtual dam olish uchun
-              suratlar va hikoyalar
-            </h1>
+            <h1 className="font-weight-semibold  w-100">{state?.source}</h1>
             <hr />
             <div className="mb-2">
-              <span className=" font-weight-semybold">13.03.2003 |</span>
+              <span className=" font-weight-semybold">
+                {new Date(state?.createdAt).toLocaleDateString()} |
+              </span>
               <a className="text-primary font-weight-semybold ml-1 cursor-pointer">
-                Madaniyat
+                {state?.sphere?.uzName}
               </a>
             </div>
             <div className="mb-4">
               <div className="mb-3 text-center">
-                <CarouselNews />
+                <CarouselNews state={state} />
               </div>
 
               <div className="mb-3" style={{ marginTop: "100px" }}>
-                <p>
-                  Tezyurar va zamonaviy poyezd chiyillagancha to‘xtadi. Issiq va
-                  quruq havoga chiqqanimizda bizni zulmat qamrab oldi. Qadimgi
-                  chang bosgan koshinlar va ulug'vor arklar bilan bezatilgan
-                  vokzal Buxoroning boy tarixi va ipak yo'lining jozibasi haqida
-                  bosh irg'ab turardi. Yo'lovchilar hashamatli kabinalardan
-                  platformaga qoqilib chiqib, tunda tartibsizlikka sabab bo'ldi.
-                  Poyezd keyingi manzilga yaqinlashishidan oldin, bir necha
-                  zerikarli sayohatchilar oyoqlarini aralashtirib, poyezdga
-                  chiqishdi. Mahalliy aholi o'z narsalarini va adashgan oila
-                  a'zolarini yig'ishayotganda, ular qattiq projektör ostida soya
-                  solib, stansiya yoniga ketishdi. Biz ko'r-ko'rona ergashdik,
-                  chunki bu bizning eng yaxshi variantimizdek tuyuldi.
-                </p>
-
-                <p>
-                  Started his hearted any civilly. So me by marianne admitted
-                  speaking. Men bred fine call ask. Cease one miles truth day
-                  above seven. Suspicion sportsmen provision suffering mrs saw
-                  engrossed something. Snug soon he on plan in be dine some.
-                </p>
-
-                <p>
-                  Death there mirth way the noisy merit. Piqued shy spring nor
-                  six though mutual living ask extent. Replying of dashwood
-                  advanced ladyship smallest disposal or. Attempt offices own
-                  improve now see. Called person are around county talked her
-                  esteem. Those fully these way nay thing seems.
-                </p>
-                <p>
-                  Tezyurar va zamonaviy poyezd chiyillagancha to‘xtadi. Issiq va
-                  quruq havoga chiqqanimizda bizni zulmat qamrab oldi. Qadimgi
-                  chang bosgan koshinlar va ulug'vor arklar bilan bezatilgan
-                  vokzal Buxoroning boy tarixi va ipak yo'lining jozibasi haqida
-                  bosh irg'ab turardi. Yo'lovchilar hashamatli kabinalardan
-                  platformaga qoqilib chiqib, tunda tartibsizlikka sabab bo'ldi.
-                  Poyezd keyingi manzilga yaqinlashishidan oldin, bir necha
-                  zerikarli sayohatchilar oyoqlarini aralashtirib, poyezdga
-                  chiqishdi. Mahalliy aholi o'z narsalarini va adashgan oila
-                  a'zolarini yig'ishayotganda, ular qattiq projektör ostida soya
-                  solib, stansiya yoniga ketishdi. Biz ko'r-ko'rona ergashdik,
-                  chunki bu bizning eng yaxshi variantimizdek tuyuldi.
-                </p>
-                <p>
-                  Death there mirth way the noisy merit. Piqued shy spring nor
-                  six though mutual living ask extent. Replying of dashwood
-                  advanced ladyship smallest disposal or. Attempt offices own
-                  improve now see. Called person are around county talked her
-                  esteem. Those fully these way nay thing seems.
-                </p>
-                <p>
-                  Tezyurar va zamonaviy poyezd chiyillagancha to‘xtadi. Issiq va
-                  quruq havoga chiqqanimizda bizni zulmat qamrab oldi. Qadimgi
-                  chang bosgan koshinlar va ulug'vor arklar bilan bezatilgan
-                  vokzal Buxoroning boy tarixi va ipak yo'lining jozibasi haqida
-                  bosh irg'ab turardi. Yo'lovchilar hashamatli kabinalardan
-                  platformaga qoqilib chiqib, tunda tartibsizlikka sabab bo'ldi.
-                  Poyezd keyingi manzilga yaqinlashishidan oldin, bir necha
-                  zerikarli sayohatchilar oyoqlarini aralashtirib, poyezdga
-                  chiqishdi. Mahalliy aholi o'z narsalarini va adashgan oila
-                  a'zolarini yig'ishayotganda, ular qattiq projektör ostida soya
-                  solib, stansiya yoniga ketishdi. Biz ko'r-ko'rona ergashdik,
-                  chunki bu bizning eng yaxshi variantimizdek tuyuldi.
-                </p>
+                <p>{parse(state?.uzBody)}</p>
               </div>
 
               {/* <div className="card card-body bg-light rounded-left-0 border-left-3 border-left-warning">
@@ -253,7 +191,7 @@ const RightPanel = () => {
               </li>
 
               <li className="list-inline-item">
-                Manba: <a href="https://kun.uz/">Kun.uz</a>
+                Manba: <a href="https://kun.uz/">{state.source}</a>
               </li>
 
               {/* <li className="list-inline-item">

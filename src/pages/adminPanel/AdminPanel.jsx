@@ -1,18 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Select from "react-select";
 import { axiosInstance } from "../../config";
 import "./adminPanel.css";
-import axios from "axios";
+import CkeEditor from "../../components/ckeEditor/CkeEditor";
 
 const AdminPanel = () => {
   const [file, setFile] = useState(null);
   const [sphere, setSphere] = useState([]);
   const [govSphere, setGovSphere] = useState([]);
-  const options1 = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
-  ];
+  const [newsData, setNewsData] = useState("");
   const titleUzref = useRef();
   const titleUzKrilref = useRef();
   const titleRuref = useRef();
@@ -21,6 +23,7 @@ const AdminPanel = () => {
   const directionref = useRef();
   const smmCheckboxref = useRef();
   const mainPageCheckboxref = useRef();
+  const formresetref = useRef();
 
   // barcha yo'nalishlarni o'qib olish
   useEffect(() => {
@@ -70,9 +73,19 @@ const AdminPanel = () => {
     return () => (isMounted = false);
   }, []);
 
+  // ckeditor change
+  const handleFunction = useCallback(
+    (event, editor) => {
+      setNewsData(String(event?.editor?.getData()));
+    },
+    [setNewsData]
+  );
+
   const trashFile = (index) => {
-    let arr = file.filter((f, i) => i !== index);
-    setFile(arr);
+    if (file?.length > 0) {
+      let arr = file.filter((f, i) => i !== index);
+      setFile(arr);
+    }
   };
 
   const saveData = async (e) => {
@@ -84,14 +97,14 @@ const AdminPanel = () => {
           formData.append("images", f);
         });
         const allFilesId = await axiosInstance.post("file/uploads", formData);
-
         try {
           const res = await axiosInstance.post("news/create", {
             uzTitle: titleUzref.current.value,
             krTitle: titleUzKrilref.current.value,
             ruTitle: titleRuref.current.value,
-            uzBody: "Keldiyor",
-            ruBody: "Keldiyor",
+            uzBody: newsData,
+            ruBody: newsData,
+            krBody: newsData,
             sphereID: directionref.current.props.value.value,
             govSphereID: proDirectionref.current.props.value.value,
             actual: mainPageCheckboxref.current.checked,
@@ -99,24 +112,19 @@ const AdminPanel = () => {
             imageIDs: allFilesId.data,
             smm: smmCheckboxref.current.checked,
           });
-          e.reset();
+          formresetref.current.reset();
+          proDirectionref.current.removeValue(
+            proDirectionref.current.props.value
+          );
+          directionref.current.removeValue(directionref.current.props.value);
+          setNewsData("");
+          setFile(null);
         } catch (error) {
           console.log(error);
         }
       } catch (error) {
         console.log(error);
       }
-
-      // try {
-      //   const res = await axiosInstance.post(
-      //     "admin/news/createWithPhoto",
-      //     data
-      //   );
-
-      //   // console.log(res.data);
-      // } catch (error) {
-      //   console.log(error);
-      // }
     }
   };
 
@@ -513,7 +521,7 @@ const AdminPanel = () => {
         <div className="content-wrapper">
           <div className="content-inner">
             <div className="card mt-3 mx-3">
-              <form onSubmit={saveData}>
+              <form onSubmit={saveData} ref={formresetref}>
                 <div className="card-header d-flex justify-content-between align-items-center bg-primary text-light">
                   <h3 className="text-uppercase" style={{ fontWeight: "600" }}>
                     Davlat ramzlari
@@ -649,7 +657,7 @@ const AdminPanel = () => {
                                 <ul className="fileList">
                                   {file &&
                                     file.map((f, i) => (
-                                      <li>
+                                      <li key={i}>
                                         <img
                                           src={URL.createObjectURL(f)}
                                           alt=""
@@ -689,7 +697,7 @@ const AdminPanel = () => {
                               <i className="fas fa-upload"></i>UPLOAD
                             </button> */}
                               <label htmlFor="browser">
-                                BROWSER
+                                <i className="fas fa-upload"></i>BROWSER
                                 <input
                                   type="file"
                                   multiple="multiple"
@@ -766,6 +774,9 @@ const AdminPanel = () => {
                       </li>
                     </ul>
                   </div>
+
+                  {/* ckeditor */}
+                  <CkeEditor handleFunction={handleFunction} />
                 </div>
               </form>
             </div>
