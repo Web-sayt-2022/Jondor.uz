@@ -12,6 +12,10 @@ body {
   padding: 0 3rem;
 }
 
+/* .page-content {
+  height: 100vh !important;
+} */
+
 /* .left-panel .aloqa-section .list-group span {
 	width: 50%;
 }
@@ -777,7 +781,7 @@ color: #FFF;
   transform: translateX(0%);
 }
 
-.sidenav-fixed-icons .sidenav-item:hover > a {
+.sidenav-fixed-icons .sidenav-item:hover>a {
   transform: translateX(0%);
 }
 
@@ -875,6 +879,7 @@ color: #FFF;
   justify-content: center !important;
   margin: 30px 0 !important;
 }
+
 .cke_wysiwyg_div {
   border: 1px solid lightgray !important;
   border-radius: 5px !important;
@@ -882,11 +887,13 @@ color: #FFF;
   height: 891px !important;
   padding: 30px !important;
 }
+
 .cke_toolbox {
   display: flex !important;
   align-items: center !important;
   flex-wrap: wrap !important;
 }
+
 .cke_toolgroup {
   display: flex !important;
   align-items: center !important;

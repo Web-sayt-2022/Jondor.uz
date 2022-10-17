@@ -44,7 +44,7 @@ const Header = () => {
             className="link_list justify-content-between"
             style={{ fontSize: "16px" }}
           >
-            <a className="w-md-auto w-100">
+            <a href="#1" className="w-md-auto w-100">
               <input
                 style={{ paddingLeft: "16px" }}
                 className="search languages_block w-md-auto w-100"
@@ -53,7 +53,7 @@ const Header = () => {
               />
             </a>
 
-            <a
+            <a href="#1"
               className="pl-md-1 pl-0 pr-sm-1"
               data-toggle="dropdown"
               aria-expanded="false"
@@ -224,7 +224,7 @@ const Header = () => {
             >
               <li className="nav-item dropdown">
                 <a
-                  href="#"
+                  href="/"
                   style={{ fontSize: "12px", padding: "16px" }}
                   className="uppercase navbar-nav-link dropdown-toggle"
                   data-toggle="dropdown"
@@ -232,13 +232,13 @@ const Header = () => {
                   Tuman Haqida
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#" className="dropdown-item">
+                  <a href="/" className="dropdown-item">
                     O'ZBEKISTON RESPUBLIKASI
                   </a>
                   <a href="./konstitutsiya.html" className="dropdown-item">
                     KONSTITUTSIYASI
                   </a>
-                  <a href="#1" className="dropdown-item">
+                  <a href="/1" className="dropdown-item">
                     DAVLAT RAMZLARI
                   </a>
                   <a href="#1" className="dropdown-item">
