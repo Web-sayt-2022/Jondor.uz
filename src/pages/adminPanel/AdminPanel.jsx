@@ -9,6 +9,7 @@ import Select from "react-select";
 import { axiosInstance } from "../../config";
 import "./adminPanel.css";
 import CkeEditor from "../../components/ckeEditor/CkeEditor";
+import { Link } from "react-router-dom";
 
 const AdminPanel = () => {
   const [file, setFile] = useState(null);
@@ -130,8 +131,7 @@ const AdminPanel = () => {
 
   return (
     <>
-      <div
-        className="navbar navbar-expand-lg navbar-white bg-white navbar-static shadow  bg-body rounded"
+      <div className="navbar navbar-expand-lg navbar-white bg-white navbar-static shadow bg-body rounded navbarComponents"
         style={{ backgroundColor: "#fff" }}
       >
         <div className="d-flex flex-1 d-lg-none">
@@ -184,7 +184,10 @@ const AdminPanel = () => {
           <ul className="navbar-nav flex-row">
             <li className="nav-item">
               <a
-                href="#"
+                href="/
+                
+                
+                "
                 className="navbar-nav-link text-dark"
                 style={{ fontWeight: "bold" }}
               >
@@ -194,7 +197,10 @@ const AdminPanel = () => {
             </li>
             <li className="nav-item">
               <a
-                href="#"
+                href="/
+                
+                
+                "
                 className="navbar-nav-link navbar-nav-link-toggler text-dark"
                 style={{ fontWeight: "bold" }}
               >
@@ -207,317 +213,48 @@ const AdminPanel = () => {
       </div>
 
       <div className="page-content">
-        <div className="sidebar sidebar-light sidebar-main sidebar-expand-lg sidebar-main-resized">
-          <div className="sidebar-content">
-            <div className="sidebar-section">
+        {/* sidebar */}
+        <div className="sidebar sidebar-light sidebar-main sidebar-expand-lg sidebar-main-resized" >
+          <div className="sidebar-content sidebar-content-hover" style={{ postion: 'relative' }}>
+            <div className="sidebar-section sidebar-user">
               <div className="sidebar-user-material">
                 <div className="sidebar-section-body">
                   <div className="d-flex">
-                    <div className="flex-1">
-                      <button
-                        type="button"
-                        className="btn btn-outline-light border-transparent btn-icon btn-sm rounded-pill"
-                      >
-                        <i className="icon-wrench"></i>
-                      </button>
-                    </div>
-                    <a href="#" className="flex-1 text-center">
-                      <img
-                        src="./utils/images/demo/users/face6.jpg"
-                        className="img-fluid rounded-circle shadow-sm"
-                        width="80"
-                        height="80"
-                        alt=""
-                      />
-                    </a>
-                    <div className="flex-1 text-right">
-                      <button
-                        type="button"
-                        className="btn btn-outline-light border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex"
-                      >
-                        <i className="icon-transmission"></i>
-                      </button>
+                    <div className={'flex-1'} />
+                    <span className="text-center">
+                      sadfasd
+                    </span>
 
-                      <button
-                        type="button"
-                        className="btn btn-outline-light border-transparent btn-icon rounded-pill btn-sm sidebar-mobile-main-toggle d-lg-none"
-                      >
-                        <i className="icon-cross2"></i>
+                    <div className="text-right position-absolute" style={{ right: 10 }}>
+                      <button type="button"
+                        className="btn btn-outline-light border-transparent btn-icon rounded-pill btn-sm sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+                        <i className="icon-transmission" />
                       </button>
                     </div>
                   </div>
 
                   <div className="text-center">
-                    <h6 className="mb-0 text-white text-shadow-dark mt-3">
-                      Sobir Bobojonov
-                    </h6>
+                    <h6 className="mb-0 text-white text-shadow-dark mt-3 cursor-pointer"> fdsdfsd </h6>
                   </div>
                 </div>
-
-                <div className="sidebar-user-material-footer">
-                  <a
-                    href="#user-nav"
-                    className="d-flex justify-content-between align-items-center text-shadow-dark dropdown-toggle"
-                    data-toggle="collapse"
-                  >
-                    <span> Sozlamalar</span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="collapse border-bottom" id="user-nav">
-                <ul className="nav nav-sidebar">
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <i className="icon-cog5"></i>
-                      <span>Account settings</span>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="#" className="nav-link">
-                      <i className="icon-switch2"></i>
-                      <span>Chiqish</span>
-                    </a>
-                  </li>
-                </ul>
               </div>
             </div>
 
-            <div className="sidebar-section">
+            <div className="sidebar-section" style={{ paddingBottom: 30 }}>
               <ul className="nav nav-sidebar" data-nav-type="accordion">
-                <li className="nav-item-header">
-                  <div className="text-uppercase font-size-xs line-height-xs mt-1">
-                    Dashboard
-                  </div>{" "}
-                  <i className="icon-menu" title="Main"></i>
-                </li>
-
-                <li className="nav-item nav-item-submenu">
-                  <a href="#" className="nav-link">
-                    <i className="icon-grid"></i> <span>Tuman haqida</span>
-                  </a>
-                  <ul
-                    className="nav nav-group-sub"
-                    data-submenu-title="Basic components"
-                  >
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Umumiy ma'lumot
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Davlat ramzlari
-                      </a>
-                    </li>
-
-                    <li className="nav-item nav-item-submenu">
-                      <a href="#" className="nav-link">
-                        <i className="icon-grid"></i>{" "}
-                        <span>Milliy valyuta</span>
-                      </a>
-                      <ul
-                        className="nav nav-group-sub"
-                        data-submenu-title="Basic components"
-                      >
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Qo'shish
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Tangalar
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Banknotalar
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li className="nav-item nav-item-submenu">
-                      <a href="#" className="nav-link">
-                        <i className="icon-grid"></i>{" "}
-                        <span>Davlat mukofotlari</span>
-                      </a>
-                      <ul
-                        className="nav nav-group-sub"
-                        data-submenu-title="Basic components"
-                      >
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Mukofotlar kategoriyasi
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Unvonlar
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="nav-item nav-item-submenu">
-                  <a href="#" className="nav-link">
-                    <i className="icon-grid"></i>{" "}
-                    <span>Hokimlik to'g'risida</span>
-                  </a>
-                  <ul
-                    className="nav nav-group-sub"
-                    data-submenu-title="Basic components"
-                  >
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Funksiya va vazifalari
-                      </a>
-                    </li>
-
-                    <li className="nav-item nav-item-submenu">
-                      <a href="#" className="nav-link">
-                        <i className="icon-grid"></i>{" "}
-                        <span>Xalq deputatlari</span>
-                      </a>
-                      <ul
-                        className="nav nav-group-sub"
-                        data-submenu-title="Basic components"
-                      >
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Deputatlar kategoriyasi
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Xalq deputatlari
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Hokim
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Rahbariyat
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Tarkibiy tuzilma
-                      </a>
-                    </li>
-
-                    <li className="nav-item nav-item-submenu">
-                      <a href="#" className="nav-link">
-                        <i className="icon-grid"></i>{" "}
-                        <span>Tarkibiy bo'linma</span>
-                      </a>
-                      <ul
-                        className="nav nav-group-sub"
-                        data-submenu-title="Basic components"
-                      >
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Bo'lim
-                          </a>{" "}
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Bo'lim xodimlari
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <li className="nav-item nav-item-submenu">
-                  <a href="#" className="nav-link">
-                    <i className="icon-grid"></i> <span>Hokimlik tarixi</span>
-                  </a>
-                  <ul
-                    className="nav nav-group-sub"
-                    data-submenu-title="Basic components"
-                  >
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Funksiya va vazifalari
-                      </a>
-                    </li>
-
-                    <li className="nav-item nav-item-submenu">
-                      <a href="#" className="nav-link">
-                        <i className="icon-grid"></i>{" "}
-                        <span>Xalq deputatlari</span>
-                      </a>
-                      <ul
-                        className="nav nav-group-sub"
-                        data-submenu-title="Basic components"
-                      >
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Deputatlar kategoriyasi
-                          </a>
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Xalq deputatlari
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Hokim
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Rahbariyat
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a href="#" className="nav-link">
-                        Tarkibiy tuzilma
-                      </a>
-                    </li>
-
-                    <li className="nav-item nav-item-submenu">
-                      <a href="#" className="nav-link">
-                        <i className="icon-grid"></i>{" "}
-                        <span>Tarkibiy bo'linma</span>
-                      </a>
-                      <ul
-                        className="nav nav-group-sub"
-                        data-submenu-title="Basic components"
-                      >
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Bo'lim
-                          </a>{" "}
-                        </li>
-                        <li className="nav-item">
-                          <a href="#" className="nav-link">
-                            Bo'lim xodimlari
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                <li className="nav-item " style={{ fontSize: '18px' }}>
+                  <Link to="/asosiy" className="nav-link liHover">
+                    <i className="icon-home4" style={{ color: "#0056B8" }} />
+                    <span>Bosh sahifa</span>
+                  </Link>
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
+
+
         <div className="content-wrapper">
           <div className="content-inner">
             <div className="card mt-3 mx-3">
