@@ -81,7 +81,7 @@ const Yangiliklar = ({ news }) => {
                       </ul>
 
                       <a
-                        href="./deteile_news.html"
+                        href="./yangilik_batafsil"
                         className="text-primary font-weight-semybold"
                         style={{ cursor: "pointer" }}
                       >

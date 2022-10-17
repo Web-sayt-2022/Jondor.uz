@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <main>
+      <main className="d-flex bg-light">
         <LeftPanel />
         {children}
       </main>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AsosiyYangililar from "../../components/asosiyYangililar/AsosiyYangililar";
 import DavlatHokimiyati from "../../components/davlatHokimiyatiSection/DavlatHokimiyati";
 import Footer from "../../components/footer/Footer";
+import FoydaliLinkCarousel from "../../components/foydaliLinkCarousel/FoydaliLinkCarousel";
 import Header from "../../components/header/Header";
 import Homiylar from "../../components/homiylarSection/Homiylar";
 import Tuzilish from "../../components/tuzilishSection/Tuzilish";
@@ -36,7 +37,8 @@ export default function Home() {
       <Yonalishlar />
       <DavlatHokimiyati />
       <Tuzilish />
-      <Homiylar />
+      <FoydaliLinkCarousel />
+      {/* <Homiylar /> */}
       <Footer />
     </>
   );
