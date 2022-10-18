@@ -434,7 +434,7 @@ const AdminPanel = () => {
                               <i className="fas fa-upload"></i>UPLOAD
                             </button> */}
                               <label htmlFor="browser">
-                                <i className="fas fa-upload"></i>BROWSER
+                                <i className="fas fa-upload"></i>BROWSE
                                 <input
                                   type="file"
                                   multiple="multiple"

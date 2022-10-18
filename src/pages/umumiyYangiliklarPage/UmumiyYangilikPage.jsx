@@ -1,21 +1,14 @@
 import React, { useState } from "react";
 import HorizontalYangilikCard from "../../components/horizontalYangilikCard/HorizontalYangilikCard";
+import VerticalYangilikCard from "../../components/verticalYangilikCard/VerticalYangilikCard";
 
 export default function UmumiyYangilikPage() {
-  const newsData = [{ title: "wqwq" }];
-  const [horiz, setHoriz] = useState(true);
+  const newsData = [{ title: "wqwq" }, { title: "wqwq" }];
 
   return (
     <>
-      
-        {newsData.map((item) => {
-          return horiz ? (
-            <HorizontalYangilikCard news={item} />
-          ) : (
-            <HorizontalYangilikCard news={item} />
-          );
-        })}
-      
+      {/* <VerticalYangilikCard /> */}
+      {/* <HorizontalYangilikCard />; */}
     </>
   );
 }

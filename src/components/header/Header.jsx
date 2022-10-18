@@ -1,8 +1,10 @@
+import { style } from "@mui/system";
 import React from "react";
-import "./header.css";
+import styled from "styled-components";
+
 const Header = () => {
   return (
-    <>
+    <Wrapper>
       <nav
         className="navbar-local navbar d-flex justify-content-between flex-md-row flex-column align-items-center"
         style={{ background: "white" }}
@@ -504,8 +506,64 @@ const Header = () => {
           </div>
         </div>
       </section>
-    </>
+    </Wrapper>
   );
 };
 
 export default Header;
+
+const Wrapper = styled.div`
+  .navbar-local {
+    padding: 8px 10px;
+  }
+
+  .hr-local {
+    margin-right: 15px !important;
+    margin-top: 20px !important;
+  }
+
+  .languages_block {
+    border: 1px solid rgb(65, 64, 64);
+    border-radius: 20px;
+    padding: 7px 9px;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .dropdown-toggle::after {
+    font-size: 16px;
+  }
+
+  .share {
+    cursor: pointer;
+    background: #0b3251;
+    padding: 5px;
+    color: white;
+    border-radius: 4px;
+    margin-left: 15px;
+    transition: all 0.1s ease;
+    user-select: none;
+  }
+
+  .share:hover {
+    background: #2a4d85;
+  }
+
+  share:active {
+    background: #1c2e37;
+  }
+
+  .localReader {
+    position: fixed;
+    z-index: 99999;
+    color: white;
+    background: #0d3c61;
+    padding: 4px;
+    border-radius: 4px;
+    transition: 0.2s;
+    cursor: pointer;
+    opacity: 0;
+  }
+`;

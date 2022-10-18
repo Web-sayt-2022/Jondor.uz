@@ -1,14 +1,16 @@
 import React from "react";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
-import LeftPanel from "../components/leftPanel/LeftPanel";
+import VoqealarLeftPanel from "../components/voqealarLeftPanel/VoqealarLeftPanel";
+import YangiliklarLeftPanel from "../components/yangiliklarLeftPanel/YangiliklarLeftPanel";
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
       <main className="d-flex bg-light">
-        <LeftPanel />
+        {/* <YangiliklarLeftPanel /> */}
+        <VoqealarLeftPanel />
         {children}
       </main>
       <Footer />

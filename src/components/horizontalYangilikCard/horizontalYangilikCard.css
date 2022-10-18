@@ -1,19 +1,12 @@
-.blog-horizontal {
-  width: calc(100% - 300px) !important;
-  display: flex;
-  flex-direction: column;
-  flex: 30%;
-}
 
-.blog-horizontal .card {
-  background: orangered;
-}
 
+
+/* 
 .blog-horizontal .card-img-actions {
   width: 100%;
-}
+} */
 
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   .blog-horizontal .card-img-actions {
     width: 45%;
     float: left;
@@ -41,4 +34,4 @@
     width: 50%;
     max-width: 31.25rem;
   }
-}
+} */

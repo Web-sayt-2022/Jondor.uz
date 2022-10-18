@@ -1,7 +1,8 @@
 import "./footer.css";
 import logoNav from "../../images/logo_nav.png";
 import telegramIcon from "../../images/telegram.png";
-import collectImage from "../../images/collect (1).png"
+import collectImage from "../../images/collect (1).png";
+import styled from "styled-components";
 
 const Footer = () => {
   return (
@@ -118,7 +119,11 @@ const Footer = () => {
         <div className="mb-4 align-left" style={{ textAlign: "left" }}>
           <h4
             className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "1.25rem", textAlign: "left" }}
+            style={{
+              fontWeight: 600,
+              fontSize: "1.25rem",
+              textAlign: "left",
+            }}
           >
             Elektron manzil
           </h4>
@@ -156,11 +161,7 @@ const Footer = () => {
             cursor: "pointer",
           }}
         >
-          <img
-            src={collectImage}
-            width="140"
-            className="mb-2"
-          />
+          <img src={collectImage} width="140" className="mb-2" />
           <img src={collectImage} width="140" />
         </div>
       </div>

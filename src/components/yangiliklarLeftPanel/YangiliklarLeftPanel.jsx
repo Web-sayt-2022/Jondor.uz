@@ -1,5 +1,5 @@
 import React from "react";
-import "./leftPanel.css";
+import "./yangiliklarLeftPanel.css";
 
 const LeftPanel = () => {
   return (
@@ -15,10 +15,7 @@ const LeftPanel = () => {
 
       <div className="row p-2">
         <div className="col-lg-12">
-          <div
-            className="card card-hover"
-            
-          >
+          <div className="card card-hover p-2">
             <div className="card-img-actions">
               <div className="img-scale">
                 <img
@@ -28,13 +25,13 @@ const LeftPanel = () => {
                 />
               </div>
             </div>
-            <div className="card-body py-2">
+            <div className="card-body p-2">
               <h6 className="card-title text-primary font-weight-bold p-0 m-0">
                 <i className="icon-calendar3"></i>
                 13.03.2003
               </h6>
               <p
-                className="card-text card-text-title"
+                className="card-text card-text-title mt-1"
                 style={{
                   textAlign: "justify",
                   fontWeight: 600,
@@ -74,7 +71,7 @@ const LeftPanel = () => {
         </div>
 
         <div className="col-lg-12">
-          <div className="card card-hover">
+          <div className="card card-hover p-2">
             <div className="card-img-actions">
               <div className="img-scale">
                 <img
@@ -84,13 +81,13 @@ const LeftPanel = () => {
                 />
               </div>
             </div>
-            <div className="card-body py-2">
+            <div className="card-body p-2">
               <h6 className="card-title text-primary font-weight-bold p-0 m-0">
                 <i className="icon-calendar3"></i>
                 13.03.2003
               </h6>
               <p
-                className="card-text card-text-title"
+                className="card-text card-text-title mt-1"
                 style={{
                   textAlign: "justify",
                   fontWeight: 600,
@@ -130,7 +127,7 @@ const LeftPanel = () => {
         </div>
 
         <div className="col-lg-12">
-          <div className="card card-hover">
+          <div className="card card-hover p-2">
             <div className="card-img-actions">
               <div className="img-scale">
                 <img
@@ -140,13 +137,13 @@ const LeftPanel = () => {
                 />
               </div>
             </div>
-            <div className="card-body py-2">
+            <div className="card-body p-2">
               <h6 className="card-title text-primary font-weight-bold p-0 m-0">
                 <i className="icon-calendar3"></i>
                 13.03.2003
               </h6>
               <p
-                className="card-text card-text-title"
+                className="card-text card-text-title mt-1"
                 style={{
                   textAlign: "justify",
                   fontWeight: 600,
@@ -187,7 +184,7 @@ const LeftPanel = () => {
         </div>
 
         <div className="col-lg-12">
-          <div className="card card-hover">
+          <div className="card card-hover p-2">
             <div className="card-img-actions">
               <div className="img-scale">
                 <img
@@ -197,13 +194,13 @@ const LeftPanel = () => {
                 />
               </div>
             </div>
-            <div className="card-body py-2">
+            <div className="card-body p-2">
               <h6 className="card-title text-primary font-weight-bold p-0 m-0">
                 <i className="icon-calendar3"></i>
                 13.03.2003
               </h6>
               <p
-                className="card-text card-text-title"
+                className="card-text card-text-title mt-1"
                 style={{
                   textAlign: "justify",
                   fontWeight: 600,
