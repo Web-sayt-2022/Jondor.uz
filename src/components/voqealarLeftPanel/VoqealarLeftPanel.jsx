@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./voqealarLeftPanel.css";
 import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css';
+import "react-calendar/dist/Calendar.css";
 
 import gerbImg from "../../images/gerb.png";
 import x2Img from "../../images/x2.png";
+import prezMurImg from "../../images/prezmur.png";
 
 const VoqealarLeftPanel = () => {
   const [value, onChange] = useState(new Date());
@@ -171,61 +172,43 @@ const VoqealarLeftPanel = () => {
           </div>
         </div>
 
-        {/* <div className="col-lg-12">
-          <div className="card card-hover p-2">
-            <div className="card-img-actions">
-              <div className="img-scale">
-                <img
-                  className="img-fluid img-fluid-hover"
-                  src="https://storage.kun.uz/source/8/ov8Psr1SNLarFDdkHsdP2ZUJTlIno8lF.jpg"
-                  alt=""
-                />
-              </div>
+        <div className="col-lg-12 foydali_link-card">
+          <div className="foydali_link">
+            <div className="foydali_link-img">
+              <img src={gerbImg} alt="image" />
             </div>
-            <div className="card-body p-2">
-              <h6 className="card-title text-primary font-weight-bold p-0 m-0">
-                <i className="icon-calendar3"></i>
-                13.03.2003
-              </h6>
-              <p
-                className="card-text card-text-title mt-1"
-                style={{
-                  textAlign: "justify",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  color: "#2a4d85",
-                  fontSize: "0.8rem",
-                }}
-              >
-                Pandemiyadan keyingi ilk Qurbon hayiti namozidan fotojamlanma
-              </p>
-            </div>
-
-            <div
-              className="card-footer p-2 px-2"
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <ul className="list-inline mb-0">
-                <li className="list-inline-item">
-                  <a href="#" className="text-body">
-                    <i className="icon-eye4 mr-2"></i>
-                    438
-                  </a>
-                </li>
-              </ul>
-
-              <a
-                href="./deteile_news.html"
-                className="text-primary font-weight-semybold"
-                style={{ cursor: "pointer" }}
-              >
-                Batafsil
-                <i className="icon-arrow-right8"></i>
-              </a>
+            <div className="foydali_link-text">
+              <img src={prezMurImg} alt="" />
             </div>
           </div>
-        </div> */}
+          <div className="foydali_link">
+            <div className="foydali_link-img">
+              <img src={gerbImg} alt="image" />
+            </div>
+            <div className="foydali_link-text">
+              <img src={prezMurImg} alt="" />
+            </div>
+          </div>
+					<div className="foydali_link">
+            <div className="foydali_link-img">
+              <img src={gerbImg} alt="image" />
+            </div>
+            <div className="foydali_link-text">
+              <img src={prezMurImg} alt="" />
+            </div>
+          </div>
+					<div className="foydali_link">
+            <div className="foydali_link-img">
+              <img src={gerbImg} alt="image" />
+            </div>
+            <div className="foydali_link-text">
+              <img src={prezMurImg} alt="" />
+            </div>
+          </div>
+        </div>
       </div>
+
+			
     </section>
   );
 };

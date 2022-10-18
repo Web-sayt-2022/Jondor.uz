@@ -7,7 +7,7 @@ export default function UmumiyYangilikPage() {
 
   return (
     <>
-      {/* <VerticalYangilikCard /> */}
+      <VerticalYangilikCard />
       {/* <HorizontalYangilikCard />; */}
     </>
   );
