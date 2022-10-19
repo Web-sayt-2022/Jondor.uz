@@ -76,7 +76,7 @@
 .asosiy-yangiliklar-section .profile {
   height: 3rem;
   bottom: -3rem;
-  transition: 0.5s;
+  transition: 0.5s !important;
 }
 
 .asosiy-yangiliklar-section .card-hokim:hover .profile {
@@ -84,7 +84,7 @@
 }
 
 .asosiy-yangiliklar-section .profile i {
-  transition: 0.3s;
+  transition: 0.3s !important;
 }
 
 .asosiy-yangiliklar-section .profile i:hover {
@@ -93,7 +93,7 @@
 }
 
 .asosiy-yangiliklar-section .box-img {
-  transition: 0.5s;
+  transition: 0.5s !important;
   cursor: pointer;
 }
 

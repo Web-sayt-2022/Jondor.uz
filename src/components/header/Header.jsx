@@ -2,6 +2,7 @@ import { style } from "@mui/system";
 import React from "react";
 import styled from "styled-components";
 
+
 const Header = () => {
   return (
     <Wrapper>
@@ -24,20 +25,20 @@ const Header = () => {
             }}
           >
             <a href="#1" style={{ fontSize: "16px" }} className="lan_active">
-              O'zbekcha
+              O'z
             </a>{" "}
-            |
+            
             <a href="#1" style={{ fontSize: "16px" }}>
-              Ўзбекча
+              Ўз
             </a>{" "}
-            |
+            
             <a href="#1" style={{ fontSize: "16px" }}>
-              Russian
+              Рус
             </a>
-            |
-            <a href="#1" style={{ fontSize: "16px" }}>
+            
+            {/* <a href="#1" style={{ fontSize: "16px" }}>
               English
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -184,7 +185,7 @@ const Header = () => {
                       fontSize: "32px",
                     }}
                   >
-                    Buxoro viloyati <br /> hokimligi
+                    Jondor tuman hokimligi
                   </h5>
                 </div>
               </div>
@@ -235,25 +236,14 @@ const Header = () => {
                 </a>
                 <div className="dropdown-menu dropdown-menu-left">
                   <a href="#" className="dropdown-item">
-                    O'ZBEKISTON RESPUBLIKASI
+                    Umumiy Ma'lumot
                   </a>
-                  <a href="./konstitutsiya.html" className="dropdown-item">
-                    KONSTITUTSIYASI
-                  </a>
+
                   <a href="#1" className="dropdown-item">
                     DAVLAT RAMZLARI
                   </a>
                   <a href="#1" className="dropdown-item">
                     MILLIY BAYRAMLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    MILLIY VALYUTA
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    DAVLAT MUKOFOTLARI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    HUDUDI VA AHOLI
                   </a>
                 </div>
               </li>
@@ -271,23 +261,16 @@ const Header = () => {
                     HOKIMLIK FUNKSIYA VA VAZIFALARI
                   </a>
                   <a href="#1" className="dropdown-item">
-                    XALQ DEPUTATLARI BUXORO VILOYATI KENGASHI
+                    XALQ DEPUTATLARI JONDOR TUMANI KENGASHI
                   </a>
                   <a href="#1" className="dropdown-item">
                     RAHBARIYAT
                   </a>
-                  <a href="#1" className="dropdown-item">
-                    TARKIBIY TUZILMANING
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    SXEMATIK KO'RINISHI
-                  </a>
+
                   <a href="#1" className="dropdown-item">
                     TARKIBIY BO'LINMALAR
                   </a>
-                  <a href="#1" className="dropdown-item">
-                    HOKIMLIKKA MUROJAAT
-                  </a>
+
                   <a href="#1" className="dropdown-item">
                     HOKIMLIK TARIXI
                   </a>
@@ -370,15 +353,11 @@ const Header = () => {
                   <a href="#1" className="dropdown-item">
                     YERLAR TO'G'RISIDA MA'LUMOT
                   </a>
-                  <a href="#1" className="dropdown-item">
-                    STATISTIK, TAHLILIY, MA'RUZA VA AXBOROTLAR
-                  </a>
+                  
                   <a href="#1" className="dropdown-item">
                     ME'YORIY HUQUQIY HUJJATLAR LOYIHALARINI MUHOKAMALASH
                   </a>
-                  <a href="#1" className="dropdown-item">
-                    O'Z KUCHINI YO'QOTGAN HUJJATLAR
-                  </a>
+                  
                 </div>
               </li>
               <li className="nav-item dropdown">
@@ -416,12 +395,7 @@ const Header = () => {
                   >
                     OCHIQ MAJLISLARDA HOZIR BO'LISH TARTIBI
                   </a>
-                  <a
-                    href="./axborotXizmati/axborotRuyxati.html"
-                    className="dropdown-item"
-                  >
-                    WEB SAYTDA JOYLASHTIRILADIGAN AXBOROTLAR RO'YXATI
-                  </a>
+                  
                   <a
                     href="./axborotXizmati/pressRelizlar.html"
                     className="dropdown-item"

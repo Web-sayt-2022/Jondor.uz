@@ -91,40 +91,97 @@
   color: #fff;
 }
 
-.voqealar-section-left .foydali_link-card {
-	
-}
+
 
 .foydali_link {
   /* background: orangered; */
-	margin: 1rem 0;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.foydali_link .foydali_link-img {
-	background: white;
-	width: 100px;
-	/* padding: .5rem; */
-	height: 70px;
-	border-radius: 5px;
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.foydali_link .foydali_link-img,
+.foydali_link .foydali_link-imgGreen {
+  background: white;
+  width: 100px;
+  /* padding: .5rem; */
+  height: 70px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.foydali_link .foydali_link-imgGreen {
+  background: rgb(53, 170, 53);
 }
 
 .foydali_link .foydali_link-img img {
-	width: 80px;
-	height: 68px;
-	object-fit: contain;
-	border-radius: 50%;
-	margin-left: 3px;
-	
+  width: 80px;
+  height: 68px;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-left: 3px;
 }
 
 .foydali_link .foydali_link-text {
-	border-radius: 5px;
-	background: white;
-	height: 70px;
-	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-	padding: 0.5rem;
+  border-radius: 5px;
+  background: white;
+  height: 70px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 0.5rem;
 }
+
+.foydali_link .foydali_link-imgGreen img {
+  width: 100%;
+  height: 68px;
+  object-fit: contain;
+  margin-left: 3px;
+}
+
+.foydali_link .foydali_link-textBlue {
+  text-transform: lowercase;
+
+  font-size: 1.2rem;
+  /* padding: 0.8rem; */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-weight: 700;
+  background: #3d95df;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  border-radius: 5px;
+  height: 70px;
+  width: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foydali_link .foydali_link-textBlue a {
+  color: #fff;
+  font-size: 18px;
+}
+
+.foydali_link .foydali_link-textWhite {
+  /* text-transform: uppercase; */
+
+  font-size: 1.2rem;
+  /* padding: 0.8rem; */
+
+  font-weight: 700;
+  background: #fff;
+  color: #fff;
+  padding: 1rem 0.8rem;
+  border-radius: 5px;
+  height: 70px;
+  width: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.foydali_link .foydali_link-textWhite a {
+  color: #333333;
+  font-size: 18px;
+}
+

@@ -6,6 +6,8 @@ import "react-calendar/dist/Calendar.css";
 import gerbImg from "../../images/gerb.png";
 import x2Img from "../../images/x2.png";
 import prezMurImg from "../../images/prezmur.png";
+import govuzImg from "../../images/govuzlaw.png";
+import govuzRectangle from "../../images/govuzRectangle.png";
 
 const VoqealarLeftPanel = () => {
   const [value, onChange] = useState(new Date());
@@ -189,26 +191,24 @@ const VoqealarLeftPanel = () => {
               <img src={prezMurImg} alt="" />
             </div>
           </div>
-					<div className="foydali_link">
-            <div className="foydali_link-img">
-              <img src={gerbImg} alt="image" />
+          <div className="foydali_link">
+            <div className="foydali_link-imgGreen">
+              <img src={govuzImg} alt="image" />
             </div>
-            <div className="foydali_link-text">
-              <img src={prezMurImg} alt="" />
+            <div className="foydali_link-textBlue">
+              <a href="">regulation.gov.uz</a>
             </div>
           </div>
-					<div className="foydali_link">
+          <div className="foydali_link">
             <div className="foydali_link-img">
-              <img src={gerbImg} alt="image" />
+              <img src={govuzRectangle} alt="image" />
             </div>
-            <div className="foydali_link-text">
-              <img src={prezMurImg} alt="" />
+            <div className="foydali_link-textWhite">
+              <a href="">Davlat organlari ishonch telefonlari</a>
             </div>
           </div>
         </div>
       </div>
-
-			
     </section>
   );
 };

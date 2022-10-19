@@ -11,7 +11,7 @@ const Tuzilish = () => {
               className="p-2 text-light bg-primary"
               style={{ fontSize: "1.125rem", textTransform: "uppercase" }}
             >
-              Ma'muriy tuzilishi
+              Jondor Tumani
             </div>
 
             <div
@@ -120,54 +120,7 @@ const Tuzilish = () => {
                       Harakatlar strategiyasi
                     </a>
                   </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
+                
                 </ul>
               </div>
             </div>
@@ -244,54 +197,7 @@ const Tuzilish = () => {
                       Harakatlar strategiyasi
                     </a>
                   </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
-                  <li className="splide__slide">
-                    <div className="img-div">
-                      <img
-                        src={harakatlarStrategiyasiImg}
-                        alt=""
-                        className="image"
-                      />
-                    </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
-                    </a>
-                  </li>
+              
                 </ul>
               </div>
             </div>

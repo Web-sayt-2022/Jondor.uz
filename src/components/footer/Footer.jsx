@@ -7,9 +7,9 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <footer className="text-center text-lg-start bg-white text-secondary">
-      <div className="text-center text-md-start py-3 page-header page-header-light px-lg-5">
+      <div className="text-center text-md-start py-2 page-header page-header-light px-lg-2">
         <div
-          className="footer__topLink page-header-content header-elements-lg-inline d-flex flex-lg-row flex-column px-lg-4"
+          className="page-header-content header-elements-lg-inline d-flex flex-lg-row flex-column px-lg-4"
           style={{
             justifyContent: "space-between",
             alignItems: "center",
@@ -17,8 +17,8 @@ const Footer = () => {
           }}
         >
           <div className="link_list mb-lg-0 mb-3 flex-lg-row flex-column">
-            <a href="./deteile_news.html">Portal haqida</a>
-            <a href="./portal_xaritasi.html">Portal xaritasi</a>
+            <a href="./deteile_news.html">Web-Sayt haqida</a>
+            <a href="./portal_xaritasi.html">Web-Sayt xaritasi</a>
             <a href="./qayta_aloqa.html">Qayta aloqa</a>
             <a href="https://advice.uz/uz#/">Ko'p beriladigan savollar</a>
             <a href="./deteile_news.html">Malumotlarda foydalanish shartlari</a>
@@ -59,9 +59,9 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="containers text-center text-md-start mt-3 py-3 px-4">
+      <div className="containers text-center text-md-start mt-3 p-2">
         <div className="mb-4" style={{ textAlign: "left" }}>
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center p-2">
             <img
               src={logoNav}
               alt="logo"
@@ -77,7 +77,7 @@ const Footer = () => {
                 textAlign: "center",
               }}
             >
-              BUXORO VILOYATI HOKIMLIGI
+              JONDOR TUMAN HOKIMLIGI
             </h4>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="mb-4" style={{ textAlign: "left" }}>
           <h4
             className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "1.25rem" }}
+            style={{ fontWeight: 600, fontSize: "1rem" }}
           >
             Ishonch telefoni
           </h4>
@@ -99,10 +99,10 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className="mb-4" style={{ textAlign: "left" }}>
+        <div className="mb-4" style={{ textAlign: "center" }}>
           <h4
             className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "1.25rem" }}
+            style={{ fontWeight: 600, fontSize: "1rem" }}
           >
             Umumiy bo'lim
           </h4>
@@ -116,13 +116,13 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className="mb-4 align-left" style={{ textAlign: "left" }}>
+        <div className="mb-4 align-left" style={{ textAlign: "center" }}>
           <h4
             className="text-uppercase fw-bold mb-2"
             style={{
               fontWeight: 600,
-              fontSize: "1.25rem",
-              textAlign: "left",
+              fontSize: "1rem",
+              textAlign: "center",
             }}
           >
             Elektron manzil
@@ -132,8 +132,9 @@ const Footer = () => {
               Reglament
             </a>
           </p>
-          <i className="icon-envelop5"></i>
+          <i className="icon-envelop5"></i>{" "}
           <a href="mail:info@buxoro.uz" className="text-secondary">
+            {" "}
             info@buxoro.uz
           </a>
         </div>
@@ -141,13 +142,14 @@ const Footer = () => {
         <div className="mb-4" style={{ textAlign: "left" }}>
           <h4
             className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "17px" }}
+            style={{ fontWeight: 600, fontSize: "1rem" }}
           >
             Ish tartibi
           </h4>
           <p className="mb-2 text-secondary">
-            <button className="btn btn-primary-100">Ish vaqti:</button>
-            9:00–18:00 (13:00-14:00)
+            <button className="btn btn-primary-100">
+              9:00–18:00 (13:00-14:00)
+            </button>
           </p>
           <p className="mb-3 text-secondary">
             <b>Dam olish kuni:</b> shanba va yakshanba
@@ -172,26 +174,17 @@ const Footer = () => {
             className="navbar-collapse collapse d-flex align-items-center flex-column flex-md-row justify-content-between"
             id="navbar-footer"
           >
+            <div>
+              Diqqat! Agar siz matnda xatoliklarni aniqlasangiz, ularni
+              belgilab, ma'muriyatni xabardor qilish uchun{" "}
+              <b style={{ color: "#2196F3" }}>Ctrl+Enter</b> tugmasini bosing
+            </div>
+            <br />
             <span className="navbar-text">
-              &copy; 2015 - 2022. Barcha huquqlar himoyalangan
-            </span>
-
-            <span>
-              Sayt materiallaridan foydalanilganda <a href="#">www.buxoro.uz</a>{" "}
-              sayti ko'rsatilishi shart
-            </span>
-
-            <span className="navbar-text">
-              Websayt <a href="#">Dariko Jamoasi </a>tomonidan tayorlandi
+              &copy; 2022. Barcha huquqlar himoyalangan
             </span>
           </div>
         </div>
-      </div>
-      <div
-        className="scrollToTop"
-        style={{ backgroundColor: "#2A4D85", border: "none" }}
-      >
-        <i className="icon-arrow-up12"></i>
       </div>
     </footer>
   );
