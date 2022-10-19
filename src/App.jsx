@@ -3,6 +3,7 @@ import CarouselNews from "./components/carousel/CarouselNews";
 import HorizontalYangilikCard from "./components/horizontalYangilikCard/HorizontalYangilikCard";
 import AdminPanel from "./pages/adminPanel/AdminPanel";
 import Yangiliklar from "./pages/adminPanel/axborot_xizmati/yangiliklar/Yangiliklar";
+import FoydaliManzillar from "./pages/adminPanel/bosh_sahifa/foydali_manzillar/FoydaliManzillar";
 import Login from "./pages/adminPanel/login/Login";
 import BatafsilYangilikPage from "./pages/BatafsilYangilikPage/BatafsilYangilikPage";
 
@@ -179,6 +180,12 @@ function App() {
 
 
       {/* ADMIN PANEL */}
+        {/* bosh sahifa */}
+        <Route path="/admin/bosh_sahifa/foydali_manzillar"
+        element={<LayoutAdmin> <FoydaliManzillar /> </LayoutAdmin>} />
+
+
+
       {/* tuman haqida */}
 
       <Route path="/admin/tuman_haqida/konstitutsiya"

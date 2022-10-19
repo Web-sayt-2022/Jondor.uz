@@ -48,6 +48,25 @@ body {
     color: #fff !important;
 }
 
+.alert {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  width: 25%;
+  z-index: 99999 !important;
+  margin: auto;
+}
+
+.alertNotice {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  right: 0;
+  z-index: 999999 !important;
+  margin: auto;
+}
+
 
 /* .left-panel .aloqa-section .list-group span {
 	width: 50%;
