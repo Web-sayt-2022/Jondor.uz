@@ -34,7 +34,7 @@ export default function Home() {
       <Header />
       <AsosiyYangililar news={news} />
       <Yangiliklar news={news} />
-      <Yonalishlar />
+      {/* <Yonalishlar /> */}
       <DavlatHokimiyati />
       <Tuzilish />
       <FoydaliLinkCarousel />
