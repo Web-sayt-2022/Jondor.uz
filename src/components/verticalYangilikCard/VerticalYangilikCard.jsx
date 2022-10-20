@@ -4,10 +4,20 @@ import AlertContent, { Alert } from "../alert/Alert";
 import "./verticalYangiliklarCard.css";
 import { axiosInstance } from "../../config";
 
-const VerticalYangilikCard = () => {
+const VerticalYangilikCard = ({ sectionVerticalRef, sectionHorizontalRef }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [size, setSize] = useState(10);
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
+
+  const toggleHandler = (isTrusty) => {
+    sectionVerticalRef.current.style.display = "none";
+    sectionHorizontalRef.current.style.display = "none";
+    if (isTrusty) {
+      sectionHorizontalRef.current.style.display = "block";
+    } else {
+      sectionVerticalRef.current.style.display = "block";
+    }
+  };
 
   useEffect(() => {
     axiosInstance
@@ -36,14 +46,38 @@ const VerticalYangilikCard = () => {
   };
 
   return (
-    <section className="vertical-yangiliklar-section-left bg-light mt-4">
-      <div className="p-2 text-white  bg-primary mx-2 ">
+    <section
+      className="vertical-yangiliklar-section-left bg-light mt-4"
+      ref={sectionVerticalRef}
+      style={{ display: "none" }}
+    >
+      <div className="p-2 text-white  bg-primary mx-2 d-flex align-content-center justify-content-between">
         <h4
           style={{ fontSize: "1.125rem", textTransform: "uppercase" }}
           className="m-0 p-0"
         >
-          Barcha yangiliklar
+          Yangiliklar
         </h4>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "1rem",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <i
+            onClick={() => toggleHandler(false)}
+            className="icon-grid6"
+            style={{ fontSize: "1.5rem", cursor: "pointer" }}
+          ></i>
+          <i
+            onClick={() => toggleHandler(true)}
+            className="icon-paragraph-justify3"
+            style={{ fontSize: "1.5rem", cursor: "pointer" }}
+          ></i>
+        </div>
       </div>
 
       <div className="row p-2">
@@ -556,11 +590,7 @@ const VerticalYangilikCard = () => {
             </div>
           </div>
         </div>
-
-        
       </div>
-
-
 
       <ReactPaginate
         previousLabel="<<"

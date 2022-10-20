@@ -4,7 +4,7 @@ import "./tuzilish.css";
 const Tuzilish = () => {
   return (
     <section className="tuzilish-section bg-light">
-      <div className="py-3">
+      <div className="p-2 mt-2">
         <div className="box row">
           <div className="col-lg-6 col-md-12">
             <div
@@ -16,7 +16,7 @@ const Tuzilish = () => {
 
             <div
               style={{ position: "relative", overflow: "hidden" }}
-              className="mt-2"
+              className="mt-2 p-2 bg-white"
             >
               <a
                 href="https://yandex.uz/maps/10330/bukhara/?utm_medium=mapframe&utm_source=maps"
@@ -57,7 +57,7 @@ const Tuzilish = () => {
               BILISH FOYDALI
             </div>
 
-            <div className="mt-2 bg-white mt-2" aria-label="Beautiful Images">
+            <div className="mt-2  p-2 bg-white">
               <div className="splide__track">
                 <ul className="splide__list">
                   <li className="splide__slide">
@@ -127,15 +127,15 @@ const Tuzilish = () => {
           </div>
 
           <div className="vertical-carousel col-lg-3 col-md-6">
-            <div
+          <div
               className="p-2 text-light bg-primary"
               style={{ fontSize: "1.125rem", textTransform: "uppercase" }}
             >
-              Prezidentga murojaat
+              BILISH FOYDALI
             </div>
 
-            <div className="mt-2 bg-white mt-2" aria-label="Beautiful Images">
-              <div className="splide__track">
+            <div className="mt-2 p-2 bg-white" aria-label="Beautiful Images">
+            <div className="splide__track">
                 <ul className="splide__list">
                   <li className="splide__slide">
                     <div className="img-div">
@@ -145,8 +145,8 @@ const Tuzilish = () => {
                         className="image"
                       />
                     </div>
-                    <a href="#" className="text-light px-2">
-                      Harakatlar strategiyasi
+                    <a href="#" className="text-light px-2 splide__slide--text">
+                      Harakatlar strategiyasini
                     </a>
                   </li>
                   <li className="splide__slide">
@@ -197,7 +197,7 @@ const Tuzilish = () => {
                       Harakatlar strategiyasi
                     </a>
                   </li>
-              
+                
                 </ul>
               </div>
             </div>

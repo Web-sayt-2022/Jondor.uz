@@ -21,7 +21,7 @@ const AsosiyYangililar = ({ news }) => {
             className="p-2 text-light rounded bg-primary title"
             style={{ textTransform: "uppercase" }}
           >
-            Buxoro viloyati hokimi
+            Tuman Hokimi
           </div>
 
           <div className="col-lg-12 pt-3 px-0">

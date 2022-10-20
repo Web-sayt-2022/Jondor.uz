@@ -187,57 +187,6 @@ footer .karvon {
   }
 } */
 
-.splide__slide {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  cursor: pointer;
-  min-height: 3rem !important;
-  max-height: 6rem;
-}
-
-
-
-.splide__slide img {
-  width: 4rem;
-  height: 4rem;
-  object-fit: cover;
-}
-
-.my-slider-progress-bar {
-  background: greenyellow;
-  height: 2px;
-  transition: width 400ms ease;
-  width: 0;
-}
-
-#image-carousel button {
-  display: none;
-}
-
-#image-carousel a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff !important;
-  font-size: 1.25rem;
-  margin-left: 1rem;
-}
-
-.splide__slide {
-  height: 4.6rem !important;
-  background-color: #2a4d85;
-  border: 1px solid #2a4d85;
-}
-
-.splide__slide .img-div {
-  width: 5rem;
-  height: 100%;
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0;
-}
-
 
 
 .bg-primary,

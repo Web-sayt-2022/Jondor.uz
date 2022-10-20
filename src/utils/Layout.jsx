@@ -14,7 +14,6 @@ const Layout = ({ children }) => {
         <VoqealarLeftPanel />
         {children}
       </main>
-
       <FoydaliLinkCarousel />
       <Footer />
     </>

@@ -17,11 +17,11 @@ const Footer = () => {
           }}
         >
           <div className="link_list mb-lg-0 mb-3 flex-lg-row flex-column">
-            <a href="./deteile_news.html">Web-Sayt haqida</a>
-            <a href="./portal_xaritasi.html">Web-Sayt xaritasi</a>
-            <a href="./qayta_aloqa.html">Qayta aloqa</a>
+            <a href="#">Web-Sayt haqida</a>
+            <a href="#">Web-Sayt xaritasi</a>
+            <a href="#">Qayta aloqa</a>
             <a href="https://advice.uz/uz#/">Ko'p beriladigan savollar</a>
-            <a href="./deteile_news.html">Malumotlarda foydalanish shartlari</a>
+            <a href="#">Ma'lumotlardan foydalanish shartlari</a>
           </div>
 
           <div className="icons">
@@ -82,7 +82,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mb-4" style={{ textAlign: "left" }}>
+        <div className="mb-4" style={{ textAlign: "center" }}>
           <h4
             className="text-uppercase fw-bold mb-2"
             style={{ fontWeight: 600, fontSize: "1rem" }}
