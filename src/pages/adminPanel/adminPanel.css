@@ -130,5 +130,5 @@
   position: sticky;
   top: 0;
   left: 0; 
-  z-index: 999 !important;
+  z-index: 0 !important;
 }

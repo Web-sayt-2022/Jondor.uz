@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
 import HeaderAdmin from "../components/headerAdmin/HeaderAdmin";
 import YangiliklarLeftPanel from "../components/yangiliklarLeftPanel/YangiliklarLeftPanel";
 import SidebarAdmin from "../components/sidebarAdmin/SidebarAdmin";

@@ -3,7 +3,7 @@ import React from 'react'
 function HeaderAdmin() {
     return (
         <div className="navbar navbar-expand-lg navbar-white bg-white navbar-static shadow bg-body rounded navbarComponents"
-            style={{ backgroundColor: "#fff" }}
+            style={{ backgroundColor: "#fff", zIndex: "5" }}
         >
             <div className="d-flex flex-1 d-lg-none">
                 <button
