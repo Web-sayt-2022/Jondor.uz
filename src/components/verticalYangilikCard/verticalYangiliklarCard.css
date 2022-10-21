@@ -3,10 +3,7 @@
 }
 
 
-.vertical-yangiliklar-section-left .card-body {
-  /* height: 7rem; */
-  /* max-height: 100px; */
-}
+
 
 .vertical-yangiliklar-section-left .card-text-title {
   cursor: pointer;
@@ -18,13 +15,15 @@
 
 .vertical-yangiliklar-section-left .img-scale {
   overflow: hidden;
+  
 }
 
 .vertical-yangiliklar-section-left .img-fluid {
   transition: 0.3s linear !important;
   width: 100%;
-  /* height: 15.625rem; */
+  height: 11rem;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 .vertical-yangiliklar-section-left .img-fluid-hover:hover {
