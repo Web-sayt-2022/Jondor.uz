@@ -3,7 +3,7 @@ import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import VoqealarLeftPanel from "../components/voqealarLeftPanel/VoqealarLeftPanel";
 import YangiliklarLeftPanel from "../components/yangiliklarLeftPanel/YangiliklarLeftPanel";
-import FoydaliLinkCarousel from '../components/foydaliLinkCarousel/FoydaliLinkCarousel'
+import FoydaliLinkCarousel from "../components/foydaliLinkCarousel/FoydaliLinkCarousel";
 
 const Layout = ({ children }) => {
   return (
@@ -14,7 +14,6 @@ const Layout = ({ children }) => {
         <VoqealarLeftPanel />
         {children}
       </main>
-
       <FoydaliLinkCarousel />
       <Footer />
     </>
