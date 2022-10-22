@@ -611,6 +611,7 @@ const VerticalYangilikCard = ({ sectionVerticalRef, sectionHorizontalRef }) => {
           </div>
         </div>
       </div>
+      
 
       <ReactPaginate
         previousLabel="<<"
