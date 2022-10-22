@@ -6,9 +6,12 @@ import Yangiliklar from "./pages/adminPanel/axborot_xizmati/yangiliklar/Yangilik
 import FoydaliManzillar from "./pages/adminPanel/bosh_sahifa/foydali_manzillar/FoydaliManzillar";
 import Login from "./pages/adminPanel/login/Login";
 import BatafsilYangilikPage from "./pages/batafsilYangilikPage/BatafsilYangilikPage";
+import XalqDeputatlariPage from "./pages/xalqDeputatlariPage/XalqDeputatlariPage";
 
 import Home from "./pages/homePage/Home";
 import MilliyBayramlarPage from "./pages/milliyBayramlarPage/MilliyBayramlarPage";
+import RahbariyatPage from "./pages/rahbariyatPage/RahbariyatPage";
+import TarkibiyBolinmalarPage from "./pages/tarkibiyBo'linmalarPage/TarkibiyBolinmalarPage";
 import UmumiyYangilikPage from "./pages/umumiyYangiliklarPage/UmumiyYangilikPage";
 import Layout from "./utils/Layout";
 import LayoutAdmin from "./utils/LayoutAdmin";
@@ -43,6 +46,33 @@ function App() {
           element={
             <Layout>
               <MilliyBayramlarPage />
+            </Layout>
+          }
+        ></Route>
+
+        <Route
+          path="/rahbariyat"
+          element={
+            <Layout>
+              <RahbariyatPage />
+            </Layout>
+          }
+        ></Route>
+
+        <Route
+          path="/tarkibiy_bolinmalar"
+          element={
+            <Layout>
+              <TarkibiyBolinmalarPage />
+            </Layout>
+          }
+        ></Route>
+
+        <Route
+          path="/xalq_deputatlari"
+          element={
+            <Layout>
+              <XalqDeputatlariPage />
             </Layout>
           }
         ></Route>
