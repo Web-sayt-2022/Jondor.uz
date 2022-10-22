@@ -16,7 +16,7 @@ function Login() {
     }).then((res) => {
       localStorage.setItem("token", res.data)
       Alert(setAlert, "success", "Muvafoqqiyatli kirildi!")
-      navigate("/admin/axborot_xizmati/yangiliklar")
+      navigate("/admin/bosh_sahifa")
     }).catch((error) => {
       Alert(setAlert, "warning", error.response.data)
     })
