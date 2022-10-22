@@ -44,12 +44,12 @@ const VoqealarLeftPanel = () => {
                   fontWeight: 600,
                   textTransform: "uppercase",
                   color: "#2a4d85",
-                  fontSize: "0.8rem",
+                  fontSize: "1.17rem",
+                  lineHeight: 1.22
                 }}
               >
                 Yerlarimiz shiddat bilan ishdan chiqyapti, chunki tayinli
-                Yerlarimiz shiddat bilan ishdan chiqyapti, chunki tayinli
-                yo‘q...
+                Yerlarimiz shiddat bilan ishdan chiqyapti
               </a>
             </div>
 
@@ -78,7 +78,7 @@ const VoqealarLeftPanel = () => {
           </div>
         </div>
 
-        <div className="col-lg-12 my-3 py-2">
+        <div className="col-lg-12 mt-3 py-2">
           <div className="splide__track">
             <ul className="splide__list">
               <li className="splide__slide">
@@ -133,9 +133,9 @@ const VoqealarLeftPanel = () => {
           </div>
         </div>
 
-        <div className="col-lg-12 py-1">
-          <div>
-            <Calendar onChange={onChange} value={value} />
+        <div className="col-lg-12 py-1 mt-2">
+          <div className="calendar">
+            <Calendar onChange={onChange} value={value} className="w-100 h-100" />
           </div>
         </div>
 

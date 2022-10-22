@@ -4,6 +4,7 @@ import "./horizontalYangilikCard.css";
 import { axiosInstance } from "../../config";
 import ReactPaginate from "react-paginate";
 import AlertContent, { Alert } from "../alert/Alert";
+import keldiyorImg from "../../images/dolzarb.jpg";
 
 const HorizontalYangilikCard = ({
   sectionHorizontalRef,
@@ -87,12 +88,12 @@ const HorizontalYangilikCard = ({
           ></i>
         </div>
       </div>
-      <div className="col-xl-12 p-2 px-0">
+      <div className="col-xl-12 py-2 px-0">
         <div className="card">
           <div className="card-body">
             <div className="card-img-actions mr-2" style={{ width: "320px" }}>
               <img
-                src="https://source.unsplash.com/random?city/sig-2"
+                src={keldiyorImg}
                 alt=""
                 style={{
                   width: "100%",
@@ -105,7 +106,7 @@ const HorizontalYangilikCard = ({
             <div className="card-header">
               <h2
                 className="text-secondary m-0 p-0"
-                style={{ fontWeight: "500", fontSize: "1.5rem" }}
+                style={{ fontWeight: "500", fontSize: "1.5rem", fontVariant: "small-caps" }}
               >
                 Yerlarimiz shiddat bilan ishdan chiqyapti, chunki... tayinli
                 egasi yo‘q
@@ -131,7 +132,7 @@ const HorizontalYangilikCard = ({
 
             <p
               className="card-text card-text-title"
-              style={{ textAlign: "justify", fontSize: "1rem" }}
+              style={{ textAlign: "justify", fontSize: "1rem", lineHeight: 1.15 }}
             >
               Agar yer singari ishlab chiqarish vositalari xususiy qo‘llarda
               bo‘lmasa, katta ehtimol bilan ular samarasiz ishlatiladi. Yerga
@@ -139,9 +140,7 @@ const HorizontalYangilikCard = ({
               uchun, balki butun boshli xalqning irsiy fondini saqlab qolish
               uchun ham kerak. Bu haqda Kun.uz kolumnisti Shahzod Yo‘ldoshboyev
               fikr yuritadi. Oxirgi haftalarning shiddatli xabarlari oqimi
-              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan chetda
-              qoldi – O‘zbekiston Respublikasi Konstitutsiyasiga kiritilishi
-              taklif etilgan o‘zgarishlar qatorida uning 55-moddasini
+              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan naz
               o‘zgartirish taklif etildi. Qanday taklif bu? Hozirda
               O‘zbekistonda dehqon va fermerlar yerlarni xususiy mulkka olishi
               imkoniyati yo‘q. Taklif mazkur me’yorni Konstitutsiyada
@@ -204,12 +203,13 @@ const HorizontalYangilikCard = ({
           </div>
         </div>
       </div>
-      <div className="col-xl-12 p-2 px-0">
+
+      <div className="col-xl-12 py-2 px-0">
         <div className="card">
           <div className="card-body">
             <div className="card-img-actions mr-2" style={{ width: "320px" }}>
               <img
-                src="https://source.unsplash.com/random?city/sig-2"
+                src={keldiyorImg}
                 alt=""
                 style={{
                   width: "100%",
@@ -222,7 +222,7 @@ const HorizontalYangilikCard = ({
             <div className="card-header">
               <h2
                 className="text-secondary m-0 p-0"
-                style={{ fontWeight: "500", fontSize: "1.5rem" }}
+                style={{ fontWeight: "500", fontSize: "1.5rem", fontVariant: "small-caps" }}
               >
                 Yerlarimiz shiddat bilan ishdan chiqyapti, chunki... tayinli
                 egasi yo‘q
@@ -248,7 +248,7 @@ const HorizontalYangilikCard = ({
 
             <p
               className="card-text card-text-title"
-              style={{ textAlign: "justify", fontSize: "1rem" }}
+              style={{ textAlign: "justify", fontSize: "1rem", lineHeight: 1.15 }}
             >
               Agar yer singari ishlab chiqarish vositalari xususiy qo‘llarda
               bo‘lmasa, katta ehtimol bilan ular samarasiz ishlatiladi. Yerga
@@ -256,9 +256,7 @@ const HorizontalYangilikCard = ({
               uchun, balki butun boshli xalqning irsiy fondini saqlab qolish
               uchun ham kerak. Bu haqda Kun.uz kolumnisti Shahzod Yo‘ldoshboyev
               fikr yuritadi. Oxirgi haftalarning shiddatli xabarlari oqimi
-              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan chetda
-              qoldi – O‘zbekiston Respublikasi Konstitutsiyasiga kiritilishi
-              taklif etilgan o‘zgarishlar qatorida uning 55-moddasini
+              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan naz
               o‘zgartirish taklif etildi. Qanday taklif bu? Hozirda
               O‘zbekistonda dehqon va fermerlar yerlarni xususiy mulkka olishi
               imkoniyati yo‘q. Taklif mazkur me’yorni Konstitutsiyada
@@ -321,12 +319,12 @@ const HorizontalYangilikCard = ({
           </div>
         </div>
       </div>
-      <div className="col-xl-12 p-2 px-0">
+      <div className="col-xl-12 py-2 px-0">
         <div className="card">
           <div className="card-body">
             <div className="card-img-actions mr-2" style={{ width: "320px" }}>
               <img
-                src="https://source.unsplash.com/random?city/sig-2"
+                src={keldiyorImg}
                 alt=""
                 style={{
                   width: "100%",
@@ -339,7 +337,7 @@ const HorizontalYangilikCard = ({
             <div className="card-header">
               <h2
                 className="text-secondary m-0 p-0"
-                style={{ fontWeight: "500", fontSize: "1.5rem" }}
+                style={{ fontWeight: "500", fontSize: "1.5rem", fontVariant: "small-caps" }}
               >
                 Yerlarimiz shiddat bilan ishdan chiqyapti, chunki... tayinli
                 egasi yo‘q
@@ -365,7 +363,7 @@ const HorizontalYangilikCard = ({
 
             <p
               className="card-text card-text-title"
-              style={{ textAlign: "justify", fontSize: "1rem" }}
+              style={{ textAlign: "justify", fontSize: "1rem", lineHeight: 1.15 }}
             >
               Agar yer singari ishlab chiqarish vositalari xususiy qo‘llarda
               bo‘lmasa, katta ehtimol bilan ular samarasiz ishlatiladi. Yerga
@@ -373,9 +371,7 @@ const HorizontalYangilikCard = ({
               uchun, balki butun boshli xalqning irsiy fondini saqlab qolish
               uchun ham kerak. Bu haqda Kun.uz kolumnisti Shahzod Yo‘ldoshboyev
               fikr yuritadi. Oxirgi haftalarning shiddatli xabarlari oqimi
-              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan chetda
-              qoldi – O‘zbekiston Respublikasi Konstitutsiyasiga kiritilishi
-              taklif etilgan o‘zgarishlar qatorida uning 55-moddasini
+              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan naz
               o‘zgartirish taklif etildi. Qanday taklif bu? Hozirda
               O‘zbekistonda dehqon va fermerlar yerlarni xususiy mulkka olishi
               imkoniyati yo‘q. Taklif mazkur me’yorni Konstitutsiyada
@@ -438,12 +434,12 @@ const HorizontalYangilikCard = ({
           </div>
         </div>
       </div>
-      <div className="col-xl-12 p-2 px-0">
+      <div className="col-xl-12 py-2 px-0">
         <div className="card">
           <div className="card-body">
             <div className="card-img-actions mr-2" style={{ width: "320px" }}>
               <img
-                src="https://source.unsplash.com/random?city/sig-2"
+                src={keldiyorImg}
                 alt=""
                 style={{
                   width: "100%",
@@ -456,7 +452,7 @@ const HorizontalYangilikCard = ({
             <div className="card-header">
               <h2
                 className="text-secondary m-0 p-0"
-                style={{ fontWeight: "500", fontSize: "1.5rem" }}
+                style={{ fontWeight: "500", fontSize: "1.5rem", fontVariant: "small-caps" }}
               >
                 Yerlarimiz shiddat bilan ishdan chiqyapti, chunki... tayinli
                 egasi yo‘q
@@ -482,7 +478,7 @@ const HorizontalYangilikCard = ({
 
             <p
               className="card-text card-text-title"
-              style={{ textAlign: "justify", fontSize: "1rem" }}
+              style={{ textAlign: "justify", fontSize: "1rem", lineHeight: 1.15 }}
             >
               Agar yer singari ishlab chiqarish vositalari xususiy qo‘llarda
               bo‘lmasa, katta ehtimol bilan ular samarasiz ishlatiladi. Yerga
@@ -490,9 +486,7 @@ const HorizontalYangilikCard = ({
               uchun, balki butun boshli xalqning irsiy fondini saqlab qolish
               uchun ham kerak. Bu haqda Kun.uz kolumnisti Shahzod Yo‘ldoshboyev
               fikr yuritadi. Oxirgi haftalarning shiddatli xabarlari oqimi
-              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan chetda
-              qoldi – O‘zbekiston Respublikasi Konstitutsiyasiga kiritilishi
-              taklif etilgan o‘zgarishlar qatorida uning 55-moddasini
+              orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan naz
               o‘zgartirish taklif etildi. Qanday taklif bu? Hozirda
               O‘zbekistonda dehqon va fermerlar yerlarni xususiy mulkka olishi
               imkoniyati yo‘q. Taklif mazkur me’yorni Konstitutsiyada
@@ -555,6 +549,7 @@ const HorizontalYangilikCard = ({
           </div>
         </div>
       </div>
+    
 
       <ReactPaginate
         previousLabel="<<"
