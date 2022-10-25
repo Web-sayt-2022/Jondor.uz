@@ -1,11 +1,11 @@
 import React from "react";
 import { CKEditor } from "ckeditor4-react";
 
-const CkeEditor = ({ handleFunction }) => {
+const CkeEditor = ({ handleFunction, initData }) => {
   return (
     <div>
       <CKEditor
-        initData={"Hello world!!!"}
+        initData={initData}
         style={{ maxWidth: "850px", margin: "30px auto" }}
         config={{
           extraPlugins: [
