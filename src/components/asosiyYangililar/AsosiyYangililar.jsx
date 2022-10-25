@@ -68,6 +68,7 @@ const AsosiyYangililar = ({ news }) => {
           </div>
 
           <div className="boxes">
+            {console.log(news)}
             {news?.length > 0 &&
               news.map(
                 (dat, index) =>
@@ -79,9 +80,7 @@ const AsosiyYangililar = ({ news }) => {
                       onClick={() => navigateHandler(dat)}
                     >
                       <img
-                        src={
-                          urlFile + "file/view/" + dat.images[0].generatedName
-                        }
+                        src={`${urlFile}/${dat.generatedNames[0]}`}
                         alt=""
                         className="box-img"
                       />

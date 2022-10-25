@@ -38,9 +38,7 @@ const Yangiliklar = ({ news }) => {
                       <div className="img-scale">
                         <img
                           className="img-fluid img-fluid-hover"
-                          src={
-                            urlFile + "file/view/" + dat.images[0].generatedName
-                          }
+                          src={`${urlFile}/${dat.generatedNames[0]}`}
                           alt=""
                         />
                       </div>
