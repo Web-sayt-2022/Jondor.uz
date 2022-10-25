@@ -139,6 +139,19 @@ function Information() {
     [setNewsData3]
   );
 
+  // const selectFunc = () => {
+  //   axiosInstance.get("sphere/list").then((res) => {
+  //     console.log(res.data);
+  //     if (res.data?.length > 0) {
+  //       let arr = [];
+  //       res.data?.forEach((dat) => {
+  //         arr.push({ value: dat.id, label: dat.uzName });
+  //       });
+  //       setSphere(arr);
+  //     }
+  //   })
+  // }
+
   const deleteFunc = (id) => {
     console.log(id);
     axiosInstance.delete(`information/delete/${id}`).then((res) => {
@@ -162,6 +175,8 @@ function Information() {
           formData.append("images", f);
         });
         const newfileIds = await axiosInstance.post("file/uploads", formData);
+        const allFiles = [...fileIds, ...newfileIds.data]
+        console.log(allFiles);
 
         try {
           const sendingData = {
@@ -177,8 +192,8 @@ function Information() {
             ruBody: newsData3 ? newsData3 : editModal.data?.ruBody,
             infoGroupID: subMenuId,
             source: editSourceref.current.value,
-            imageIDs: newfileIds.data,
-            oldGeneratedNames: fileIds
+            imageIDs: allFiles,
+            // oldGeneratedNames: fileIds
           }
           console.log(sendingData);
           const res = await axiosInstance.patch("information/update", sendingData);
@@ -240,7 +255,7 @@ function Information() {
             <div className="d-flex" style={{ alignItems: "center", justifyContent: "space-between" }}>
               <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Ma'lumotlar</h3>
               {/* onClick={() => setNewAddModal(true)} selectFunc() */}
-              <button type="submit" onClick={() => { setAddModal(true) }} className="btn btn-primary">
+              <button type="submit" onClick={() => { setAddModal(true)}} className="btn btn-primary">
                 <i className="icon-plus3 mr-1" style={{ fontSize: "18px" }}></i>Ma'lumot qo'shish
               </button>
             </div>
@@ -256,10 +271,10 @@ function Information() {
                 </tr>
               </thead>
               <tbody>
-                {data.length > 0 && (
+                {
                   data?.map((item, index) => {
                     return (
-                      <tr key={Math.random()}>
+                      <tr key={item.id}>
                         <td className="text-center">{index + 1}</td>
                         <td className='text-center'>
                           <img src={`${urlFile}/${item?.generatedNames[0]}`} style={{ width: "50%", minWidth: "100px", }} alt="" />
@@ -286,8 +301,6 @@ function Information() {
                       </tr>
                     )
                   })
-                )
-
                 }
 
               </tbody>
@@ -313,7 +326,7 @@ function Information() {
                 <div className="" style={{ width: "80%", height: "100vh" }}>
                   <div className="modal-content">
                     <div className="modal-header bg-primary text-white">
-                      <h5 className="modal-title">Ma'lumot qo'shish</h5>
+                      <h5 className="modal-title">Yangilik qo'shish</h5>
 
                       <div className="d-flex" style={{ justifyContent: "center", alignItems: "center" }}>
 
@@ -388,6 +401,16 @@ function Information() {
                                       <label className="label-floating">Manba</label>
                                     </div>
                                   </div>
+
+                                  {/* <div className="col-lg-4">
+                                    <Select
+                                      placeholder="Yo'nalish"
+                                      options={sphere}
+                                      isClearable={true}
+                                      ref={directionref}
+                                      isDisabled={true}
+                                    />
+                                  </div> */}
 
                                   {/* <div className="col-lg-4" style={{ display: "flex", alignItems: "center" }}>
                                     <div className="custom-control custom-checkbox custom-control-success"
@@ -772,6 +795,23 @@ function Information() {
                                       ref={editDirectionref}
                                     />
                                   </div> */}
+
+                                {/* <div className="col-lg-4" style={{ display: "flex", alignItems: "center" }}>
+                                  <div className="custom-control custom-checkbox custom-control-success"
+                                    style={{ fontSize: "1rem", display: "flex" }}>
+                                    <input type="checkbox"
+                                      className="custom-control-input"
+                                      id="chek"
+                                      ref={editMainPageCheckboxref}
+                                      defaultChecked={editModal.data?.actual}
+                                    />
+                                    <label className="custom-control-label"
+                                      for="chek"
+                                      style={{ textTransform: "uppercase" }}>
+                                      BOSH SAHIFA
+                                    </label>
+                                  </div>
+                                </div> */}
                               </div>
 
                               <div className="form-group row">
