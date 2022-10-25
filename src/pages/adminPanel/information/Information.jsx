@@ -240,7 +240,7 @@ function Information() {
             <div className="d-flex" style={{ alignItems: "center", justifyContent: "space-between" }}>
               <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Ma'lumotlar</h3>
               {/* onClick={() => setNewAddModal(true)} selectFunc() */}
-              <button type="submit" onClick={() => { setAddModal(true)}} className="btn btn-primary">
+              <button type="submit" onClick={() => { setAddModal(true) }} className="btn btn-primary">
                 <i className="icon-plus3 mr-1" style={{ fontSize: "18px" }}></i>Ma'lumot qo'shish
               </button>
             </div>
@@ -256,10 +256,10 @@ function Information() {
                 </tr>
               </thead>
               <tbody>
-                {
+                {data.length > 0 && (
                   data?.map((item, index) => {
                     return (
-                      <tr key={item.id}>
+                      <tr key={Math.random()}>
                         <td className="text-center">{index + 1}</td>
                         <td className='text-center'>
                           <img src={`${urlFile}/${item?.generatedNames[0]}`} style={{ width: "50%", minWidth: "100px", }} alt="" />
@@ -286,6 +286,8 @@ function Information() {
                       </tr>
                     )
                   })
+                )
+
                 }
 
               </tbody>
