@@ -9,19 +9,27 @@
   cursor: pointer;
 }
 
+
+
+.vertical-yangiliklar-section-left .card-title {
+  font-size: 0.8rem;
+}
+
 .vertical-yangiliklar-section-left .card-text-title:hover {
   color: #2196f3;
+
 }
 
 .vertical-yangiliklar-section-left .img-scale {
   overflow: hidden;
+ 
   
 }
 
 .vertical-yangiliklar-section-left .img-fluid {
   transition: 0.3s linear !important;
   width: 100%;
-  height: 11rem;
+  height: 11.8rem;
   object-fit: cover;
   border-radius: 5px;
 }

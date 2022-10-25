@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
 }
 
 .rahbariyat-cards .rahbariyat-card .body-elements .img {
