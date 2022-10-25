@@ -4,6 +4,7 @@ import Header from "../components/header/Header";
 import VoqealarLeftPanel from "../components/voqealarLeftPanel/VoqealarLeftPanel";
 import YangiliklarLeftPanel from "../components/yangiliklarLeftPanel/YangiliklarLeftPanel";
 import FoydaliLinkCarousel from "../components/foydaliLinkCarousel/FoydaliLinkCarousel";
+import VoqealarLeftPanelNew from "../components/voqealarLeftPanelNew/VoqealarLeftPanelNew";
 
 const Layout = ({ children }) => {
   return (
@@ -11,7 +12,7 @@ const Layout = ({ children }) => {
       <Header />
       <main className="d-flex bg-light">
         {/* <YangiliklarLeftPanel /> */}
-        <VoqealarLeftPanel />
+        <VoqealarLeftPanelNew />
         {children}
       </main>
       <FoydaliLinkCarousel />

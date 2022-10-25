@@ -1,0 +1,110 @@
+.vertical-news {
+  width: calc(100% - 345px);
+  /* background-color: orangered; */
+  padding: 20px !important;
+}
+
+.vertical-news .vertical-news__header {
+  background-color: #2a4d85;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.25);
+}
+
+.vertical-news .vertical-news__header span {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+  font-variant: small-caps;
+  text-align: left;
+  padding: 13px 20px;
+}
+
+
+
+.vertical-news-row {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); */
+  /* padding: 20px; */
+  /* gap: 40px; */
+	gap: 20px;
+  /* background-color: aqua; */
+  margin-top: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.vertical-news-row .vertical-news__new {
+  width: 276px;
+  height: 340px;
+  background-color: #fff;
+  border-radius: 5px;
+	box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.25);
+}
+
+.vertical-news-row .vertical-news__new--date {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  line-height: 16px;
+  font-weight: 700;
+  font-variant: small-caps;
+  color: #0d99ff;
+  padding: 8px;
+}
+
+.vertical-news-row .vertical-news__new--date i {
+  margin-right: 7px;
+}
+
+/* .vertical-news__new--img {
+	position: relative;
+} */
+
+.vertical-news-row img {
+  /* width: 100%; */
+  width: 276px;
+  height: 192px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.vertical-news-row .vertical-news__new--text {
+  font-size: 14px;
+  line-height: 16px;
+  font-variant: small-caps;
+  font-weight: 500;
+  color: #2a4d85;
+  padding: 8px;
+  text-align: justify;
+	margin-bottom: 0;
+}
+
+.vertical-news-row .vertical-news__new--bottom {
+  background: rgba(38, 137, 229, 0.1);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px;
+}
+
+.vertical-news-row .vertical-news__new--bottom  a {
+  font-size: 14px;
+	
+}
+
+.vertical-news-row .vertical-news__new--bottom .icon-eye4 {
+	color: #333333;
+}
+
+.vertical-news-row .vertical-news__new--bottom .icon-arrow-right8 {
+	margin-left: 4px;
+}
+
