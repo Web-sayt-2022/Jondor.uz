@@ -2,7 +2,7 @@ import React from 'react';
 
 const BoshSahifa = () => {
   return (
-    <div className="card-body p-0 pt-3 pl-3">
+    <div className="card-body p-0 pt-3 px-3">
       <div className="card">
 
         <div className="tab-pane fade show active bg-white" id="colored-tab1">

@@ -16,29 +16,21 @@ function SidebarAdmin() {
   const menuRuName = useRef()
   const sendMenuRef = useRef()
 
-  const [menu, setMenu] = useState([
-    {
-      id: 1,
-      uzName: "Tuman haqida uz",
-      krName: "Tuman haqida kr",
-      ruName: "Tuman haqida ru",
-      rank: 1
-    },
-    {
-      id: 2,
-      uzName: "Yangiliklar uz",
-      krName: "Yangiliklar kr",
-      ruName: "Yangiliklar ru",
-      rank: 2
-    },
-  ])
+  const [menu, setMenu] = useState([])
 
   // subMenu
   const [addSubMenuModal, setAddSubMenuModal] = useState({ isShow: false, menuId: 0 })
   const [updateModal, setUpdateModal] = useState({ isShow: false, data: {}, type: "" })
   const [deleteModal, setDeleteModal] = useState({ isShow: false, data: {}, type: "" })
   const [sendModal, setSendModal] = useState({ isShow: false, data: {}, type: "" })
-  const [subMenuTypeOption, setSubMenuTypeOption] = useState([{ value: "news", label: "Yangilik", url: "sphere" }, { value: "information", label: "Informatsion", url: "infoGroup" }])
+  const [subMenuTypeOption, setSubMenuTypeOption] = useState([
+    { value: "news", label: "Yangilik" },
+    { value: "information", label: "Ma'lumot" },
+    { value: "employeeGroup", label: "Xodimlar" },
+    { value: "subGovGroup", label: "Xodimlar guruhi" },
+    { value: "link", label: "Linklar" },
+
+  ])
   const subMenuUzName = useRef()
   const subMenuKrName = useRef()
   const subMenuRuName = useRef()
@@ -50,44 +42,7 @@ function SidebarAdmin() {
   const editSubMenuRuName = useRef()
   const editIsVisible = useRef()
 
-  const [subMenu, setSubMenu] = useState([
-    {
-      id: 1,
-      menuId: 1,
-      uzName: "Tuman haqida1 uz sub",
-      krName: "Tuman haqida1 kr sub",
-      ruName: "Tuman haqida1 ru sub",
-      rank: 1,
-      type: "information"
-    },
-    {
-      id: 2,
-      menuId: 1,
-      uzName: "Tuman haqida2 uz sub",
-      krName: "Tuman haqida2 kr sub",
-      ruName: "Tuman haqida2 ru sub",
-      rank: 2,
-      type: "news"
-    },
-    {
-      id: 3,
-      menuId: 2,
-      uzName: "Yangiliklar1 uz sub",
-      krName: "Yangiliklar1 kr sub",
-      ruName: "Yangiliklar1 ru sub",
-      rank: 1,
-      type: "information"
-    },
-    {
-      id: 4,
-      menuId: 2,
-      uzName: "Yangiliklar2 uz sub",
-      krName: "Yangiliklar2 kr sub",
-      ruName: "Yangiliklar2 ru sub",
-      rank: 2,
-      type: "news"
-    },
-  ])
+  const [subMenu, setSubMenu] = useState([])
 
   const open = (name) => {
     if (document.querySelector(`#${name}`).querySelector('ul').style.display === "none") {
@@ -97,13 +52,23 @@ function SidebarAdmin() {
     }
   }
 
+  // menularni o'qib olish
   useEffect(() => {
     axiosInstance.get("menu/getForAdmin").then((res) => {
       console.log(res.data);
       setMenu(res.data?.menuDTOS);
-      setSubMenu(res.data?.subMenuAdminDTOS)
+      setSubMenu(res.data?.submenuDTOS)
     })
   }, [])
+
+  // Submenu typelarini o`qib selectga berish
+  // useEffect(() => {
+  //   axiosInstance.get("").then((res) => {
+  //     console.log(res.data);
+  //     setMenu(res.data?.menuDTOS);
+  //     setSubMenu(res.data?.subMenuAdminDTOS)
+  //   })
+  // }, [])
 
   const addMenuFunc = (e) => {
     e.preventDefault();
@@ -135,7 +100,7 @@ function SidebarAdmin() {
 
     console.log(newSubMenu);
 
-    axiosInstance.post(`${subMenuType?.current?.props?.value?.url}/create`, newSubMenu).then((res) => {
+    axiosInstance.post(`submenu/create`, newSubMenu).then((res) => {
       console.log(res.data);
       setSubMenu([...subMenu, res.data])
       setAddSubMenuModal(false)
@@ -152,11 +117,9 @@ function SidebarAdmin() {
 
   const deleteSubMenu = () => {
     console.log(deleteModal);
-    let url = deleteModal.data?.type === "news" ? "sphere" : "infoGroup"
-    console.log(url);
 
     if (deleteModal.type === "subMenu") {
-      axiosInstance.delete(`${url}/delete/${deleteModal.data?.id}`).then(res => {
+      axiosInstance.delete(`${deleteModal.data?.type}/delete/${deleteModal.data?.id}`).then(res => {
         console.log(res.data);
         Alert(setAlert, "success", "Muvafaqqiyatli o'chirildi")
         const newSubMenu = subMenu.filter(item => item.id !== deleteModal.data?.id)
@@ -201,11 +164,8 @@ function SidebarAdmin() {
       visible: editIsVisible.current.checked,
     }
 
-    let url = updateModal.data?.type === "news" ? "sphere" : "infoGroup"
-    console.log(url);
-
     if (updateModal.type === "subMenu") {
-      axiosInstance.patch(`${url}/update`, sendData).then(res => {
+      axiosInstance.patch(`${updateModal.data?.type}/update`, sendData).then(res => {
         console.log(res.data);
         Alert(setAlert, "success", "Muvafaqqiyatli o'zgartirildi")
         const newSubMenu = subMenu.map((item) => {
@@ -267,9 +227,7 @@ function SidebarAdmin() {
     }
     console.log(sendData);
 
-    let url = sendModal.data?.type === "news" ? "sphere" : "infoGroup"
-
-    axiosInstance.patch(`${url}/changeMenu`, sendData).then(res => {
+    axiosInstance.patch(`${sendModal.data?.type}/changeMenu`, sendData).then(res => {
       const newSubMenu = subMenu.map((item) => {
         if (item.id === sendData.submenuId) {
           item.menuId = sendData.menuId

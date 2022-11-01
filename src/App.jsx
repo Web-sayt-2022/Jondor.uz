@@ -13,6 +13,7 @@ import UmumiyYangilikPage from "./pages/umumiyYangiliklarPage/UmumiyYangilikPage
 import Layout from "./utils/Layout";
 import LayoutAdmin from "./utils/LayoutAdmin";
 import Information from "./pages/adminPanel/information/Information";
+import EmployeeGroup from "./pages/adminPanel/employee/EmployeeGroup";
 
 function App() {
   return (
@@ -32,8 +33,10 @@ function App() {
           }></Route>
 
         <Route path="/admin/bosh_sahifa" element={<LayoutAdmin> <BoshSahifa /></LayoutAdmin>} />
+        <Route path="/employee" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
         <Route path="/admin/news/:menuId/:subMenuId" element={<LayoutAdmin> <News /></LayoutAdmin>} />
         <Route path="/admin/information/:menuId/:subMenuId" element={<LayoutAdmin> <Information /></LayoutAdmin>} />
+        <Route path="/admin/subGovGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
 
 
         <Route

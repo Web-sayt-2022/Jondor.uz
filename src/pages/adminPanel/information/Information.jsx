@@ -247,14 +247,13 @@ function Information() {
   }
 
   return (
-    <div className="card-body p-0 pt-3 pl-3">
+    <div className="card-body p-0 pt-3 px-3">
       <div className="card">
 
         <div className="tab-pane fade show active bg-white" id="colored-tab1">
           <div className="card-body py-2">
             <div className="d-flex" style={{ alignItems: "center", justifyContent: "space-between" }}>
               <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Ma'lumotlar</h3>
-              {/* onClick={() => setNewAddModal(true)} selectFunc() */}
               <button type="submit" onClick={() => { setAddModal(true)}} className="btn btn-primary">
                 <i className="icon-plus3 mr-1" style={{ fontSize: "18px" }}></i>Ma'lumot qo'shish
               </button>
