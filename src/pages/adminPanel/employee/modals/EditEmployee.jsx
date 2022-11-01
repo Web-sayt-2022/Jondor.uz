@@ -122,7 +122,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee.data?.firstName}
+                      defaultValue={editEmployee?.data?.firstName}
                       ref={firstNameRef}
                       required={true}
                     />

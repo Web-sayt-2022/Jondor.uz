@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 import React, { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
 import { useParams } from 'react-router-dom';
 import AlertContent, { Alert } from '../../../components/alert/Alert';
 import { axiosInstance, urlFile } from '../../../config';
 import AddEmployee from './modals/AddEmployee';
 import AddGroup from './modals/AddGroup';
+import Delete from './modals/Delete';
 import EditEmployee from './modals/EditEmployee';
 
 const EmployeeGroup = () => {
@@ -13,7 +13,7 @@ const EmployeeGroup = () => {
   const [govGroup, setGovGroup] = useState([])
   const [addGroup, setAddGroup] = useState(false)
   const [addEmployee, setAddEmployee] = useState({ isShow: false, id: 0 })
-  const [deleteModal, setDeleteModal] = useState({ isShow: false, id: 0 })
+  const [deleteModal, setDeleteModal] = useState({ isShow: false, id: 0, type: "", index: 0 })
   const [editEmployee, setEditEmployee] = useState({ isShow: false, id: 0, data: {} })
   const { subMenuId } = useParams()
 
@@ -42,7 +42,7 @@ const EmployeeGroup = () => {
             <div id="accordion-parent">
 
               {
-                govGroup.map((gov) => {
+                govGroup.map((gov, govIndex) => {
                   return (
                     <div class="card py-0" key={gov.id}>
                       <div class="card-header bg-primary px-3">
@@ -111,7 +111,7 @@ const EmployeeGroup = () => {
                                             <i className="icon-pencil5" style={{ fontSize: "18px" }}></i>
                                           </button>
                                           <button type="submit"
-                                            onClick={() => setDeleteModal({ isShow: true, id: 0 })}
+                                            onClick={() => setDeleteModal({ isShow: true, id: employee.id, type: "employee", index: govIndex })}
                                             className="btn btn-danger ml-1"
                                             title="O'chirish"
                                             style={{ padding: "8px 16px" }}>
@@ -176,7 +176,11 @@ const EmployeeGroup = () => {
 
         {
           deleteModal.isShow && (
-            <EditEmployee
+            <Delete
+              govGroup={govGroup}
+              setGovGroup={setGovGroup}
+              Alert={Alert}
+              setAlert={setAlert}
               deleteModal={deleteModal}
               setDeleteModal={setDeleteModal}
             />
