@@ -1,13 +1,18 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { axiosInstance } from '../../../../config';
 import CkeEditor from "../../../../components/ckeEditor/CkeEditor";
+import { useParams } from 'react-router-dom';
 
 
-const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert, setAlert }) => {
+const AddEmployee = ({ addEmployee, setAddEmployee, employeeGroup, setEmployeeGroup, Alert, setAlert }) => {
   const [file, setFile] = useState(null);
   const [newsData1, setNewsData1] = useState("");
   const [newsData2, setNewsData2] = useState("");
   const [newsData3, setNewsData3] = useState("");
+  const [newsData4, setNewsData4] = useState("");
+  const [newsData5, setNewsData5] = useState("");
+  const [newsData6, setNewsData6] = useState("");
+  const { subMenuId } = useParams()
 
   // add employee
   const lastNameRef = useRef()
@@ -26,8 +31,6 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
   const addEmployeeFunc = async (e) => {
     e.preventDefault()
     console.log(1);
-    console.log(file);
-    console.log(firstNameRef.current.value);
     if (file?.length > 0) {
       try {
         let formData = new FormData();
@@ -45,29 +48,28 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
             krPosition: krPositionRef.current.value,
             ruPosition: ruPositionRef.current.value,
             birthDate: birthDateRef.current.value,
-            birthPlace: birthPlaceRef.current.value,
+            uzBirthPlace: birthPlaceRef.current.value,
+            krBirthPlace: birthPlaceRef.current.value,
+            ruBirthPlace: birthPlaceRef.current.value,
             nation: nationRef.current.value,
             degree: degreeRef.current.value,
-            phoneRef: phoneRef.current.value,
+            phoneNumber: phoneRef.current.value,
             additionalInformationUz: newsData1,
             additionalInformationKr: newsData2,
             additionalInformationRu: newsData3,
+            uzResponsibility: newsData4,
+            krResponsibility: newsData5,
+            ruResponsibility: newsData6,
             imageID: allFilesId.data[0],
-            parentId: addEmployee.id
+            submenuID: subMenuId
           }
           console.log(sendingData);
-          const res = await axiosInstance.post("stateEmployee/create", sendingData);
+          const res = await axiosInstance.post("stateEmployee/createForEmployeeGroup", sendingData);
           console.log(res.data);
           Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
-          const newGovGroup = govGroup.filter((gov) => {
-            if (gov.id === addEmployee.id) {
-              gov.orderList = [...gov.orderList, res.data]
-            }
-            return gov
-          })
-          setGovGroup(newGovGroup)
+          setEmployeeGroup([...employeeGroup, res.data])
           setFile(null);
-          setAddEmployee({ isShow: false, id: 0 });
+          setAddEmployee(false);
         } catch (error) {
           console.log(error);
         }
@@ -100,13 +102,33 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
     [setNewsData3]
   );
 
+  const handleFunction4 = useCallback(
+    (event, editor) => {
+      setNewsData4(String(event?.editor?.getData()));
+    },
+    [setNewsData4]
+  );
+
+  const handleFunction5 = useCallback(
+    (event, editor) => {
+      setNewsData5(String(event?.editor?.getData()));
+    },
+    [setNewsData5]
+  );
+
+  const handleFunction6 = useCallback(
+    (event, editor) => {
+      setNewsData6(String(event?.editor?.getData()));
+    },
+    [setNewsData6]
+  );
   return (
     <div id="modal_large" className="modal fade show" tabindex="-1" aria-modal="true" role="dialog" style={{ display: "flex", alignItems: "center", background: "rgba(0, 0, 0, 0.5)" }}>
       <div style={{ width: "75%", margin: "0 auto" }}>
         <div className="modal-content">
           <div className="modal-header bg-primary text-white">
             <h5 className="modal-title">Xodim qo'shish</h5>
-            <button onClick={() => setAddEmployee({ isShow: false, id: 0 })} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
+            <button onClick={() => setAddEmployee(false)} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
               &times;
             </button>
           </div>
@@ -449,14 +471,118 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
                   </div>
                 </div>
               </div>
+
+              <div className="card">
+
+                <div className="card-body p-0 m-0">
+                  <ul className="nav nav-tabs nav-tabs-solid nav-tabs-solid-custom bg-primary NavLink	px-1">
+                    <li className="nav-item mt-2">
+                      <a
+                        href="#basic-tab4"
+                        className="nav-link active"
+                        data-toggle="tab"
+                      >
+                        <img
+                          className="mr-2"
+                          src="../../../utils/flags/uz.png"
+                          alt="uz"
+                        />
+                        Funksiya va vazifalari{" "}
+                        {
+                          (newsData4) ? (
+                            <i className="icon-stack-text ml-2 text-success"
+                              style={{ fontSize: "1.5rem" }}></i>
+                          ) : (
+                            <i className="icon-stack-empty ml-2 text-danger"
+                              style={{ fontSize: "1.5rem" }}></i>
+                          )
+                        }
+                      </a>
+                    </li>
+                    <li className="nav-item mt-2">
+                      <a
+                        href="#basic-tab5"
+                        className="nav-link"
+                        data-toggle="tab"
+                      >
+                        <img
+                          className="mr-2"
+                          src="../../../utils/flags/uz.png"
+                          alt="uz"
+                        />
+                        Функсия ва вазифалари
+                        {
+                          (newsData5) ? (
+                            <i className="icon-stack-text ml-2 text-success"
+                              style={{ fontSize: "1.5rem" }}></i>
+                          ) : (
+                            <i className="icon-stack-empty ml-2 text-danger"
+                              style={{ fontSize: "1.5rem" }}></i>
+                          )
+                        }
+                      </a>
+                    </li>
+                    <li className="nav-item mt-2">
+                      <a
+                        href="#basic-tab6"
+                        className="nav-link"
+                        data-toggle="tab"
+                      >
+                        <img
+                          className="mr-2"
+                          src="../../../utils/flags/ru.png"
+                          alt="ru"
+                        />
+                        Функции и задачи{" "}
+                        {
+                          (newsData6) ? (
+                            <i className="icon-stack-text ml-2 text-success"
+                              style={{ fontSize: "1.5rem" }}></i>
+                          ) : (
+                            <i className="icon-stack-empty ml-2 text-danger"
+                              style={{ fontSize: "1.5rem" }}></i>
+                          )
+                        }
+                      </a>{" "}
+                    </li>
+                  </ul>
+
+                  <div className="tab-content">
+                    {/* uz */}
+                    <div className="tab-pane fade show active" id="basic-tab4">
+
+                      {/* ckeditor */}
+                      <div className="templateCkeditor4">
+                        <CkeEditor handleFunction={handleFunction4} initData={""} />
+                      </div>
+                    </div>
+
+                    {/* уз */}
+                    <div className="tab-pane fade" id="basic-tab5">
+
+                      {/* ckeditor */}
+                      <div className="templateCkeditor5">
+                        <CkeEditor handleFunction={handleFunction5} initData={""} />
+                      </div>
+                    </div>
+
+                    {/* ru */}
+                    <div className="tab-pane fade" id="basic-tab6">
+
+                      {/* ckeditor */}
+                      <div className="templateCkeditor6">
+                        <CkeEditor handleFunction={handleFunction6} initData={""} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
 
 
-          <div className="modal-footer form-group form-group-floating row" style={{ justifyContent: "end" }}>
-            <div className="col-lg-4">
-              <button className='btn btn-success w-100 h-100 py-2' type='submit' form="form1" value="Submit">Qo'shish</button>
-            </div>
+          <div className="modal-footer p-2" style={{ display: "flex", justifyContent: "end" }}>
+            <button className='btn btn-success py-2' type='submit' form="form1" value="Submit">Qo'shish</button>
           </div>
         </div>
       </div>

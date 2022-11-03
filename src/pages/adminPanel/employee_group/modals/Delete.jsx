@@ -1,28 +1,18 @@
 import React from 'react';
 import { axiosInstance } from '../../../../config';
 
-const Delete = ({ deleteModal, setDeleteModal, Alert, setAlert, govGroup, setGovGroup }) => {
+const Delete = ({ deleteModal, setDeleteModal, Alert, setAlert, employeeGroup, setEmployeeGroup }) => {
   console.log(deleteModal);
   const deleteFunc = () => {
-    if (deleteModal.type === "employee") {
-      axiosInstance.delete(`stateEmployee/delete/${deleteModal.id}`).then(res => {
-        console.log(res.data);
-        const newGovGroup = govGroup.map((gov, index) => {
-          if (index === deleteModal.index) {
-            console.log(index);
-            const newGovOrder = gov.orderList.filter((gov2) => gov2.id !== deleteModal.id)
-            console.log(newGovOrder);
-            gov.orderList = newGovOrder
-          }
-
-          return gov
-        })
-        console.log(newGovGroup);
-        setGovGroup(newGovGroup);
-        setDeleteModal({ isShow: false, id: 0, type: "", index: 0 })
-        Alert(setAlert, "success", "Muvafaqqiyatli o'chirildi");
-      })
-    }
+    axiosInstance.delete(`stateEmployee/delete/${deleteModal.id}`).then((res) => {
+      const newEmployeeGroup = employeeGroup.filter((employee) => employee.id !== deleteModal.id)
+      console.log(newEmployeeGroup);
+      setEmployeeGroup(newEmployeeGroup);
+      setDeleteModal({ isShow: false, id: 0 })
+      Alert(setAlert, "success", "Muvafaqqiyatli o'chirildi");
+    }).catch(err => {
+      Alert(setAlert, "warning", err.response.data);
+    })
   }
 
   return (
@@ -31,7 +21,7 @@ const Delete = ({ deleteModal, setDeleteModal, Alert, setAlert, govGroup, setGov
         <div className="modal-content">
           <div className="modal-header bg-primary text-white">
             <h5 className="modal-title">O'chirish</h5>
-            <button onClick={() => setDeleteModal({ isShow: false, id: 0, type: "", index: 0 })} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
+            <button onClick={() => setDeleteModal({ isShow: false, id: 0 })} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
               &times;
             </button>
           </div>
@@ -47,7 +37,7 @@ const Delete = ({ deleteModal, setDeleteModal, Alert, setAlert, govGroup, setGov
 
           <div className="modal-footer" style={{ display: "flex", justifyContent: "center" }}>
             <button onClick={() => { deleteFunc(deleteModal.id) }} type="button" style={{ minWidth: "80px" }} className="btn btn-danger">Ha</button>
-            <button onClick={() => setDeleteModal({ isShow: false, id: 0, type: "", index: 0 })} type="button" style={{ minWidth: "80px" }} className="btn btn-primary">Yo'q</button>
+            <button onClick={() => setDeleteModal({ isShow: false, id: 0 })} type="button" style={{ minWidth: "80px" }} className="btn btn-primary">Yo'q</button>
           </div>
         </div>
       </div>

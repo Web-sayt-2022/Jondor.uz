@@ -1,20 +1,25 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import AlertContent, { Alert } from '../../../components/alert/Alert';
 import { axiosInstance, urlFile } from '../../../config';
 import AddEmployee from './modals/AddEmployee';
 import AddGroup from './modals/AddGroup';
 import Delete from './modals/Delete';
+import EditDesc from './modals/EditDesc';
 import EditEmployee from './modals/EditEmployee';
+import parse from "html-react-parser"
+import EditGroup from './modals/EditGroup';
 
-const EmployeeGroup = () => {
+const GovGroup = () => {
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const [govGroup, setGovGroup] = useState([])
   const [addGroup, setAddGroup] = useState(false)
   const [addEmployee, setAddEmployee] = useState({ isShow: false, id: 0 })
   const [deleteModal, setDeleteModal] = useState({ isShow: false, id: 0, type: "", index: 0 })
   const [editEmployee, setEditEmployee] = useState({ isShow: false, id: 0, data: {} })
+  const [editDesc, setEditDesc] = useState({ isShow: false, data: {} })
+  const [editGroup, setEditGroup] = useState({ isShow: false, data: {} })
   const { subMenuId } = useParams()
 
 
@@ -45,11 +50,21 @@ const EmployeeGroup = () => {
                 govGroup.map((gov, govIndex) => {
                   return (
                     <div class="card py-0" key={gov.id}>
-                      <div class="card-header bg-primary px-3">
+                      <div class="card-header bg-primary px-3" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         <h6 class="card-title text-white collapsed" style={{ width: "100%", cursor: "pointer", textTransform: "uppercase" }}
                           data-toggle="collapse" href={`#accordion-item-nested-parent${gov.id}`} aria-expanded="false">
                           {gov.uzName}
                         </h6>
+                        <div className="d-flex" style={{ gap: "16px" }}>
+                          <i className="icon-pencil5 text-white"
+                            onClick={() => setEditGroup({ isShow: true, data: gov })}
+                            style={{ fontSize: "18px", cursor: "pointer" }}
+                          ></i>
+                          <i className="icon-bin text-white"
+                            onClick={() => setDeleteModal({ isShow: true, id: gov.id, type: "govGroup", index: 0 })}
+                            style={{ fontSize: "18px", cursor: "pointer" }}
+                          ></i>
+                        </div>
                       </div>
 
                       <div id={`accordion-item-nested-parent${gov.id}`} class="collapse" data-parent="#accordion-parent">
@@ -62,12 +77,15 @@ const EmployeeGroup = () => {
                                   href={`#accordion-item-nested-child${gov.id}`} aria-expanded="false">
                                   {gov.uzDescriptionTitle}
                                 </h6>
-                                <i className="icon-pencil5 text-white" style={{ fontSize: "18px", cursor: "pointer" }}></i>
+                                <i className="icon-pencil5 text-white"
+                                  onClick={() => setEditDesc({ isShow: true, data: gov })}
+                                  style={{ fontSize: "18px", cursor: "pointer" }}
+                                ></i>
                               </div>
 
                               <div id={`accordion-item-nested-child${gov.id}`} class="collapse" data-parent={`#accordion-child${gov.id}`}>
                                 <div class="card-body">
-                                  {gov.uzDescription}
+                                  {parse(gov.uzDescription)}
                                 </div>
                               </div>
                             </div>
@@ -151,6 +169,33 @@ const EmployeeGroup = () => {
         }
 
         {
+          editGroup.isShow && (
+            <EditGroup
+              Alert={Alert}
+              setAlert={setAlert}
+              govGroup={govGroup}
+              setGovGroup={setGovGroup}
+              editGroup={editGroup}
+              setEditGroup={setEditGroup}
+            />
+
+          )
+        }
+
+        {
+          editDesc.isShow && (
+            <EditDesc
+              govGroup={govGroup}
+              setGovGroup={setGovGroup}
+              Alert={Alert}
+              setAlert={setAlert}
+              editDesc={editDesc}
+              setEditDesc={setEditDesc}
+            />
+          )
+        }
+
+        {
           addEmployee.isShow && (
             <AddEmployee
               Alert={Alert}
@@ -166,6 +211,8 @@ const EmployeeGroup = () => {
         {
           editEmployee.isShow && (
             <EditEmployee
+              govGroup={govGroup}
+              setGovGroup={setGovGroup}
               Alert={Alert}
               setAlert={setAlert}
               editEmployee={editEmployee}
@@ -194,5 +241,5 @@ const EmployeeGroup = () => {
   );
 }
 
-export default EmployeeGroup;
+export default React.memo(GovGroup);
 

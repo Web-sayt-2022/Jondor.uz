@@ -1,9 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import BoshSahifa from "./pages/adminPanel/bosh_sahifa/BoshSahifa";
 import Login from "./pages/adminPanel/login/Login";
-// import BatafsilYangilikPage from "./pages/batafsilYangilikPage/BatafsilYangilikPage";
 import XalqDeputatlariPage from "./pages/xalqDeputatlariPage/XalqDeputatlariPage";
-
 import Home from "./pages/homePage/Home";
 import MilliyBayramlarPage from "./pages/milliyBayramlarPage/MilliyBayramlarPage";
 import RahbariyatPage from "./pages/rahbariyatPage/RahbariyatPage";
@@ -13,7 +11,8 @@ import UmumiyYangilikPage from "./pages/umumiyYangiliklarPage/UmumiyYangilikPage
 import Layout from "./utils/Layout";
 import LayoutAdmin from "./utils/LayoutAdmin";
 import Information from "./pages/adminPanel/information/Information";
-import EmployeeGroup from "./pages/adminPanel/employee/EmployeeGroup";
+import GovGroup from "./pages/adminPanel/gov_group/GovGroup";
+import EmployeeGroup from "./pages/adminPanel/employee_group/EmployeeGroup";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
     <div style={{ backgroundColor: "#eeeded" }}>
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/yangilik_batafsil" element={<BatafsilYangilikPage />} /> */}
         <Route path="/admin_panel" element={<Login />} />
 
         <Route
@@ -33,10 +31,10 @@ function App() {
           }></Route>
 
         <Route path="/admin/bosh_sahifa" element={<LayoutAdmin> <BoshSahifa /></LayoutAdmin>} />
-        <Route path="/employee" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
         <Route path="/admin/news/:menuId/:subMenuId" element={<LayoutAdmin> <News /></LayoutAdmin>} />
         <Route path="/admin/information/:menuId/:subMenuId" element={<LayoutAdmin> <Information /></LayoutAdmin>} />
-        <Route path="/admin/subGovGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
+        <Route path="/admin/subGovGroup/:menuId/:subMenuId" element={<LayoutAdmin> <GovGroup /></LayoutAdmin>} />
+        <Route path="/admin/employeeGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
 
 
         <Route

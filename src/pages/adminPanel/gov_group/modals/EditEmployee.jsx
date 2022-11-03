@@ -3,8 +3,8 @@ import { axiosInstance } from '../../../../config';
 import CkeEditor from "../../../../components/ckeEditor/CkeEditor";
 
 
-const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
-  const [file, setFile] = useState(null);
+const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Alert, setAlert }) => {
+  const [file, setFile] = useState([]);
   const [newsData1, setNewsData1] = useState("");
   const [newsData2, setNewsData2] = useState("");
   const [newsData3, setNewsData3] = useState("");
@@ -34,50 +34,80 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
   //xodim qo'shish
   const editEmployeeFunc = async (e) => {
     e.preventDefault()
-    console.log(1);
-    console.log(file);
-    console.log(firstNameRef.current.value);
-    if (file?.length > 0) {
+    try {
+      let formData = new FormData();
+      if (file.length > 0) {
+        formData.append("images", file[0]);
+      } else {
+        formData.append("images", file);
+      }
+      const allFilesId = await axiosInstance.post("file/uploads", formData);
+      console.log(allFilesId);
       try {
-        let formData = new FormData();
-        file.forEach((f) => {
-          formData.append("images", f);
-        });
-        const allFilesId = await axiosInstance.post("file/uploads", formData);
-        console.log(allFilesId);
-        try {
-          const sendingData = {
-            firstName: firstNameRef.current.value,
-            lastName: lastNameRef.current.value,
-            patronymic: middleNameRef.current.value,
-            uzPosition: uzPositionRef.current.value,
-            krPosition: krPositionRef.current.value,
-            ruPosition: ruPositionRef.current.value,
-            birthDate: birthDateRef.current.value,
-            birthPlace: birthPlaceRef.current.value,
-            nation: nationRef.current.value,
-            degree: degreeRef.current.value,
-            phoneRef: phoneRef.current.value,
-            additionalInformationUz: newsData1,
-            additionalInformationKr: newsData2,
-            additionalInformationRu: newsData3,
-            imageID: allFilesId.data[0] ? allFilesId.data[0] : editEmployee.imageID,
-            parentId: editEmployee.id
-          }
-          console.log(sendingData);
-          const res = await axiosInstance.post("stateEmployee/create", sendingData);
-          console.log(res.data);
-          setFile(null);
-          setEditEmployee({ isShow: false, id: 0, data: {} });
-          Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
-        } catch (error) {
-          console.log(error);
+        const sendingData = {
+          id: editEmployee.data.id,
+          firstName: firstNameRef.current.value,
+          lastName: lastNameRef.current.value,
+          patronymic: middleNameRef.current.value,
+          uzPosition: uzPositionRef.current.value,
+          krPosition: krPositionRef.current.value,
+          ruPosition: ruPositionRef.current.value,
+          birthDate: birthDateRef.current.value,
+          uzBirthPlace: birthPlaceRef.current.value,
+          krBirthPlace: birthPlaceRef.current.value,
+          ruBirthPlace: birthPlaceRef.current.value,
+          nation: nationRef.current.value,
+          degree: degreeRef.current.value,
+          phoneNumber: phoneRef.current.value,
+          additionalInformationUz: newsData1 ? newsData1 : editEmployee.data.additionalInformationUz,
+          additionalInformationKr: newsData2 ? newsData2 : editEmployee.data.additionalInformationKr,
+          additionalInformationRu: newsData3 ? newsData3 : editEmployee.data.additionalInformationRu,
+          imageID: allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.imageID,
+          parentId: editEmployee.id
         }
+        console.log(sendingData);
+        const res = await axiosInstance.patch("stateEmployee/update", sendingData);
+        console.log(res.data);
+        const newGovGroup = govGroup?.map(gov => {
+          if (gov.id === editEmployee.id) {
+            gov?.orderList?.map(item => {
+              if (item.id === editEmployee.data.id) {
+                item.firstName = res.data.firstName;
+                item.lastName = lastNameRef.current.value;
+                item.patronymic = middleNameRef.current.value;
+                item.uzPosition = uzPositionRef.current.value;
+                item.krPosition = krPositionRef.current.value;
+                item.ruPosition = ruPositionRef.current.value;
+                item.birthDate = birthDateRef.current.value;
+                item.uzBirthPlace = birthPlaceRef.current.value;
+                item.krBirthPlace = birthPlaceRef.current.value;
+                item.ruBirthPlace = birthPlaceRef.current.value;
+                item.nation = nationRef.current.value;
+                item.degree = degreeRef.current.value;
+                item.phoneNumber = phoneRef.current.value;
+                item.additionalInformationUz = newsData1 ? newsData1 : editEmployee.data.additionalInformationUz;
+                item.additionalInformationKr = newsData2 ? newsData2 : editEmployee.data.additionalInformationKr;
+                item.additionalInformationRu = newsData3 ? newsData3 : editEmployee.data.additionalInformationRu;
+                item.imageID = allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.imageID;
+                item.parentId = editEmployee.id
+              }
+
+              return item
+            })
+          }
+          return gov
+        })
+
+        setGovGroup(newGovGroup)
+
+        setFile([]);
+        setEditEmployee({ isShow: false, id: 0, data: {} });
+        Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
       } catch (error) {
         console.log(error);
       }
-    } else {
-      Alert(setAlert, "warning", "Rasm tanlamadingiz!")
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -107,7 +137,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
       <div style={{ width: "75%", margin: "0 auto" }}>
         <div className="modal-content">
           <div className="modal-header bg-primary text-white">
-            <h5 className="modal-title">Xodim qo'shish</h5>
+            <h5 className="modal-title">Xodim ma'lumotlarini o'zgartirish</h5>
             <button onClick={() => setEditEmployee({ isShow: false, id: 0, data: {} })} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
               &times;
             </button>
@@ -139,6 +169,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.lastName}
                       ref={lastNameRef}
                       required={true}
                     />
@@ -155,6 +186,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.patronymic}
                       ref={middleNameRef}
                       required={true}
                     />
@@ -173,6 +205,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.uzPosition}
                       ref={uzPositionRef}
                       required={true}
                     />
@@ -189,6 +222,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.krPosition}
                       ref={krPositionRef}
                       required={true}
                     />
@@ -205,6 +239,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.ruPosition}
                       ref={ruPositionRef}
                       required={true}
                     />
@@ -223,6 +258,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.birthDate.substr(0, 10)}
                       ref={birthDateRef}
                       data-mask="9999-99-99"
                       required={true}
@@ -240,6 +276,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.uzBirthPlace}
                       ref={birthPlaceRef}
                       required={true}
                     />
@@ -256,6 +293,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.nation}
                       ref={nationRef}
                       required={true}
                     />
@@ -275,6 +313,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.phoneNumber}
                       ref={phoneRef}
                       data-mask="+998 (99) 999-99-99"
                       required={true}
@@ -292,6 +331,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
+                      defaultValue={editEmployee?.data?.degree}
                       ref={degreeRef}
                       required={true}
                     />
@@ -312,7 +352,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                             style={{ height: "56px", background: "#fff" }}
                             type="text"
                             defaultValue={
-                              file && "Rasm tanlandi"
+                              file ? "Rasm tanlandi" : editEmployee.data?.imageID ? "Rasm tanlangan" : ""
                             }
                             disabled
                             accept=".png, .jpeg, .jpg"
@@ -367,15 +407,6 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                           alt="uz"
                         />
                         Qisqacha ma'lumot{" "}
-                        {
-                          (newsData1) ? (
-                            <i className="icon-stack-text ml-2 text-success"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          ) : (
-                            <i className="icon-stack-empty ml-2 text-danger"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          )
-                        }
                       </a>
                     </li>
                     <li className="nav-item mt-2">
@@ -390,15 +421,6 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                           alt="uz"
                         />
                         Қисқача маълумот
-                        {
-                          (newsData2) ? (
-                            <i className="icon-stack-text ml-2 text-success"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          ) : (
-                            <i className="icon-stack-empty ml-2 text-danger"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          )
-                        }
                       </a>
                     </li>
                     <li className="nav-item mt-2">
@@ -413,15 +435,6 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
                           alt="ru"
                         />
                         Краткая информация{" "}
-                        {
-                          (newsData3) ? (
-                            <i className="icon-stack-text ml-2 text-success"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          ) : (
-                            <i className="icon-stack-empty ml-2 text-danger"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          )
-                        }
                       </a>{" "}
                     </li>
                   </ul>
@@ -432,7 +445,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
 
                       {/* ckeditor */}
                       <div className="templateCkeditor1">
-                        <CkeEditor handleFunction={handleFunction1} initData={""} />
+                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.additionalInformationUz || ""} />
                       </div>
                     </div>
 
@@ -441,7 +454,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
 
                       {/* ckeditor */}
                       <div className="templateCkeditor2">
-                        <CkeEditor handleFunction={handleFunction2} initData={""} />
+                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.additionalInformationKr || ""} />
                       </div>
                     </div>
 
@@ -450,7 +463,7 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
 
                       {/* ckeditor */}
                       <div className="templateCkeditor3">
-                        <CkeEditor handleFunction={handleFunction3} initData={""} />
+                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.additionalInformationRu || ""} />
                       </div>
                     </div>
                   </div>
@@ -459,10 +472,8 @@ const EditEmployee = ({ editEmployee, setEditEmployee, Alert, setAlert }) => {
             </form>
           </div>
 
-          <div className="modal-footer form-group form-group-floating row" style={{ justifyContent: "end" }}>
-            <div className="col-lg-4">
-              <button className='btn btn-success w-100 h-100 py-2' type='submit' form="form1" value="Submit">Qo'shish</button>
-            </div>
+          <div className="modal-footer p-2" style={{ display: "flex", justifyContent: "end" }}>
+            <button className='btn btn-success py-2' type='submit' form="form1" value="Submit">O'zgartirish</button>
           </div>
         </div>
       </div>
