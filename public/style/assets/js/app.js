@@ -87,10 +87,10 @@ const App = function () {
 
     // Remove class on mouse leave
     sidebarMainElement.on('mouseleave', function () {
-      document.querySelector('.sidebar-main').classList.remove('sidebar-mobile-expanded'); //+
-      document.querySelectorAll('.nav-item-ul').forEach((d) => { //+
-        d.style.display = "none";
-      })
+      // document.querySelector('.sidebar-main').classList.remove('sidebar-mobile-expanded'); //+
+      // document.querySelectorAll('.nav-item-ul').forEach((d) => { //+
+      //   d.style.display = "none";
+      // })
       clearTimeout(timerStart);
       timerFinish = setTimeout(function () {
         sidebarMainElement.removeClass(unfoldClass);

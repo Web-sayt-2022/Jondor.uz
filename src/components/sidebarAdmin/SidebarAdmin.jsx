@@ -14,12 +14,12 @@ function SidebarAdmin() {
   const [addMenuModal, setAddMenuModal] = useState(false)
   const [menuOption, setMenuOption] = useState([])
   const [menu, setMenu] = useState([])
+  const [subMenu, setSubMenu] = useState([])
   const [addSubMenuModal, setAddSubMenuModal] = useState({ isShow: false, menuId: 0 })
   const [updateModal, setUpdateModal] = useState({ isShow: false, data: {}, type: "" })
   const [deleteModal, setDeleteModal] = useState({ isShow: false, data: {}, type: "" })
   const [sendModal, setSendModal] = useState({ isShow: false, data: {}, type: "" })
 
-  const [subMenu, setSubMenu] = useState([])
 
   const open = (name) => {
     if (document.querySelector(`#${name}`).querySelector('ul').style.display === "none") {
@@ -100,8 +100,6 @@ function SidebarAdmin() {
                                   <i className="icon-file-text3" style={{ color: "#0056B8" }} />
                                   <span>{item2.uzName}</span>
                                 </a>
-                                // <a to={`${item2.url}`} target="_blank" className="nav-link liHover" style={{ fontSize: '18px', width: "100%" }}>
-                                // </Link>
                               )
 
                               }

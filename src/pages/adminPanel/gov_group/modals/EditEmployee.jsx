@@ -59,9 +59,9 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
           nation: nationRef.current.value,
           degree: degreeRef.current.value,
           phoneNumber: phoneRef.current.value,
-          additionalInformationUz: newsData1 ? newsData1 : editEmployee.data.additionalInformationUz,
-          additionalInformationKr: newsData2 ? newsData2 : editEmployee.data.additionalInformationKr,
-          additionalInformationRu: newsData3 ? newsData3 : editEmployee.data.additionalInformationRu,
+          uzAdditionalInformation: newsData1 ? newsData1 : editEmployee.data.uzAdditionalInformation,
+          krAdditionalInformation: newsData2 ? newsData2 : editEmployee.data.krAdditionalInformation,
+          ruAdditionalInformation: newsData3 ? newsData3 : editEmployee.data.ruAdditionalInformation,
           imageID: allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.imageID,
           parentId: editEmployee.id
         }
@@ -85,9 +85,9 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                 item.nation = nationRef.current.value;
                 item.degree = degreeRef.current.value;
                 item.phoneNumber = phoneRef.current.value;
-                item.additionalInformationUz = newsData1 ? newsData1 : editEmployee.data.additionalInformationUz;
-                item.additionalInformationKr = newsData2 ? newsData2 : editEmployee.data.additionalInformationKr;
-                item.additionalInformationRu = newsData3 ? newsData3 : editEmployee.data.additionalInformationRu;
+                item.uzAdditionalInformation = newsData1 ? newsData1 : editEmployee.data.uzAdditionalInformation;
+                item.krAdditionalInformation = newsData2 ? newsData2 : editEmployee.data.krAdditionalInformation;
+                item.ruadditionalInformation = newsData3 ? newsData3 : editEmployee.data.ruadditionalInformation;
                 item.imageID = allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.imageID;
                 item.parentId = editEmployee.id
               }
@@ -445,7 +445,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
 
                       {/* ckeditor */}
                       <div className="templateCkeditor1">
-                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.additionalInformationUz || ""} />
+                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.uzAdditionalInformation || ""} />
                       </div>
                     </div>
 
@@ -454,7 +454,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
 
                       {/* ckeditor */}
                       <div className="templateCkeditor2">
-                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.additionalInformationKr || ""} />
+                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.krAdditionalInformation || ""} />
                       </div>
                     </div>
 
@@ -463,7 +463,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
 
                       {/* ckeditor */}
                       <div className="templateCkeditor3">
-                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.additionalInformationRu || ""} />
+                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.ruAdditionalInformation || ""} />
                       </div>
                     </div>
                   </div>

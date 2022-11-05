@@ -112,7 +112,7 @@ const CarouselNews = ({ state }) => {
         customPaging={(i) => (
           <div>
             <img
-              src={urlFile + "file/view/" + state?.images[i]?.generatedName}
+              src={urlFile + "/" + state[i]}
               alt=""
               className="customImg"
             />
@@ -120,11 +120,11 @@ const CarouselNews = ({ state }) => {
         )}
         dotsClass="slick-dots custom-indicator"
       >
-        {state?.images?.length > 0 &&
-          state.images.map((src, index) => (
+        {state?.length > 0 &&
+          state.map((src, index) => (
             <div key={index}>
               <img
-                src={urlFile + "file/view/" + src.generatedName}
+                src={urlFile + "/" + src}
                 alt=""
                 style={{
                   width: "100%",

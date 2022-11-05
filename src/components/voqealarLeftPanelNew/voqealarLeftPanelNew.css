@@ -1,7 +1,5 @@
 .voqealar {
   width: 345px;
-  /* background-color: orangered; */
-  padding: 20px;
 }
 
 .voqealar > * {
@@ -29,7 +27,7 @@
 
 .voqealar .voqea {
   background: #fff;
-  height: 340px;
+  height: 350px;
   margin-top: 10px;
   box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.25);
 }
@@ -55,27 +53,26 @@
 
 .voqealar .voqea .voqea__text p {
   color: #333333;
-  font-size: 24px;
+  font-size: 1.25rem;
   line-height: 1;
 }
 
 .voqealar .foydali-link {
-  /* background-color: aqua; */
   list-style: none;
-  margin-top: 20px;
-  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .voqealar .foydali-link li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 72.5px;
   box-shadow: 0px 0px 4px rgba(51, 51, 51, 0.25);
   background-color: #2196f3;
   overflow: hidden;
   border-radius: 5px;
-  margin-top: 20px;
 }
 
 .voqealar .foydali-link__img {
@@ -114,4 +111,5 @@
 .voqealar .calendar {
   box-shadow: 0px 8.26788px 33.0715px rgba(0, 0, 0, 0.05);
   border-radius: 5px;
+  height: 350px;
 }

@@ -10,7 +10,7 @@ import EditInformation from './modals/EditInformation';
 function Information() {
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const [currentPage, setCurrentPage] = useState(0)
-  const [size, setSize] = useState(2)
+  const [size, setSize] = useState(4)
   const [selected, setSelected] = useState(0)
   const [totalElements, setTotalElements] = useState(0)
   const [addModal, setAddModal] = useState(false)

@@ -51,11 +51,11 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
             nation: nationRef.current.value,
             degree: degreeRef.current.value,
             phoneNumber: phoneRef.current.value,
-            additionalInformationUz: newsData1,
-            additionalInformationKr: newsData2,
-            additionalInformationRu: newsData3,
+            uzAdditionalInformation: newsData1,
+            krAdditionalInformation: newsData2,
+            ruAdditionalInformation: newsData3,
             imageID: allFilesId.data[0],
-            parentId: addEmployee.id
+            submenuID: addEmployee.id
           }
           console.log(sendingData);
           const res = await axiosInstance.post("stateEmployee/create", sendingData);

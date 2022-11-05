@@ -1,0 +1,324 @@
+.rahbariyat-cards .rahbariyat-card .card-body {
+  padding: 0;
+}
+
+.rahbariyat-cards .rahbariyat-card .body-elements {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.rahbariyat-cards .rahbariyat-card .body-elements .img {
+  flex: 0.4;
+  padding: 0.5rem;
+  /* 24px */
+}
+
+.rahbariyat-cards .rahbariyat-card .body-elements .img img {
+  width: 310px;
+  height: 380px;
+  object-fit: cover;
+}
+
+.rahbariyat-cards .rahbariyat-card .body-elements .table-responsive {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+.rahbariyat-cards .rahbariyat-card .body-elements .person-info h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.rahbariyat-cards .rahbariyat-card .body-elements .person-info p {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.rahbariyat-cards
+  .rahbariyat-card
+  .body-elements
+  .table-responsive
+  .person
+  .table {
+  margin-bottom: 0.5rem;
+}
+
+.rahbariyat-cards
+  .rahbariyat-card
+  .card
+  .body-elements
+  .table-responsive
+  .person
+  button {
+  padding: 0.8rem 1rem;
+}
+
+.rahbariyat-cards
+  .rahbariyat-card
+  .card
+  .body-elements
+  .table-responsive
+  .person
+  button
+  span {
+  font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .rahbariyat-cards .rahbariyat-card .card-body {
+    padding: 0;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .img {
+    flex: 0.2;
+    padding: 1.5rem;
+    /* 24px */
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .img img {
+    width: 230px;
+    height: 340px;
+    object-fit: cover;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .table-responsive {
+    flex: 1;
+    padding: 0.5rem;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    /* padding: 0.5rem; */
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info p {
+    font-size: 1rem;
+    /* padding: 0.5rem; */
+    margin: 0;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    .table {
+    margin-bottom: 0.5rem;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    button {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    button
+    span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 769px) {
+  .rahbariyat-cards .rahbariyat-card .card-body {
+    padding: 0;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .img {
+    padding: 1.5rem;
+    /* 24px */
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .img img {
+    width: 220px;
+    height: 330px;
+    object-fit: cover;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .table-responsive {
+    padding: 0.5rem;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .table-responsive .table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .table-responsive .person {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person-info {
+    text-align: center;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    /* padding: 0.5rem; */
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info p {
+    font-size: 1rem;
+    /* padding: 0.5rem; */
+    margin: 0;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    .table {
+    margin-bottom: 0.5rem;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    button {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    button
+    span {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 447px) {
+  body {
+    padding: 0px 6px !important;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .card-body {
+    padding: 0 !important;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2px;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .img {
+    padding: 18px;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .img img {
+    width: 240px;
+    height: 280px;
+    object-fit: cover;
+  }
+
+  /* .rahbariyat-cards .rahbariyat-card .body-elements .img img {
+			width: 100% !important;
+			
+		} */
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info {
+    margin: 4px 0;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info p {
+    font-size: 16px;
+    padding: 6px;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    .table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .table-responsive {
+    padding: 0;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .table-responsive .person {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .rahbariyat-cards .rahbariyat-card .body-elements .person-info {
+    text-align: center;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    button {
+    padding: 0.4rem 0.6rem;
+  }
+
+  .rahbariyat-cards
+    .rahbariyat-card
+    .body-elements
+    .table-responsive
+    .person
+    button
+    span {
+    font-size: 10px;
+  }
+}

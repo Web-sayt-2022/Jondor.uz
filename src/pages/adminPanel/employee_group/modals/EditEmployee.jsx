@@ -62,9 +62,9 @@ const EditEmployee = ({ employeeGroup, setEmployeeGroup, editEmployee, setEditEm
           nation: nationRef.current.value,
           degree: degreeRef.current.value,
           phoneNumber: phoneRef.current.value,
-          additionalInformationUz: newsData1 ? newsData1 : editEmployee.data.additionalInformationUz,
-          additionalInformationKr: newsData2 ? newsData2 : editEmployee.data.additionalInformationKr,
-          additionalInformationRu: newsData3 ? newsData3 : editEmployee.data.additionalInformationRu,
+          uzAdditionalInformation: newsData1 ? newsData1 : editEmployee.data.uzAdditionalInformation,
+          krAdditionalInformation: newsData2 ? newsData2 : editEmployee.data.krAdditionalInformation,
+          ruAdditionalInformation: newsData3 ? newsData3 : editEmployee.data.ruAdditionalInformation,
           uzResponsibility: newsData4 ? newsData4 : editEmployee.data.uzResponsibility,
           krResponsibility: newsData5 ? newsData5 : editEmployee.data.krResponsibility,
           ruResponsibility: newsData6 ? newsData6 : editEmployee.data.ruResponsibility,
@@ -88,9 +88,9 @@ const EditEmployee = ({ employeeGroup, setEmployeeGroup, editEmployee, setEditEm
             employee.nation = nationRef.current.value;
             employee.degree = degreeRef.current.value;
             employee.phoneNumber = phoneRef.current.value;
-            employee.additionalInformationUz = newsData1 ? newsData1 : editEmployee.data.additionalInformationUz;
-            employee.additionalInformationKr = newsData2 ? newsData2 : editEmployee.data.additionalInformationKr;
-            employee.additionalInformationRu = newsData3 ? newsData3 : editEmployee.data.additionalInformationRu;
+            employee.uzAdditionalInformation = newsData1 ? newsData1 : editEmployee.data.uzAdditionalInformation;
+            employee.krAdditionalInformation = newsData2 ? newsData2 : editEmployee.data.krAdditionalInformation;
+            employee.ruAdditionalInformation = newsData3 ? newsData3 : editEmployee.data.ruAdditionalInformation;
             employee.uzResponsibility = newsData4 ? newsData4 : editEmployee.data.uzResponsibility;
             employee.krResponsibility = newsData5 ? newsData5 : editEmployee.data.krResponsibility;
             employee.ruResponsibility = newsData6 ? newsData6 : editEmployee.data.ruResponsibility;
@@ -467,7 +467,7 @@ const EditEmployee = ({ employeeGroup, setEmployeeGroup, editEmployee, setEditEm
 
                       {/* ckeditor */}
                       <div className="templateCkeditor1">
-                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.additionalInformationUz || ""} />
+                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.uzAdditionalInformation || ""} />
                       </div>
                     </div>
 
@@ -476,7 +476,7 @@ const EditEmployee = ({ employeeGroup, setEmployeeGroup, editEmployee, setEditEm
 
                       {/* ckeditor */}
                       <div className="templateCkeditor2">
-                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.additionalInformationKr || ""} />
+                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.krAdditionalInformation || ""} />
                       </div>
                     </div>
 
@@ -485,7 +485,7 @@ const EditEmployee = ({ employeeGroup, setEmployeeGroup, editEmployee, setEditEm
 
                       {/* ckeditor */}
                       <div className="templateCkeditor3">
-                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.additionalInformationRu || ""} />
+                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.ruAdditionalInformation || ""} />
                       </div>
                     </div>
                   </div>

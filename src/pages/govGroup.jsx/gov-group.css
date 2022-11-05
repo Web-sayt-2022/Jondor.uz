@@ -24,7 +24,8 @@
 
 .section-accordion .card .body-elements .img {
   flex: 0.4;
-  padding: 0.5rem; /* 24px */
+  padding: 0.5rem;
+  /* 24px */
 }
 
 .section-accordion .card .body-elements .img img {
@@ -75,7 +76,8 @@
 
   .section-accordion .card .body-elements .img {
     flex: 0.2;
-    padding: 1.5rem; /* 24px */
+    padding: 1.5rem;
+    /* 24px */
   }
 
   .section-accordion .card .body-elements .img img {
@@ -109,13 +111,7 @@
     padding: 0.6rem 0.8rem;
   }
 
-  .section-accordion
-    .card
-    .body-elements
-    .table-responsive
-    .person
-    button
-    span {
+  .section-accordion .card .body-elements .table-responsive .person button span {
     font-size: 12px;
   }
 }
@@ -135,7 +131,8 @@
   }
 
   .section-accordion .card .body-elements .img {
-    padding: 1.5rem; /* 24px */
+    padding: 1.5rem;
+    /* 24px */
   }
 
   .section-accordion .card .body-elements .img img {
@@ -186,13 +183,7 @@
     padding: 0.6rem 0.8rem;
   }
 
-  .section-accordion
-    .card
-    .body-elements
-    .table-responsive
-    .person
-    button
-    span {
+  .section-accordion .card .body-elements .table-responsive .person button span {
     font-size: 12px;
   }
 }
@@ -270,13 +261,17 @@
     padding: 0.4rem 0.6rem;
   }
 
-  .section-accordion
-    .card
-    .body-elements
-    .table-responsive
-    .person
-    button
-    span {
+  .section-accordion .card .body-elements .table-responsive .person button span {
     font-size: 10px;
+  }
+}
+
+.user-gov-group {
+  width: calc(100% - 345px) !important;
+}
+
+@media(max-width: 992px) {
+  .asosiy-main .user-gov-group {
+    width: 100% !important;
   }
 }

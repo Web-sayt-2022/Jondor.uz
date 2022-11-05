@@ -1,15 +1,16 @@
 .vertical-yangiliklar-section-left {
-  width: calc(100% - 300px);
+  width: calc(100% - 345px) !important;
 }
 
-
-
+@media(max-width: 992px) {
+  .asosiy-main .vertical-yangiliklar-section-left {
+    width: 100% !important;
+  }
+}
 
 .vertical-yangiliklar-section-left .card-text-title {
   cursor: pointer;
 }
-
-
 
 .vertical-yangiliklar-section-left .card-title {
   font-size: 0.8rem;
@@ -17,19 +18,16 @@
 
 .vertical-yangiliklar-section-left .card-text-title:hover {
   color: #2196f3;
-
 }
 
 .vertical-yangiliklar-section-left .img-scale {
   overflow: hidden;
- 
-  
 }
 
 .vertical-yangiliklar-section-left .img-fluid {
   transition: 0.3s linear !important;
   width: 100%;
-  height: 11.8rem;
+  height: 12.5rem;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -49,68 +47,21 @@
   transform: scale(1.02);
 }
 
-.vertical-yangiliklar-section-left
-  .modal-backdrop
-  + .yangiliklar-section
-  .show {
+.vertical-yangiliklar-section-left .modal-backdrop+.yangiliklar-section .show {
   opacity: 0.1 !important;
 }
 
-/* .asosiy-content .left-panel {
- vertical- width: 1000px;
+.new-p-vertical {
+    font-weight: 600;
+    color: "#2a4d85";
+    font-size: "0.8rem";
+    font-variant: "small-caps";
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+    margin-bottom: 0;
+    overflow: hidden;
+    min-height: 50px;
 }
-
-.left-panel .aloqa-section .list-group span vertical-{
-  width: 50%;
-}
-
-.left-panel .aloqa-section .hero {
-  font-size: 1.125rem;
-  text-transfvertical-orm: uppercase;
-}
-
-.left-panel .aloqa-section .working-time span {
-  font-vertical-size: 0.875rem;
-}
-
-.left-panel .aloqa-section .ish-tartibi {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 10rem;vertical-
-  gap: 0.5rem;
-}
-
-.left-panel .aloqa-section .ish-tartibi > div {
-  background-color: white;
-vertical-  border: none;
-}
-
-.left-panel .aloqa-section .ish-tartibivertical- div:nth-child(1),
-.left-panel .aloqa-section .ish-tartibi div:nth-child(6) {
-  grvertical-id-row: span 2;
-}
-
-.left-panel .aloqa-section .dasturiy {
-  font-size: 1.125rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: calc(20rem - 3.5rem);
-vertical-  border: none;
-}
-
-.left-panel .aloqa-section .dasturiy::-webkit-scrollbavertical-r {
-  width: 0;
-}
-
-.left-panel .aloqa-section .dasturiy a {
-  font-vertical-size: 1.125rem;
-}
-
-.left-panel .aloqa-section .dasturiy a:hover {
-  cursor: pointer;
-  vertical-color: #2196f3;
-}
-
-.left-panel .aloqa-section .ish-tartibi div ul li {
-  border: none;
-} */

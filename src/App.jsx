@@ -5,7 +5,6 @@ import XalqDeputatlariPage from "./pages/xalqDeputatlariPage/XalqDeputatlariPage
 import Home from "./pages/homePage/Home";
 import MilliyBayramlarPage from "./pages/milliyBayramlarPage/MilliyBayramlarPage";
 import RahbariyatPage from "./pages/rahbariyatPage/RahbariyatPage";
-import TarkibiyBolinmalarPage from "./pages/tarkibiyBo'linmalarPage/TarkibiyBolinmalarPage";
 import News from "./pages/adminPanel/news/News";
 import UmumiyYangilikPage from "./pages/umumiyYangiliklarPage/UmumiyYangilikPage";
 import Layout from "./utils/Layout";
@@ -13,6 +12,11 @@ import LayoutAdmin from "./utils/LayoutAdmin";
 import Information from "./pages/adminPanel/information/Information";
 import GovGroup from "./pages/adminPanel/gov_group/GovGroup";
 import EmployeeGroup from "./pages/adminPanel/employee_group/EmployeeGroup";
+import UserNews from "./pages/news/UserNews";
+import DetailNews from "./pages/news/DetailNews";
+import UserInformation from "./pages/information/UserInformation";
+import UserGovGroup from "./pages/govGroup.jsx/UserGovGroup";
+import UserEmployee from "./pages/employee/UserEmployee";
 
 function App() {
   return (
@@ -26,7 +30,7 @@ function App() {
           path="/1"
           element={
             <Layout>
-              <UmumiyYangilikPage />
+              <UserGovGroup />
             </Layout>
           }></Route>
 
@@ -35,6 +39,15 @@ function App() {
         <Route path="/admin/information/:menuId/:subMenuId" element={<LayoutAdmin> <Information /></LayoutAdmin>} />
         <Route path="/admin/subGovGroup/:menuId/:subMenuId" element={<LayoutAdmin> <GovGroup /></LayoutAdmin>} />
         <Route path="/admin/employeeGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
+
+        <Route path="/news/:menuId/:subMenuId" element={<Layout><UserNews /></Layout>} />
+        <Route path="/news/detail/:id" element={<Layout><DetailNews /></Layout>} />
+
+        <Route path="/information/:menuId/:subMenuId" element={<Layout><UserInformation /></Layout>} />
+        <Route path="/information/detail/:id" element={<Layout><DetailNews /></Layout>} />
+
+        <Route path="/subGovGroup/:menuId/:subMenuId" element={<Layout><UserGovGroup /></Layout>} />
+        <Route path="/employeeGroup/:menuId/:subMenuId" element={<Layout><UserEmployee /></Layout>} />
 
 
         <Route
@@ -59,15 +72,6 @@ function App() {
           element={
             <Layout>
               <RahbariyatPage />
-            </Layout>
-          }
-        ></Route>
-
-        <Route
-          path="/tarkibiy_bolinmalar"
-          element={
-            <Layout>
-              <TarkibiyBolinmalarPage />
             </Layout>
           }
         ></Route>

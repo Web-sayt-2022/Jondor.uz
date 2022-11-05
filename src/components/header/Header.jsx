@@ -1,9 +1,29 @@
-import { style } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { axiosInstance } from "../../config";
+import language from "../../utils/img/language.png"
+import buxImg from "../../utils/img/bux.png"
+import logoNav from "../../utils/img/logo_nav.png"
 
 
 const Header = () => {
+  const [menu, setMenu] = useState([])
+  const [subMenu, setSubMenu] = useState([])
+
+  // menularni o'qib olish
+  useEffect(() => {
+    axiosInstance.get("menu/getForAdmin").then((res) => {
+      console.log(res.data);
+      setMenu(res.data?.menuDTOS);
+      setSubMenu(res.data?.submenuDTOS)
+    })
+  }, [])
+
+  console.log(menu);
+  console.log(subMenu);
+
   return (
     <Wrapper>
       <nav
@@ -12,7 +32,7 @@ const Header = () => {
       >
         <div className="languages_block d-flex align-items-center justify-content-between w-md-auto w-100">
           <img
-            src="./assets/img/language.png"
+            src={language}
             alt="..."
             style={{ maxWidth: "25px" }}
           />
@@ -27,15 +47,15 @@ const Header = () => {
             <a href="#1" style={{ fontSize: "16px" }} className="lan_active">
               O'z
             </a>{" "}
-            
+
             <a href="#1" style={{ fontSize: "16px" }}>
               Ўз
             </a>{" "}
-            
+
             <a href="#1" style={{ fontSize: "16px" }}>
               Рус
             </a>
-            
+
             {/* <a href="#1" style={{ fontSize: "16px" }}>
               English
             </a> */}
@@ -47,7 +67,7 @@ const Header = () => {
             className="link_list justify-content-between"
             style={{ fontSize: "16px" }}
           >
-            <a className="w-md-auto w-100">
+            <a href="#1" className="w-md-auto w-100">
               <input
                 style={{ paddingLeft: "16px" }}
                 className="search languages_block w-md-auto w-100"
@@ -57,6 +77,7 @@ const Header = () => {
             </a>
 
             <a
+              href="#1"
               className="pl-md-1 pl-0 pr-sm-1"
               data-toggle="dropdown"
               aria-expanded="false"
@@ -115,7 +136,7 @@ const Header = () => {
                       className="view-box mx-auto withoutImg-view d-block text-body text-center p-3"
                     >
                       <img
-                        src="./assets/img/img.png"
+                        src={buxImg}
                         style={{ maxWidth: "20px", minWidth: "19.9px" }}
                         alt=""
                       />
@@ -169,7 +190,7 @@ const Header = () => {
             >
               <div>
                 <img
-                  src="./assets/img/logo_nav.png"
+                  src={logoNav}
                   className="img-fluid rounded-start logo"
                   alt="..."
                   style={{ width: "170px" }}
@@ -195,7 +216,7 @@ const Header = () => {
           <div style={{ display: "flex", gap: "64px" }} className="hero-info">
             <div style={{ display: "flex", gap: "4px" }}>
               <img
-                src="./assets/img/bux.png"
+                src={buxImg}
                 alt="..."
                 className="img-fluid"
                 style={{ height: "170px" }}
@@ -221,261 +242,41 @@ const Header = () => {
           </div>
 
           <div className="navbar-collapse collapse" id="navbar-demo3-mobile">
-            <ul
-              className="navbar-nav"
-              style={{ display: "flex", flexWrap: "wrap" }}
-            >
-              <li className="nav-item dropdown">
-                <a
-                  href="#"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="uppercase navbar-nav-link dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Tuman Haqida
-                </a>
-                <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#" className="dropdown-item">
-                    Umumiy Ma'lumot
-                  </a>
+            <ul className="navbar-nav"
+              style={{ display: "flex", flexWrap: "wrap" }}>
 
-                  <a href="#1" className="dropdown-item">
-                    DAVLAT RAMZLARI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    MILLIY BAYRAMLAR
-                  </a>
-                </div>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  href="#1"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Hokimlik haqida
-                </a>
-                <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#1" className="dropdown-item">
-                    HOKIMLIK FUNKSIYA VA VAZIFALARI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    XALQ DEPUTATLARI JONDOR TUMANI KENGASHI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    RAHBARIYAT
-                  </a>
-
-                  <a href="#1" className="dropdown-item">
-                    TARKIBIY BO'LINMALAR
-                  </a>
-
-                  <a href="#1" className="dropdown-item">
-                    HOKIMLIK TARIXI
-                  </a>
-                </div>
-              </li>
-              <li className="nav-item dropdown" style={{ fontSize: "16px" }}>
-                <a
-                  href="#1"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Hokimlik faoliyati
-                </a>
-                <div
-                  className="dropdown-menu dropdown-menu-left"
-                  style={{ fontSize: "16px", textTransform: "uppercase" }}
-                >
-                  <a href="#1" className="dropdown-item">
-                    DAVLAT DASTURI DOIRASIDA AMALGA OSHIRILGAN ISHLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    MUVOFIQLASHTIRUVCHI MASLAHAT ORGANLAR <br />
-                    RAHBARLARI(KOMISSIYALAR, KENGASHLAR, QO'MITALAR)
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    HOKIMLIKNING TASHKILOT VA IDORALAR BILAN HAMKORLIGI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    XALQARO HAMKORLIK
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    INVESTITSION FAOLIYAT
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    LOYIHALAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    TENDERLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    E'LONLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    VAKANSIYALAR
-                  </a>
-                </div>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  href="#1"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Hujjatlar
-                </a>
-                <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#1" className="dropdown-item">
-                    QONUNCHILIK
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    DAVLAT DASTURLARI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    VILOYAT DASTURLARI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    NORMATIV HUQUQIY HUJJATLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    HOKIMLIKNING ME'YORIY HUQUQIY HUJJATLARI
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    XALQARO SHARTNOMALAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    TADBIRKORLIK SUBYEKTLARIGA OID HUJJATLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    YERLAR TO'G'RISIDA MA'LUMOT
-                  </a>
-                  
-                  <a href="#1" className="dropdown-item">
-                    ME'YORIY HUQUQIY HUJJATLAR LOYIHALARINI MUHOKAMALASH
-                  </a>
-                  
-                </div>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  href="#1"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Axborot xizmati
-                </a>
-
-                <div className="dropdown-menu dropdown-menu-left">
-                  <a
-                    href="./axborotXizmati/yangilik.html"
-                    className="dropdown-item"
-                  >
-                    YANGILIKLAR
-                  </a>
-                  <a
-                    href="./axborotXizmati/hokimningNutqi.html"
-                    className="dropdown-item"
-                  >
-                    HOKIMNING NUTQ VA MA'RUZALARI
-                  </a>
-                  <a
-                    href="./axborotXizmati/matbuotAnjumanlari.html"
-                    className="dropdown-item"
-                  >
-                    MATBUOT ANJUMANLARI
-                  </a>
-                  <a
-                    href="./axborotXizmati/ochiqMajlislarTartibi.html"
-                    className="dropdown-item"
-                  >
-                    OCHIQ MAJLISLARDA HOZIR BO'LISH TARTIBI
-                  </a>
-                  
-                  <a
-                    href="./axborotXizmati/pressRelizlar.html"
-                    className="dropdown-item"
-                  >
-                    PRESS-RELIZLAR
-                  </a>
-                  <a
-                    href="./axborotXizmati/qabulQilishTartibi.html"
-                    className="dropdown-item"
-                  >
-                    AXBOROT OLISHGA DOIR so'ROVLARNI QABUL QILISH TARTIBI
-                  </a>
-                  <a
-                    href="./axborotXizmati/AKKREDITATSIYA.html"
-                    className="dropdown-item"
-                  >
-                    AKKREDITATSIYA O'TKAZISH
-                  </a>
-                </div>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  href="#"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase dropdown-toggle"
-                  data-toggle="dropdown"
-                >
-                  Mahalliylashtirish
-                </a>
-                <div className="dropdown-menu dropdown-menu-left">
-                  <a href="#1" className="dropdown-item">
-                    QONUNCHILIK
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    STATISTIK HISOBOTLAR
-                  </a>
-                  <a href="#1" className="dropdown-item">
-                    HUDUDIY IMPORT TAHLILI
-                  </a>
-                </div>
-              </li>
-
-              <li className="nav-item dropdown">
-                <a
-                  href="./murojaat/murojaat.html"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase"
-                >
-                  Murojaat
-                </a>
-              </li>
-
-              {/* <li className="nav-item dropdown">
-                <a
-                  href="#"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase"
-                >
-                  YOSHLAR SEKTORI
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  href="#"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase"
-                  title="KORRUPSIYAGA QARSHI KURASHISH"
-                >
-                  KQK
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  href="#"
-                  style={{ fontSize: "12px", padding: "16px" }}
-                  className="navbar-nav-link uppercase"
-                >
-                  OCHIQ MALUMOTLAR
-                </a>
-              </li> */}
+              {menu.length > 0 && menu.map((item) => {
+                return (
+                  <li key={item.id} className="nav-item dropdown">
+                    <a
+                      href="#1"
+                      style={{ fontSize: "12px", padding: "16px" }}
+                      className="uppercase navbar-nav-link dropdown-toggle"
+                      data-toggle="dropdown"
+                    >
+                      {item.uzName}
+                    </a>
+                    <div className="dropdown-menu dropdown-menu-left">
+                      {
+                        subMenu.length > 0 && subMenu.filter((data) => data.menuId === item.id).map((item2) => {
+                          return (
+                            item2.type !== "link" ? (
+                              <Link key={item.id} to={`/${item2.type}/${item.id}/${item2.id}`} className="dropdown-item">
+                                {item2.uzName}
+                              </Link>) :
+                              (
+                                <a href={`${item2.url}`} target="_blank" rel="noopener noreferrer"
+                                  className="dropdown-item">
+                                  {item2.uzName}
+                                </a>
+                              )
+                          )
+                        })
+                      }
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
