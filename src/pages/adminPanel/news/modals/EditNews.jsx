@@ -3,8 +3,9 @@ import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import CkeEditor from '../../../../components/ckeEditor/CkeEditor';
 import { axiosInstance, urlFile } from '../../../../config';
+import Select from "react-select"
 
-const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fileIds, setFileIds }) => {
+const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fileIds, setFileIds, sphere }) => {
   const [file, setFile] = useState(null);
   const [newsData1, setNewsData1] = useState("");
   const [newsData2, setNewsData2] = useState("");
@@ -20,6 +21,7 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
   const editUzDescRef = useRef();
   const editKrDescRef = useRef();
   const editRuDescRef = useRef();
+  const editsphere = useRef();
 
   const editFunc = async () => {
     console.log(1);
@@ -50,6 +52,7 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
             actual: editMainPageCheckboxref.current.checked,
             source: editSourceref.current.value,
             imageIDs: allFiles,
+            newsSphereId: sphere.current.value
             // oldGeneratedNames: fileIds
           }
           console.log(sendingData);
@@ -70,10 +73,12 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
               item.actual = res.data?.actual
               item.source = res.data?.source
               item.generatedNames = res.data?.generatedNames
+              item.newsSphereId = res.data?.newsSphereId
             }
             return item
           })
           setData(newData)
+          editsphere.current && editsphere.current.removeValue(editsphere.current.props.value);
           setFileIds([])
           setFile(null)
           setNewsData1("");
@@ -208,6 +213,16 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
                             />
                             <label className="label-floating">Manba</label>
                           </div>
+                        </div>
+
+                        <div className="col-lg-4">
+                          <Select
+                            placeholder="Yo'nalish"
+                            options={sphere}
+                            isClearable={true}
+                            ref={editsphere}
+                            defaultValue={sphere.filter(item => item.value === editModal.data?.newsSphereId)[0]}
+                          />
                         </div>
 
                         <div className="col-lg-4" style={{ display: "flex", alignItems: "center" }}>

@@ -17,6 +17,7 @@ import DetailNews from "./pages/news/DetailNews";
 import UserInformation from "./pages/information/UserInformation";
 import UserGovGroup from "./pages/govGroup.jsx/UserGovGroup";
 import UserEmployee from "./pages/employee/UserEmployee";
+import FooterCarousel from "./pages/adminPanel/footerCarousel/FooterCarousel";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
         <Route path="/subGovGroup/:menuId/:subMenuId" element={<Layout><UserGovGroup /></Layout>} />
         <Route path="/employeeGroup/:menuId/:subMenuId" element={<Layout><UserEmployee /></Layout>} />
 
+        <Route path="/carousel" element={<LayoutAdmin><FooterCarousel /></LayoutAdmin>} />
 
         <Route
           path="/1"

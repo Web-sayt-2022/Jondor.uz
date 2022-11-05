@@ -129,6 +129,13 @@ function SidebarAdmin() {
               )
             })}
 
+            <li className="nav-item " style={{ fontSize: '18px' }}>
+              <Link to="/carousel" className="nav-link liHover">
+                <i className="icon-home4" style={{ color: "#0056B8" }} />
+                <span>Footer carousel</span>
+              </Link>
+            </li>
+
             <li className="nav-item"
               style={{ fontSize: '18px', cursor: "pointer" }}
               onClick={() => setAddMenuModal(true)}

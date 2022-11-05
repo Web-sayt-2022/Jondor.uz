@@ -2,8 +2,9 @@ import React, { useCallback, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CkeEditor from '../../../../components/ckeEditor/CkeEditor';
 import { axiosInstance } from '../../../../config';
+import Select from "react-select"
 
-const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, setTotalElements }) => {
+const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, setTotalElements, sphere }) => {
   const [file, setFile] = useState(null);
   const [newsData1, setNewsData1] = useState("");
   const [newsData2, setNewsData2] = useState("");
@@ -15,7 +16,7 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
   const titleUzKrilref = useRef();
   const titleRuref = useRef();
   const sourceref = useRef();
-  const directionref = useRef();
+  const sphereRef = useRef();
   const mainPageCheckboxref = useRef();
   const uzDescRef = useRef();
   const krDescRef = useRef();
@@ -46,12 +47,13 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
             actual: mainPageCheckboxref.current.checked,
             source: sourceref.current.value,
             imageIDs: allFilesId.data,
+            newsSphereId: sphereRef.current.props.value.value
           }
           console.log(sendingData);
           const res = await axiosInstance.post("news/create", sendingData);
           console.log(res.data);
           setData([...data, res.data])
-          directionref.current && directionref.current.removeValue(directionref.current.props.value);
+          sphereRef.current && sphereRef.current.removeValue(sphereRef.current.props.value);
           setNewsData1("");
           setNewsData2("");
           setNewsData3("");
@@ -179,15 +181,14 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
                           </div>
                         </div>
 
-                        {/* <div className="col-lg-4">
-                        <Select
-                          placeholder="Yo'nalish"
-                          options={sphere}
-                          isClearable={true}
-                          ref={directionref}
-                          isDisabled={true}
-                        />
-                      </div> */}
+                        <div className="col-lg-4">
+                          <Select
+                            placeholder="Yo'nalish"
+                            options={sphere}
+                            isClearable={true}
+                            ref={sphereRef}
+                          />
+                        </div>
 
                         <div className="col-lg-4" style={{ display: "flex", alignItems: "center" }}>
                           <div className="custom-control custom-checkbox custom-control-success"

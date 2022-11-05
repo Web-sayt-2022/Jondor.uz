@@ -18,7 +18,7 @@ function News() {
   const [editModal, setEditModal] = useState({ isShow: false, data: {} })
   const [data, setData] = useState([])
   const [fileIds, setFileIds] = useState([])
-
+  const [sphere, setSphere] = useState([])
   const { subMenuId } = useParams()
 
   useEffect(() => {
@@ -28,6 +28,16 @@ function News() {
       setTotalElements(res.data?.totalElements)
     })
   }, [currentPage, size, subMenuId])
+
+  // sphere 
+  useEffect(() => {
+    axiosInstance.get(`newsSphere/list`).then(res => {
+      const option = res.data?.map(item => {
+        return { label: item.uzName, value: item.id }
+      })
+      setSphere(option)
+    })
+  }, [])
 
   const handlePageClick = (e) => {
     setSelected(e.selected)
@@ -128,6 +138,7 @@ function News() {
                 setData={setData}
                 totalElements={totalElements}
                 setTotalElements={setTotalElements}
+                sphere={sphere}
               />
             )
           }
@@ -158,6 +169,7 @@ function News() {
                 setData={setData}
                 fileIds={fileIds}
                 setFileIds={setFileIds}
+                sphere={sphere}
               />
             )
           }
