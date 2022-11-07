@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { axiosInstance, urlFile } from '../../../config';
-import AddFooterCarousel from './modals/AddFooterCarousel';
-import EditFooterCarousel from './modals/EditFooterCarousel';
 import AlertContent, { Alert } from '../../../components/alert/Alert';
-import DeleteFooterCarousel from './modals/DeleteFooterCarousel';
 import { useEffect } from 'react';
+import Add from './modals/Add';
+import Edit from './modals/Edit';
+import Delete from './modals/Delete';
 
-const FooterCarousel = () => {
+const GoodKnow = () => {
   const [data, setData] = useState([])
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const [addCarousel, setAddCarousel] = useState(false)
@@ -14,19 +14,27 @@ const FooterCarousel = () => {
   const [deleteCarousel, setDeleteCarousel] = useState({ isShow: false, id: 0 })
 
   useEffect(() => {
-    axiosInstance.get(`link/list/3`).then((res) => {
+    axiosInstance.get(`link/list/1`).then((res) => {
       console.log(res.data);
       setData(res.data)
     })
   }, [])
+
+  const addFunc = () => {
+    if (data.length >= 10) {
+      Alert(setAlert, "warning", "Bilish foydali 10 ta ziyot bo`lishi mumkin emas!")
+    } else {
+      setAddCarousel(true)
+    }
+  }
 
   return (
     <div className="card-body p-0 pt-3 px-3">
       <div className="card px-3 py-2" style={{ minHeight: "100vh" }}>
 
         <div className="d-flex mb-2" style={{ alignItems: "center", justifyContent: "space-between" }}>
-          <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Foydali manzillar</h3>
-          <button type="submit" className="btn btn-primary" onClick={() => setAddCarousel(true)}>
+          <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Bilish foydali</h3>
+          <button type="submit" className="btn btn-primary" onClick={() => addFunc()}>
             <i className="icon-plus3 mr-1" style={{ fontSize: "18px" }}></i>qo'shish
           </button>
         </div>
@@ -80,7 +88,7 @@ const FooterCarousel = () => {
 
         {
           addCarousel && (
-            <AddFooterCarousel
+            <Add
               data={data}
               setData={setData}
               setAddCarousel={setAddCarousel}
@@ -92,7 +100,7 @@ const FooterCarousel = () => {
 
         {
           editCarousel.isShow && (
-            <EditFooterCarousel
+            <Edit
               data={data}
               setData={setData}
               editCarousel={editCarousel}
@@ -105,7 +113,7 @@ const FooterCarousel = () => {
 
         {
           deleteCarousel.isShow && (
-            <DeleteFooterCarousel
+            <Delete
               data={data}
               setData={setData}
               deleteCarousel={deleteCarousel}
@@ -123,4 +131,4 @@ const FooterCarousel = () => {
   );
 }
 
-export default React.memo(FooterCarousel);
+export default React.memo(GoodKnow);

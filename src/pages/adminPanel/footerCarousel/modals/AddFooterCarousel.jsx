@@ -23,7 +23,7 @@ const AddFooterCarousel = ({ setAddCarousel, Alert, setAlert, data, setData }) =
         console.log(allFilesId.data);
         try {
           const sendData = {
-            linkTypeCode: 1,
+            linkTypeCode: 3,
             uzName: uzNameRef.current.value,
             krName: krNameRef.current.value,
             ruName: ruNameRef.current.value,

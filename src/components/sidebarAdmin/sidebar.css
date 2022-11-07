@@ -155,3 +155,7 @@
 .hover-sub-menu-edit-button:hover .sub-menu-edit-button {
   display: block;
 }
+
+.sidebar {
+  height: 100vh;
+}

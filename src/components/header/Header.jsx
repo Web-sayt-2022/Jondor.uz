@@ -184,7 +184,7 @@ const Header = () => {
         >
           <div className="mb-3 mt-3 pl-3">
             <a
-              href="./index.html"
+              href="/"
               className="g-0 text-dark"
               style={{ display: "flex", alignItems: "center", gap: "16px" }}
             >

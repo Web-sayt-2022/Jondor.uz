@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useState } from 'react';
 import { axiosInstance } from '../../../../config';
 
-const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData }) => {
+const Add = ({ setAddCarousel, Alert, setAlert, data, setData }) => {
   const [file, setFile] = useState([])
 
   const uzNameRef = useRef()
@@ -10,50 +10,40 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
   const ruNameRef = useRef()
   const urlRef = useRef()
 
-  const editFunc = async (e) => {
+  const addFunc = async (e) => {
     e.preventDefault()
-
-    try {
-      let formData = new FormData();
-      file.forEach((f) => {
-        formData.append("images", f);
-      });
-      const allFilesId = await axiosInstance.post("file/uploads", formData);
-      console.log(allFilesId.data);
+    
+    if (file?.length > 0) {
       try {
-        const sendData = {
-          id: editCarousel.data?.id,
-          linkTypeCode: 3,
-          uzName: uzNameRef.current.value,
-          krName: krNameRef.current.value,
-          ruName: ruNameRef.current.value,
-          url: urlRef.current.value,
-          imageID: allFilesId.data[0] ? allFilesId.data[0] : editCarousel.data.imageID
-        }
-        console.log(sendData);
-        const res = await axiosInstance.patch(`link/update`, sendData)
-        console.log(res.data);
-
-        const newData = data?.map((item) => {
-          if (item.id === res.data?.id) {
-            item.uzName = res.data?.uzName
-            item.krName = res.data?.krName
-            item.ruName = res.data?.ruName
-            item.url = res.data?.url
-            item.imageID = res.data?.imageID
+        let formData = new FormData();
+        file.forEach((f) => {
+          formData.append("images", f);
+        });
+        const allFilesId = await axiosInstance.post("file/uploads", formData);
+        console.log(allFilesId.data);
+        try {
+          const sendData = {
+            linkTypeCode: 2,
+            uzName: uzNameRef.current.value,
+            krName: krNameRef.current.value,
+            ruName: ruNameRef.current.value,
+            url: urlRef.current.value,
+            imageID: allFilesId.data[0]
           }
-
-          return item
-        })
-        console.log(newData);
-        setData(newData)
-        setEditCarousel({ isShow: false, data: {} })
-        Alert(setAlert, "success", "Muvafaqqiyatli o'zgartirildi")
+          console.log(sendData);
+          const res = await axiosInstance.post(`link/create`, sendData)
+          console.log(res.data);
+          setAddCarousel(false);
+          setData([...data, res.data])
+          Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi")
+        } catch (error) {
+          console.log(error);
+        }
       } catch (error) {
         console.log(error);
       }
-    } catch (error) {
-      console.log(error);
+    } else {
+      Alert(setAlert, "warning", "Rasm tanlamadingiz!")
     }
   }
 
@@ -63,14 +53,14 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
       <div style={{ width: "60%", margin: "0 auto" }}>
         <div className="modal-content">
           <div className="modal-header bg-primary text-white">
-            <h5 className="modal-title">Tahrirlash</h5>
-            <button onClick={() => setEditCarousel({ isShow: false, data: {} })} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
+            <h5 className="modal-title">Qo'shish</h5>
+            <button onClick={() => setAddCarousel(false)} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
               &times;
             </button>
           </div>
 
           <div className="card-body">
-            <form onSubmit={editFunc} id="form1">
+            <form onSubmit={addFunc} id="form1">
               <div className="form-group form-group-floating row">
                 <div className="col-lg-4">
                   <div className="form-group-feedback form-group-feedback-right">
@@ -78,7 +68,6 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editCarousel.data?.uzName}
                       ref={uzNameRef}
                       required={true}
                     />
@@ -95,7 +84,6 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editCarousel.data?.krName}
                       ref={krNameRef}
                       required={true}
                     />
@@ -112,7 +100,6 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editCarousel.data?.ruName}
                       ref={ruNameRef}
                       required={true}
                     />
@@ -132,13 +119,9 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editCarousel.data?.url}
                       ref={urlRef}
                       required={true}
                     />
-                    <div className="form-control-feedback text-bold text-primary">
-                      <img src="../../../utils/flags/uz.png" alt="uz" />
-                    </div>
                     <label className="label-floating">Url</label>
                   </div>
                 </div>
@@ -153,7 +136,7 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
                             style={{ height: "56px", background: "#fff" }}
                             type="text"
                             value={
-                              (file.length > 0 || editCarousel.data?.imageID) ? "Rasm tanlangan" : "Rasm tanlash"
+                              file.length > 0 ? "Rasm tanlandi" : "Rasm tanlash"
                             }
                             disabled
                             accept=".png, .jpeg, .jpg"
@@ -189,7 +172,7 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
               </div>
 
               <div className="modal-footer p-0" style={{ display: "flex", justifyContent: "end" }}>
-                <button className='btn btn-success py-2' type='submit' form="form1" value="Submit">Saqlash</button>
+                <button className='btn btn-success py-2' type='submit' form="form1" value="Submit">Qo'shish</button>
               </div>
 
             </form>
@@ -202,4 +185,4 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
   );
 }
 
-export default React.memo(EditFooterCarousel);
+export default React.memo(Add);

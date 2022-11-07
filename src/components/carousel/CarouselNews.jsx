@@ -129,9 +129,9 @@ const CarouselNews = ({ state }) => {
                 style={{
                   width: "100%",
                   height: "auto",
-                  maxHeight: "450px",
+                  maxHeight: "600px",
                   borderRadius: "5px",
-                  objectFit: "contain",
+                  objectFit: "cover",
                 }}
               />
             </div>

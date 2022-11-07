@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useState } from 'react';
 import { axiosInstance } from '../../../../config';
 
-const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData }) => {
+const Edit = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData }) => {
   const [file, setFile] = useState([])
 
   const uzNameRef = useRef()
@@ -23,7 +23,7 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
       try {
         const sendData = {
           id: editCarousel.data?.id,
-          linkTypeCode: 3,
+          linkTypeCode: 2,
           uzName: uzNameRef.current.value,
           krName: krNameRef.current.value,
           ruName: ruNameRef.current.value,
@@ -202,4 +202,4 @@ const EditFooterCarousel = ({ editCarousel, setEditCarousel, Alert, setAlert, da
   );
 }
 
-export default React.memo(EditFooterCarousel);
+export default React.memo(Edit);

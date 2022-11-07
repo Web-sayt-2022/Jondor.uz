@@ -1,13 +1,14 @@
 import React from "react";
-import "./horizontalYangilikCard.css";
 import ReactPaginate from "react-paginate";
 import { urlFile } from "../../config";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const HorizontalYangilikCard = ({ data, totalElements, setToggleHandler, currentPage, size, handlePageClick }) => {
   const navigate = useNavigate()
   return (
-    <section
+    <Wrapper>
+        <section
       className="blog-horizontal mt-3 px-2"
       style={{ width: "calc(100% - 300px)" }}
     >
@@ -73,22 +74,20 @@ const HorizontalYangilikCard = ({ data, totalElements, setToggleHandler, current
                       </h3>
 
                       <div className="d-flex align-content-center">
-                        <h6 className="card-title font-weight-bold mr-2 pl-0">
+                        <h6 className="card-title font-weight-bold mr-0 pl-0">
                           <i className="text-primary icon-calendar3"></i>
                           {item?.createdDate.substr(0, 10).split("-").reverse().join(".")}
                         </h6>
 
-                        {/* <h6 className="mr-2">
-                          <a href="#1"
-                            className="text-primary font-weight-semybold ml-1 cursor-pointer">
-                            Madaniyat
-                          </a>
-                        </h6> */}
+                        <h6 className="mr-2 text-primary font-weight-semybold">
+                          {item?.uzNewsSphereName}
+                        </h6>
 
-                        <h6 className="mr-2">
-                          Manba: <a href={item?.source}>
+                        <h6 className="mr-2 p-0 pr-2">
+                          Manba:
+                          <span className="text-primary font-weight-semybold ml-1">
                             {item?.source}
-                          </a>
+                          </span>
                         </h6>
                       </div>
                     </div>
@@ -129,101 +128,6 @@ const HorizontalYangilikCard = ({ data, totalElements, setToggleHandler, current
           })
         }
 
-
-
-
-        {/* <div className="col-lg-12 px-2 horizontalCard mb-2">
-          <div className="card horizontalCard2 mb-0">
-            <div className="card-body p-2">
-              <div className="card-img-actions mr-2" style={{ maxWidth: "400px" }}>
-                <div className="img-scale">
-                  <img
-                    className="rounded img-fluid img-fluid-hover"
-                    src={keldiyorImg}
-                    alt=""
-                    style={{
-                      width: "100%",
-                      maxHeight: "280px",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="card-header pt-0">
-                <h3
-                  className="text-secondary m-0 p-0 horizontal-h3"
-                  style={{ fontWeight: "500", fontSize: "1.5rem", textTransform: "uppercase" }}
-                >
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eaque vitae enim cupiditate et architecto exercitationem autem optio doloremque nesciunt?
-                </h3>
-
-                <div className="d-flex align-content-center">
-                  <h6 className="card-title font-weight-bold mr-2">
-                    <i className="text-primary icon-calendar3"></i>
-                    10.10.2022
-                  </h6>
-
-                  <h6 className="mr-2">
-                    <a href="#1"
-                      className="text-primary font-weight-semybold ml-1 cursor-pointer">
-                      Madaniyat
-                    </a>
-                  </h6>
-
-                  <h6 className="mr-2">
-                    Manba: <a href="https://kun.uz/">Kun.uz</a>
-                  </h6>
-                </div>
-              </div>
-
-              <p
-                className="card-text card-text-title horizontal-p"
-                style={{ textAlign: "justify", fontSize: "1rem", lineHeight: 1.15, fontWeight: "500" }}
-              >
-                Agar yer singari ishlab chiqarish vositalari xususiy qo‘llarda
-                bo‘lmasa, katta ehtimol bilan ular samarasiz ishlatiladi. Yerga
-                xususiy egalik qilish huquqi nafaqat agrar davlatning rivoji
-                uchun, balki butun boshli xalqning irsiy fondini saqlab qolish
-                uchun ham kerak. Bu haqda Kun.uz kolumnisti Shahzod Yo‘ldoshboyev
-                fikr yuritadi. Oxirgi haftalarning shiddatli xabarlari oqimi
-                orasida bir muhim xabar, nazarimda, jamoatchilik nazaridan naz
-                o‘zgartirish taklif etildi. Qanday taklif bu? Hozirda
-                O‘zbekistonda dehqon va fermerlar yerlarni xususiy mulkka olishi
-                imkoniyati yo‘q. Taklif mazkur me’yorni Konstitutsiyada
-                mustahkamlashni nazarda tutyapti.
-              </p>
-            </div>
-
-            <div
-              className="card-footer py-2 px-3 bg-white"
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <ul className="list-inline mb-0 footer-menu">
-                <li className="list-inline-item">
-                  <a href="#1" className="text-body">
-                    <i className="icon-eye4 mr-2"></i>438
-                  </a>
-                </li>
-              </ul>
-
-              <a
-                href="../deteile_news.html"
-                className="text-primary font-weight-semybold"
-                style={{ cursor: "pointer" }}
-              >
-                Batafsil
-                <i className="icon-arrow-right8"></i>
-              </a>
-            </div>
-          </div>
-        </div> */}
-
-
       </div>
 
       <ReactPaginate
@@ -238,7 +142,109 @@ const HorizontalYangilikCard = ({ data, totalElements, setToggleHandler, current
         forcePage={currentPage}
       />
     </section>
+    </Wrapper>
+  
   );
 };
 
 export default React.memo(HorizontalYangilikCard);
+
+const Wrapper = styled.div`
+  .blog-horizontal .card-header h6 {
+  border-right: 1px solid black !important;
+  padding: 0 10px;
+}
+
+.blog-horizontal {
+  width: 100% !important;
+}
+
+@media(max-width: 992px) {
+  .asosiy-main .blog-horizontal {
+    width: 100% !important;
+  }
+}
+
+.blog-horizontal .img-scale {
+  overflow: hidden;
+}
+
+.blog-horizontal .img-fluid {
+  transition: 0.3s linear !important;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.blog-horizontal .img-fluid-hover:hover {
+  transform: scale(1.1);
+}
+
+
+.horizontalCard {
+  padding-bottom: 8px;
+}
+
+.horizontalCard2 {
+  transition: 0.3s linear !important;
+  height: 350px;
+}
+
+.horizontalCard2:hover {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 0.625rem 1.25rem,
+    rgba(0, 0, 0, 0.23) 0px 0.375rem 0.375rem;
+  transform: scale(1.02);
+}
+
+.horizontal-h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: justify;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+/* .horizontal-p {
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  text-align: justify;
+  margin-bottom: 0;
+  overflow: hidden;
+} */
+
+/* 
+.blog-horizontal .card-img-actions {
+  width: 100%;
+} */
+
+/* @media (min-width: 576px) {
+  .blog-horizontal .card-img-actions {
+    width: 45%;
+    float: left;
+    max-width: 25rem;
+    z-index: 10;
+  }
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal-xs .card-img-actions {
+    width: 35%;
+    max-width: 12.5rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal-sm .card-img-actions {
+    width: 40%;
+    max-width: 18.75rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .blog-horizontal-lg .card-img-actions {
+    width: 50%;
+    max-width: 31.25rem;
+  }
+} */
+`

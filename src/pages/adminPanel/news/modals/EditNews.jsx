@@ -22,6 +22,7 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
   const editKrDescRef = useRef();
   const editRuDescRef = useRef();
   const editsphere = useRef();
+  const editSourceUrlref = useRef()
 
   const editFunc = async () => {
     console.log(1);
@@ -50,7 +51,8 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
             ruBody: newsData3 ? newsData3 : editModal.data?.ruBody,
             submenuID: subMenuId,
             actual: editMainPageCheckboxref.current.checked,
-            source: editSourceref.current.value,
+            sourceName: editSourceref.current.value,
+            sourceUrl: editSourceUrlref.current.value,
             imageIDs: allFiles,
             newsSphereId: sphere.current.value
             // oldGeneratedNames: fileIds
@@ -71,7 +73,8 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
               item.krBody = res.data?.krBody
               item.ruBody = res.data?.ruBody
               item.actual = res.data?.actual
-              item.source = res.data?.source
+              item.sourceName = res.data?.sourceName
+              item.sourceUrl = res.data?.sourceUrl
               item.generatedNames = res.data?.generatedNames
               item.newsSphereId = res.data?.newsSphereId
             }
@@ -209,13 +212,26 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
                               className="form-control form-control-outline"
                               placeholder="Placeholder"
                               ref={editSourceref}
-                              defaultValue={editModal.data?.source}
+                              defaultValue={editModal.data?.sourceName}
                             />
-                            <label className="label-floating">Manba</label>
+                            <label className="label-floating">Manba nomi</label>
                           </div>
                         </div>
 
                         <div className="col-lg-4">
+                          <div className="form-group-feedback form-group-feedback-right">
+                            <input
+                              type="text"
+                              className="form-control form-control-outline"
+                              placeholder="Placeholder"
+                              ref={editSourceUrlref}
+                              defaultValue={editModal.data?.sourceUrl}
+                            />
+                            <label className="label-floating">Manba urli</label>
+                          </div>
+                        </div>
+
+                        <div className="col-lg-3">
                           <Select
                             placeholder="Yo'nalish"
                             options={sphere}
@@ -225,7 +241,7 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
                           />
                         </div>
 
-                        <div className="col-lg-4" style={{ display: "flex", alignItems: "center" }}>
+                        <div className="col-lg-1" style={{ display: "flex", alignItems: "center", justifyContent: "end" }}>
                           <div className="custom-control custom-checkbox custom-control-success"
                             style={{ fontSize: "1rem", display: "flex" }}>
                             <input type="checkbox"
@@ -237,7 +253,7 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
                             <label className="custom-control-label"
                               for="chek"
                               style={{ textTransform: "uppercase" }}>
-                              BOSH SAHIFA
+                              BOSH
                             </label>
                           </div>
                         </div>

@@ -1,4 +1,3 @@
-import "./footer.css";
 import logoNav from "../../images/logo_nav.png";
 import telegramIcon from "../../images/telegram.png";
 import collectImage from "../../images/collect (1).png";
@@ -6,188 +5,321 @@ import styled from "styled-components";
 
 const Footer = () => {
   return (
-    <footer className="text-center text-lg-start bg-white text-secondary">
-      <div className="text-center text-md-start py-2 page-header page-header-light px-lg-2">
-        <div
-          className="page-header-content header-elements-lg-inline d-flex flex-lg-row flex-column px-lg-4"
-          style={{
-            justifyContent: "space-between",
-            alignItems: "center",
-            width: "100%",
-          }}
-        >
-          <div className="link_list mb-lg-0 mb-3 flex-lg-row flex-column">
-            <a href="#">Web-Sayt haqida</a>
-            <a href="#">Web-Sayt xaritasi</a>
-            <a href="#">Qayta aloqa</a>
-            <a href="https://advice.uz/uz#/">Ko'p beriladigan savollar</a>
-            <a href="#">Ma'lumotlardan foydalanish shartlari</a>
-          </div>
+    <Wrapper>
+      <footer className="text-center text-lg-start bg-white text-secondary">
+        <div className="text-center text-md-start py-2 page-header page-header-light px-lg-2">
+          <div
+            className="page-header-content header-elements-lg-inline d-flex flex-lg-row flex-column px-lg-4"
+            style={{
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+            }}
+          >
+            <div className="link_list mb-lg-0 mb-3 flex-lg-row flex-column">
+              <a href="#1">Web-Sayt haqida</a>
+              <a href="#1">Web-Sayt xaritasi</a>
+              <a href="#1">Qayta aloqa</a>
+              <a href="https://advice.uz/uz#/">Ko'p beriladigan savollar</a>
+              <a href="#1">Ma'lumotlardan foydalanish shartlari</a>
+            </div>
 
-          <div className="icons">
-            <a href="/facebook" target="_blank">
-              <i
-                className="icon-facebook2 mr-2"
-                style={{ fontSize: "2rem", color: "#4267B2" }}
-              ></i>
-            </a>
+            <div className="icons">
+              <a href="/facebook" target="_blank">
+                <i
+                  className="icon-facebook2 mr-2"
+                  style={{ fontSize: "2rem", color: "#4267B2" }}
+                ></i>
+              </a>
 
-            <a href="/instagram" target="_blank">
-              <i
-                className="icon-instagram mr-2"
-                style={{ fontSize: "2rem", color: "#f57185" }}
-              ></i>
-            </a>
+              <a href="/instagram" target="_blank">
+                <i
+                  className="icon-instagram mr-2"
+                  style={{ fontSize: "2rem", color: "#f57185" }}
+                ></i>
+              </a>
 
-            <a href="/mail" target="_blank">
-              <i
-                className="icon-mail-read mr-2"
-                style={{ fontSize: "2rem" }}
-              ></i>
-            </a>
+              <a href="/mail" target="_blank">
+                <i
+                  className="icon-mail-read mr-2"
+                  style={{ fontSize: "2rem" }}
+                ></i>
+              </a>
 
-            <a href="/youtube" target="_blank">
-              <i
-                className="icon-youtube3 mr-2"
-                style={{ fontSize: "2rem", color: "rgb(220, 20, 20)" }}
-              ></i>
-            </a>
+              <a href="/youtube" target="_blank">
+                <i
+                  className="icon-youtube3 mr-2"
+                  style={{ fontSize: "2rem", color: "rgb(220, 20, 20)" }}
+                ></i>
+              </a>
 
-            <a href="/telegram" target="_blank">
-              <img src={telegramIcon} width="40" alt="telegram" />
-            </a>
+              <a href="/telegram" target="_blank">
+                <img src={telegramIcon} width="40" alt="telegram" />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="containers text-center text-md-start mt-3 p-2">
-        <div className="mb-4" style={{ textAlign: "left" }}>
-          <div className="d-flex align-items-center p-2">
-            <img
-              src={logoNav}
-              alt="logo"
-              style={{ height: "6rem" }}
-              className="logo mr-2"
-            />
+        <div className="containers text-center text-md-start mt-3 p-2">
+          <div className="mb-4" style={{ textAlign: "left" }}>
+            <div className="d-flex align-items-center p-2">
+              <img
+                src={logoNav}
+                alt="logo"
+                style={{ height: "6rem" }}
+                className="logo mr-2"
+              />
+              <h4
+                className="text-uppercase fw-bold m-0"
+                style={{
+                  fontWeight: 600,
+                  fontSize: "1.25rem",
+                  width: "200px",
+                  textAlign: "center",
+                }}
+              >
+                JONDOR TUMAN HOKIMLIGI
+              </h4>
+            </div>
+          </div>
+
+          <div className="mb-4" style={{ textAlign: "center" }}>
             <h4
-              className="text-uppercase fw-bold m-0"
+              className="text-uppercase fw-bold mb-2"
+              style={{ fontWeight: 600, fontSize: "1rem" }}
+            >
+              Ishonch telefoni
+            </h4>
+            <p>
+              <a href="#link" className="btn btn-primary-100">
+                Reglament
+              </a>
+            </p>
+            <a href="tel:+998 (65) 222 22 22" className="text-secondary">
+              <i className="icon-phone2"></i> (65) 222 22 22
+            </a>
+          </div>
+
+          <div className="mb-4" style={{ textAlign: "center" }}>
+            <h4
+              className="text-uppercase fw-bold mb-2"
+              style={{ fontWeight: 600, fontSize: "1rem" }}
+            >
+              Umumiy bo'lim
+            </h4>
+            <p>
+              <a href="#link" className="btn btn-primary-100">
+                Reglament
+              </a>
+            </p>
+            <a href="tel:+998 (65) 223 68 47" className="text-secondary">
+              <i className="icon-phone2"></i> (65) 223 68 47
+            </a>
+          </div>
+
+          <div className="mb-4 align-left" style={{ textAlign: "center" }}>
+            <h4
+              className="text-uppercase fw-bold mb-2"
               style={{
                 fontWeight: 600,
-                fontSize: "1.25rem",
-                width: "200px",
+                fontSize: "1rem",
                 textAlign: "center",
               }}
             >
-              JONDOR TUMAN HOKIMLIGI
+              Elektron manzil
             </h4>
+            <p>
+              <a href="#link" className="btn btn-primary-100">
+                Reglament
+              </a>
+            </p>
+            <i className="icon-envelop5"></i>{" "}
+            <a href="mail:info@buxoro.uz" className="text-secondary">
+              {" "}
+              info@buxoro.uz
+            </a>
           </div>
-        </div>
 
-        <div className="mb-4" style={{ textAlign: "center" }}>
-          <h4
-            className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "1rem" }}
-          >
-            Ishonch telefoni
-          </h4>
-          <p>
-            <a href="#link" className="btn btn-primary-100">
-              Reglament
-            </a>
-          </p>
-          <a href="tel:+998 (65) 222 22 22" className="text-secondary">
-            <i className="icon-phone2"></i> (65) 222 22 22
-          </a>
-        </div>
+          <div className="mb-4" style={{ textAlign: "left" }}>
+            <h4
+              className="text-uppercase fw-bold mb-2"
+              style={{ fontWeight: 600, fontSize: "1rem" }}
+            >
+              Ish tartibi
+            </h4>
+            <p className="mb-2 text-secondary">
+              <button className="btn btn-primary-100">
+                9:00–18:00 (13:00-14:00)
+              </button>
+            </p>
+            <p className="mb-3 text-secondary">
+              <b>Dam olish kuni:</b> shanba va yakshanba
+            </p>
+          </div>
 
-        <div className="mb-4" style={{ textAlign: "center" }}>
-          <h4
-            className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "1rem" }}
-          >
-            Umumiy bo'lim
-          </h4>
-          <p>
-            <a href="#link" className="btn btn-primary-100">
-              Reglament
-            </a>
-          </p>
-          <a href="tel:+998 (65) 223 68 47" className="text-secondary">
-            <i className="icon-phone2"></i> (65) 223 68 47
-          </a>
-        </div>
-
-        <div className="mb-4 align-left" style={{ textAlign: "center" }}>
-          <h4
-            className="text-uppercase fw-bold mb-2"
+          <div
             style={{
-              fontWeight: 600,
-              fontSize: "1rem",
-              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              cursor: "pointer",
             }}
           >
-            Elektron manzil
-          </h4>
-          <p>
-            <a href="#link" className="btn btn-primary-100">
-              Reglament
-            </a>
-          </p>
-          <i className="icon-envelop5"></i>{" "}
-          <a href="mail:info@buxoro.uz" className="text-secondary">
-            {" "}
-            info@buxoro.uz
-          </a>
-        </div>
-
-        <div className="mb-4" style={{ textAlign: "left" }}>
-          <h4
-            className="text-uppercase fw-bold mb-2"
-            style={{ fontWeight: 600, fontSize: "1rem" }}
-          >
-            Ish tartibi
-          </h4>
-          <p className="mb-2 text-secondary">
-            <button className="btn btn-primary-100">
-              9:00–18:00 (13:00-14:00)
-            </button>
-          </p>
-          <p className="mb-3 text-secondary">
-            <b>Dam olish kuni:</b> shanba va yakshanba
-          </p>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            cursor: "pointer",
-          }}
-        >
-          <img src={collectImage} width="140" className="mb-2" />
-          <img src={collectImage} width="140" />
-        </div>
-      </div>
-
-      <div className="border-bottom-0 border-top px-4">
-        <div className="px-md-5 px-0 navbar-expand-lg navbar-light border-left-0">
-          <div
-            className="navbar-collapse collapse d-flex align-items-center flex-column flex-md-row justify-content-between"
-            id="navbar-footer"
-          >
-            <div>
-              Diqqat! Agar siz matnda xatoliklarni aniqlasangiz, ularni
-              belgilab, ma'muriyatni xabardor qilish uchun{" "}
-              <b style={{ color: "#2196F3" }}>Ctrl+Enter</b> tugmasini bosing
-            </div>
-            <br />
-            <span className="navbar-text">
-              &copy; 2022. Barcha huquqlar himoyalangan
-            </span>
+            <img src={collectImage} width="140" className="mb-2" />
+            <img src={collectImage} width="140" />
           </div>
         </div>
-      </div>
-    </footer>
+
+        <div className="border-bottom-0 border-top px-4">
+          <div className="px-md-5 px-0 navbar-expand-lg navbar-light border-left-0">
+            <div
+              className="navbar-collapse collapse d-flex align-items-center flex-column flex-md-row justify-content-between"
+              id="navbar-footer"
+            >
+              <div>
+                Diqqat! Agar siz matnda xatoliklarni aniqlasangiz, ularni
+                belgilab, ma'muriyatni xabardor qilish uchun{" "}
+                <b style={{ color: "#2196F3" }}>Ctrl+Enter</b> tugmasini bosing
+              </div>
+              <br />
+              <span className="navbar-text">
+                &copy; 2022. Barcha huquqlar himoyalangan
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </Wrapper>
   );
 };
 
 export default Footer;
+
+const Wrapper = styled.div`
+    position: relative;
+
+    .containers {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 3fr 2fr 2fr 2fr 3fr 2fr;
+    grid-auto-rows: auto auto auto auto;
+    /* margin-left: 3rem; */
+    gap: 1rem;
+  }
+
+  .containers div {
+    width: 100%;
+  }
+
+  .containers p {
+    font-size: 1rem;
+  }
+
+  .karvon {
+    width: 60%;
+    height: 20rem;
+    object-fit: unset;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 5;
+  }
+
+  @media (max-width: 1400px) {
+    .containers {
+      margin-left: 0rem;
+      grid-template-columns: 3fr 1fr 1fr 1fr 3fr 1fr;
+    }
+
+    h4 {
+      width: 100px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .containers {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    h4 {
+      width: max-content;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .gimn_note {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .containers {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gimn_note {
+      display: none;
+    }
+  }
+
+  @media (max-width: 670px) {
+    .containers {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    .containers div {
+      text-align: center !important;
+    }
+
+    .containers div h4 {
+      margin: 0 auto !important;
+    }
+
+    .containers div p.mb-2 {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      margin: 0 auto;
+    }
+
+    .containers div,
+    .containers div div {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  .link_list {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  
+  }
+
+  .link_list a {
+    color: inherit;
+    
+  }
+
+  .link_list a:not(:last-of-type) {
+    border-right: 1px solid black;
+    padding: 0 10px;
+  }
+
+  @media only screen and (max-width: 992px) {
+    .link_list a:not(:last-of-type) {
+        border-right: none;
+    }
+  }
+
+  .link_list a:is(:last-of-type) {
+    padding-left: 10px;
+  }
+
+  .link_list a:is(:first-of-type) {
+    padding-left: 0px;
+  }
+
+`

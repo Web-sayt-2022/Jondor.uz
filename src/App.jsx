@@ -6,7 +6,6 @@ import Home from "./pages/homePage/Home";
 import MilliyBayramlarPage from "./pages/milliyBayramlarPage/MilliyBayramlarPage";
 import RahbariyatPage from "./pages/rahbariyatPage/RahbariyatPage";
 import News from "./pages/adminPanel/news/News";
-import UmumiyYangilikPage from "./pages/umumiyYangiliklarPage/UmumiyYangilikPage";
 import Layout from "./utils/Layout";
 import LayoutAdmin from "./utils/LayoutAdmin";
 import Information from "./pages/adminPanel/information/Information";
@@ -18,8 +17,25 @@ import UserInformation from "./pages/information/UserInformation";
 import UserGovGroup from "./pages/govGroup.jsx/UserGovGroup";
 import UserEmployee from "./pages/employee/UserEmployee";
 import FooterCarousel from "./pages/adminPanel/footerCarousel/FooterCarousel";
+import LayoutNews from "./utils/LayoutNews";
+import GoodKnow from "./pages/adminPanel/good_know/GoodKnow";
+import Tegs from "./pages/adminPanel/tegs/Tegs";
+import Sectors from "./pages/adminPanel/sektorlar/Sectors";
+import { useEffect } from "react";
+import { useState } from "react";
+import CtrlEnter from "./components/ctrlEnter/CtrlEnter";
 
 function App() {
+  const [ctrlEnter, setCtrlEnter] = useState({ isShow: false, data: "" })
+  useEffect(() => {
+    document.onkeydown = (e) => {
+      console.log(e);
+      if (e.ctrlKey && e.keyCode === 13) {
+        console.log(ctrlEnter);
+        setCtrlEnter({ isShow: true, data: window.getSelection().toString() })
+      }
+    }
+  }, [ctrlEnter])
   return (
 
     <div style={{ backgroundColor: "#eeeded" }}>
@@ -42,7 +58,7 @@ function App() {
         <Route path="/admin/employeeGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
 
         <Route path="/news/:menuId/:subMenuId" element={<Layout><UserNews /></Layout>} />
-        <Route path="/news/detail/:id" element={<Layout><DetailNews /></Layout>} />
+        <Route path="/news/detail/:id" element={<LayoutNews><DetailNews /></LayoutNews>} />
 
         <Route path="/information/:menuId/:subMenuId" element={<Layout><UserInformation /></Layout>} />
         <Route path="/information/detail/:id" element={<Layout><DetailNews /></Layout>} />
@@ -50,16 +66,12 @@ function App() {
         <Route path="/subGovGroup/:menuId/:subMenuId" element={<Layout><UserGovGroup /></Layout>} />
         <Route path="/employeeGroup/:menuId/:subMenuId" element={<Layout><UserEmployee /></Layout>} />
 
-        <Route path="/carousel" element={<LayoutAdmin><FooterCarousel /></LayoutAdmin>} />
+        <Route path="/admin/carousel" element={<LayoutAdmin><FooterCarousel /></LayoutAdmin>} />
+        <Route path="/admin/good_know" element={<LayoutAdmin><GoodKnow /></LayoutAdmin>} />
+        <Route path="/admin/tegs" element={<LayoutAdmin><Tegs /></LayoutAdmin>} />
 
-        <Route
-          path="/1"
-          element={
-            <Layout>
-              <UmumiyYangilikPage />
-            </Layout>
-          }
-        ></Route>
+        <Route path="/admin/sectors" element={<LayoutAdmin><Sectors /></LayoutAdmin>} />
+
         <Route
           path="/milliy_bayramlar"
           element={
@@ -88,6 +100,13 @@ function App() {
         ></Route>
 
       </Routes>
+
+      {ctrlEnter.isShow && (
+        <CtrlEnter
+          ctrlEnter={ctrlEnter}
+          setCtrlEnter={setCtrlEnter}
+        />
+      )}
     </div>
   );
 }

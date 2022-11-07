@@ -21,6 +21,7 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
   const uzDescRef = useRef();
   const krDescRef = useRef();
   const ruDescRef = useRef();
+  const sourceUrlref = useRef()
 
   const saveData = async () => {
     console.log(1);
@@ -45,7 +46,8 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
             ruBody: newsData3,
             submenuID: subMenuId,
             actual: mainPageCheckboxref.current.checked,
-            source: sourceref.current.value,
+            sourceName: sourceref.current.value,
+            sourceUrl: sourceUrlref.current.value,
             imageIDs: allFilesId.data,
             newsSphereId: sphereRef.current.props.value.value
           }
@@ -177,11 +179,23 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
                               placeholder="Placeholder"
                               ref={sourceref}
                             />
-                            <label className="label-floating">Manba</label>
+                            <label className="label-floating">Manba nomi</label>
                           </div>
                         </div>
 
                         <div className="col-lg-4">
+                          <div className="form-group-feedback form-group-feedback-right">
+                            <input
+                              type="text"
+                              className="form-control form-control-outline"
+                              placeholder="Placeholder"
+                              ref={sourceUrlref}
+                            />
+                            <label className="label-floating">Manba urli</label>
+                          </div>
+                        </div>
+
+                        <div className="col-lg-3">
                           <Select
                             placeholder="Yo'nalish"
                             options={sphere}
@@ -190,9 +204,9 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
                           />
                         </div>
 
-                        <div className="col-lg-4" style={{ display: "flex", alignItems: "center" }}>
+                        <div className="col-lg-1" style={{ display: "flex", alignItems: "center", justifyContent: "end" }}>
                           <div className="custom-control custom-checkbox custom-control-success"
-                            style={{ fontSize: "1rem", display: "flex" }}>
+                            style={{ fontSize: "1rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
                             <input type="checkbox"
                               className="custom-control-input"
                               id="chek"
@@ -201,7 +215,7 @@ const AddNews = ({ setAddModal, Alert, setAlert, data, setData, totalElements, s
                             <label className="custom-control-label"
                               for="chek"
                               style={{ textTransform: "uppercase" }}>
-                              BOSH SAHIFA
+                              BOSH
                             </label>
                           </div>
                         </div>
