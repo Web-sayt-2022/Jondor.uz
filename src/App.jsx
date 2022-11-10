@@ -24,6 +24,7 @@ import Sectors from "./pages/adminPanel/sektorlar/Sectors";
 import { useEffect } from "react";
 import { useState } from "react";
 import CtrlEnter from "./components/ctrlEnter/CtrlEnter";
+import Employee2 from "./components/employee/Employee2";
 
 function App() {
   const [ctrlEnter, setCtrlEnter] = useState({ isShow: false, data: "" })
@@ -47,7 +48,7 @@ function App() {
           path="/1"
           element={
             <Layout>
-              <UserGovGroup />
+              <Employee2 />
             </Layout>
           }></Route>
 

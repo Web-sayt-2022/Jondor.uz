@@ -54,7 +54,7 @@ const EditNews = ({ editModal, setEditModal, Alert, setAlert, data, setData, fil
             sourceName: editSourceref.current.value,
             sourceUrl: editSourceUrlref.current.value,
             imageIDs: allFiles,
-            newsSphereId: sphere.current.value
+            newsSphereId: editsphere.current.props.value.value
             // oldGeneratedNames: fileIds
           }
           console.log(sendingData);

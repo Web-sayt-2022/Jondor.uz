@@ -58,12 +58,12 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
             submenuID: addEmployee.id
           }
           console.log(sendingData);
-          const res = await axiosInstance.post("stateEmployee/create", sendingData);
+          const res = await axiosInstance.post(`stateEmployee/createForSector`, sendingData);
           console.log(res.data);
           Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
           const newGovGroup = govGroup.filter((gov) => {
             if (gov.id === addEmployee.id) {
-              gov.orderList = [...gov.orderList, res.data]
+              gov.stateEmployeeDTO = res.data?.stateEmployeeDTO
             }
             return gov
           })
