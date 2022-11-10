@@ -5,19 +5,19 @@ const Employee2 = () => {
   return (
     <Wrapper>
       <div className="rahbar">
-        <img src="https://buxoro.uz/adminpanel/images/hokim/hokim.png" alt=""
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt=""
           className="rounded" />
 
         <div className="table-responsive ml-3" style={{ width: "calc(100% - 300px)" }}>
           <div className="person">
-            <div className="mb-3 person-info">
+            <div className="mb-2 person-info">
               <h1 style={{ color: "#2a4d85" }}
-                className="fw-bold text-uppercase text-left ">
+                className="px-0 fw-bold text-uppercase text-left ">
                 Raxmatov Keldiyor Kenja o'g'li
               </h1>
 
               <p style={{ color: "#2a4d85" }}
-                className="fw-bold text-uppercase text-left ">Viloyat hokimining
+                className="px-0 fw-bold text-uppercase text-left ">Viloyat hokimining
                 moliya-iqtisodiyot va kambag'allikni qisqartirish masalalari
                 bo'yicha birinch o'rinbosari</p>
             </div>
@@ -91,50 +91,6 @@ const Employee2 = () => {
                 data-target="#modal_scrollable">
                 <span>Qo'shimcha ma'lumotlar</span>
               </button>
-
-              <div id="modal_scrollable-1" className="modal fade" tabindex="-1"
-                aria-hidden="true" style={{ display: "none" }}>
-                <div className="modal-dialog modal-dialog-scrollable">
-                  <div className="modal-content">
-                    <div className="modal-header pb-3">
-                      <button type="button" className="close"
-                        data-dismiss="modal">
-                        ×
-                      </button>
-                    </div>
-
-                    <div className="modal-body py-0">
-                      <p>
-                        Praesent commodo cursus magna, vel
-                        scelerisque nisl
-                        consectetur et. Vivamus sagittis lacus vel
-                        augue
-                        laoreet rutrum faucibus dolor auctor.
-                      </p>
-                      <p>
-                        Aenean lacinia bibendum nulla sed
-                        consectetur.
-                        Praesent commodo cursus magna, vel
-                        scelerisque nisl
-                        consectetur et. Donec sed odio dui. Donec
-                        ullamcorper nulla non metus auctor
-                        fringilla.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <button type="button" className="btn btn-light" data-toggle="modal"
-                style={{
-                  backgroundColor: "#2a4d85",
-                  color: "#fff",
-                  width: "250px",
-                  textAlign: "center"
-                }}
-                data-target="#modal_scrollable-1">
-                <span>Rasmiy vazifalar</span>
-              </button>
             </div>
           </div>
         </div>
@@ -156,157 +112,169 @@ const Wrapper = styled.div`
   }
 
   .table li {
-            margin-bottom: 6px;
-        }
+    margin-bottom: 6px;
+  }
 
-        @media(max-width: 1400px) {
-            .rahbar {
-                display: flex;
-                flex-direction: column;
-                justify-content: center !important;
-                align-items: center;
-            }
+  .table b {
+    margin-right: 8px;
+  }
 
-            .rahbar>div {
-                text-align: center;
-                right: 0 !important;
-                text-align: center !important;
-                padding: 0;
-                margin-top: 16px;
-                width: 100% !important;
-            }
+  .rahbar img {
+      width: 350px !important;
+      max-height: 300px;
+      /* height: 240px !important; */
+      display: flex !important;
+      justify-content: center !important;
+  }
 
-            .person-info h1,
-            .person-info p {
-                text-align: center !important;
-            }
+  @media(max-width: 1400px) {
+      .rahbar {
+          display: flex;
+          flex-direction: column;
+          justify-content: center !important;
+          align-items: center;
+      }
 
-            .person .modals {
-                justify-content: center !important;
-            }
+      .rahbar>div {
+          text-align: center;
+          right: 0 !important;
+          text-align: center !important;
+          padding: 0;
+          margin-top: 16px;
+          width: 100% !important;
+      }
 
-            .person-info h1 {
-                font-size: 1.5rem !important;
+      .person-info h1,
+      .person-info p {
+          text-align: center !important;
+      }
 
-            }
+      .person .modals {
+          justify-content: center !important;
+      }
 
-            .person-info p {
-                font-size: 0.875rem !important;
-            }
+      .person-info h1 {
+          font-size: 1.5rem !important;
 
-        }
+      }
 
+      .person-info p {
+          font-size: 0.875rem !important;
+      }
 
-        @media(max-width: 768px) {
-
-            .rahbar {
-                display: flex;
-                flex-direction: column;
-                justify-content: center !important;
-                align-items: center;
-            }
-
-            .rahbar img {
-                width: 140px !important;
-                height: 120px !important;
-                display: flex !important;
-                justify-content: center !important;
-            }
-
-            .rahbar>div {
-                text-align: center;
-                right: 0 !important;
-                text-align: center !important;
-                padding: 0;
-                margin-top: 16px;
-            }
-
-            .media-rahbar {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .media-rahbar .row {
-                width: 100% !important;
-            }
-
-            /* .media-rahbar img {
-    height: 250px !important;
-    width: 100% !important;
-} */
-        }
-
-        .rahbar {
-            margin-top: 1rem;
-        }
-
-        .rahbar .rahbar-info {
-            display: grid;
-            grid-template-columns: 3fr 2fr;
-            /* grid-auto-rows: 30px; */
-            gap: 16px;
-        }
-
-        @media(max-width: 768px) {
-
-            .rahbar {
-                display: flex;
-                flex-direction: column;
-                justify-content: center !important;
-                align-items: center;
-            }
-
-            .rahbar img {
-                display: flex !important;
-                justify-content: center !important;
-            }
-
-            .rahbar>div {
-                text-align: center;
-                right: 0 !important;
-                text-align: center !important;
-                padding: 0;
-                margin-top: 1rem;
-            }
-
-            .rahbar .rahbar-info {
-                grid-template-columns: 1fr !important;
-                gap: 0.5rem !important;
-            }
-        }
-
-        .person-info h1 {
-            font-size: 2rem;
-            margin: 0;
-            padding: 0.5rem;
-        }
-
-        .person-info p {
-            font-size: 1.25rem;
-            padding: 0.5rem;
-            margin: 0;
-        }
-
-        .person .table {
-            margin-bottom: 0.5rem;
-        }
-
-        .person .table ul {
-            font-size: 1.25rem;
-            margin: 0;
-            list-style: none;
-        }
-
-        .person .table li {
-            margin-bottom: 6px;
-        }
+  }
 
 
-        .person button {
-            padding: 0.5rem 1rem;
-        }
+  @media(max-width: 768px) {
 
-        .person button span {
-            font-size: 1rem;
-        }
+      .rahbar {
+          display: flex;
+          flex-direction: column;
+          justify-content: center !important;
+          align-items: center;
+      }
+
+      .rahbar img {
+          width: 140px !important;
+          height: 120px !important;
+          display: flex !important;
+          justify-content: center !important;
+      }
+
+      .rahbar>div {
+          text-align: center;
+          right: 0 !important;
+          text-align: center !important;
+          padding: 0;
+          margin-top: 16px;
+      }
+
+      .media-rahbar {
+          flex-direction: column;
+          align-items: center;
+      }
+
+      .media-rahbar .row {
+          width: 100% !important;
+      }
+
+      /* .media-rahbar img {
+  height: 250px !important;
+  width: 100% !important;
+  } */
+  }
+
+  .rahbar {
+      margin-top: 1rem;
+  }
+
+  .rahbar .rahbar-info {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      /* grid-auto-rows: 30px; */
+      gap: 16px;
+  }
+
+  @media(max-width: 768px) {
+
+      .rahbar {
+          display: flex;
+          flex-direction: column;
+          justify-content: center !important;
+          align-items: center;
+      }
+
+      .rahbar img {
+          display: flex !important;
+          justify-content: center !important;
+      }
+
+      .rahbar>div {
+          text-align: center;
+          right: 0 !important;
+          text-align: center !important;
+          padding: 0;
+          margin-top: 1rem;
+      }
+
+      .rahbar .rahbar-info {
+          grid-template-columns: 1fr !important;
+          gap: 0.5rem !important;
+      }
+  }
+
+  .person-info h1 {
+      font-size: 2rem;
+      margin: 0;
+      padding: 0.5rem;
+  }
+
+  .person-info p {
+      font-size: 1.25rem;
+      padding: 0.5rem;
+      margin: 0;
+  }
+
+  .person .table {
+      margin-bottom: 0.5rem;
+  }
+
+  .person .table ul {
+      font-size: 1.25rem;
+      margin: 0;
+      list-style: none;
+  }
+
+  .person .table li {
+      margin-bottom: 6px;
+  }
+
+
+  .person button {
+      padding: 0.5rem 1rem;
+  }
+
+  .person button span {
+      font-size: 1rem;
+  }
 `

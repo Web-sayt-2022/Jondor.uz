@@ -20,8 +20,6 @@ const Sectors = () => {
   const [editEmployee, setEditEmployee] = useState({ isShow: false, data: {} })
   const [editDesc, setEditDesc] = useState({ isShow: false, data: {} })
   const [editSectorArea, setEditSectorArea] = useState({ isShow: false, data: {} })
-  const { subMenuId } = useParams()
-
 
   // group o'qib olish
   useEffect(() => {
@@ -30,7 +28,7 @@ const Sectors = () => {
       console.log(newData);
       setGovGroup(newData)
     })
-  }, [subMenuId])
+  }, [])
 
   return (
     <div className="card-body p-0 pt-3 px-3">

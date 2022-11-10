@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { axiosInstance } from "../../config";
 import sektor1Image from "../../images/sektor-1.png";
 const DavlatHokimiyati = () => {
+  const [govGroup, setGovGroup] = useState([])
+
+  const navigate = useNavigate()
+
+  // group o'qib olish
+  useEffect(() => {
+    axiosInstance.get(`sector/list`).then(res => {
+      const newData = res.data.sort((firstItem, secondItem) => firstItem.orderNumber - secondItem.orderNumber);
+      console.log(newData);
+      setGovGroup(newData)
+    })
+  }, [])
+
   return (
     <Wrapper>
       <section className="davlat-hokimiyati-section bg-light ">
@@ -14,15 +29,23 @@ const DavlatHokimiyati = () => {
               Sektorlar
             </div>
 
-            <div className="sectorlar mt-2">
-              <div className="sektor">
-                <div className="d-flex justify-content-center align-items-center sektor-img">
-                  <img src={sektor1Image} alt="" />
-                </div>
-                <h3 className="text-light bg-secondary name">SEKTOR-1</h3>
-              </div>
 
-              <div className="sektor">
+            <div className="sectorlar mt-2">
+
+              {
+                govGroup?.map((item) => {
+                  return (
+                    <div className="sektor" onClick={() => navigate(`/sector/detail/${item.id}`, { state: item })}>
+                      <div className="d-flex justify-content-center align-items-center sektor-img">
+                        <img src={sektor1Image} alt="" />
+                      </div>
+                      <h3 className="text-light bg-secondary name">{item.uzName}</h3>
+                    </div>
+                  )
+                })
+              }
+
+              {/* <div className="sektor">
                 <div className="d-flex justify-content-center align-items-center sektor-img">
                   <img src={sektor1Image} alt="" />
                 </div>
@@ -41,7 +64,7 @@ const DavlatHokimiyati = () => {
                   <img src={sektor1Image} alt="" />
                 </div>
                 <h3 className="text-light bg-secondary name">SEKTOR-4</h3>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

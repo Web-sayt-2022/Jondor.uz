@@ -25,15 +25,25 @@ import { useEffect } from "react";
 import { useState } from "react";
 import CtrlEnter from "./components/ctrlEnter/CtrlEnter";
 import Employee2 from "./components/employee/Employee2";
+import SectorDetail from "./components/davlatHokimiyatiSection/SectorDetail";
+import AlertContent, { Alert } from "./components/alert/Alert";
 
 function App() {
+  const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const [ctrlEnter, setCtrlEnter] = useState({ isShow: false, data: "" })
   useEffect(() => {
     document.onkeydown = (e) => {
       console.log(e);
       if (e.ctrlKey && e.keyCode === 13) {
         console.log(ctrlEnter);
-        setCtrlEnter({ isShow: true, data: window.getSelection().toString() })
+
+        if (window.getSelection().toString().length > 0) {
+          if (window.getSelection().toString().length > 3) {
+            setCtrlEnter({ isShow: true, data: window.getSelection().toString() })
+          } else {
+            Alert(setAlert, "warning", "3 ta belgidan ko'proq tanlang");
+          }
+        }
       }
     }
   }, [ctrlEnter])
@@ -43,15 +53,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin_panel" element={<Login />} />
-
-        <Route
-          path="/1"
-          element={
-            <Layout>
-              <Employee2 />
-            </Layout>
-          }></Route>
-
+        <Route path="/1" element={<Layout><Employee2 /></Layout>}></Route>
         <Route path="/admin/bosh_sahifa" element={<LayoutAdmin> <BoshSahifa /></LayoutAdmin>} />
         <Route path="/admin/news/:menuId/:subMenuId" element={<LayoutAdmin> <News /></LayoutAdmin>} />
         <Route path="/admin/information/:menuId/:subMenuId" element={<LayoutAdmin> <Information /></LayoutAdmin>} />
@@ -63,25 +65,14 @@ function App() {
 
         <Route path="/information/:menuId/:subMenuId" element={<Layout><UserInformation /></Layout>} />
         <Route path="/information/detail/:id" element={<Layout><DetailNews /></Layout>} />
-
         <Route path="/subGovGroup/:menuId/:subMenuId" element={<Layout><UserGovGroup /></Layout>} />
         <Route path="/employeeGroup/:menuId/:subMenuId" element={<Layout><UserEmployee /></Layout>} />
-
+        <Route path="/sector/detail/:id" element={<Layout><SectorDetail /></Layout>} />
         <Route path="/admin/carousel" element={<LayoutAdmin><FooterCarousel /></LayoutAdmin>} />
         <Route path="/admin/good_know" element={<LayoutAdmin><GoodKnow /></LayoutAdmin>} />
         <Route path="/admin/tegs" element={<LayoutAdmin><Tegs /></LayoutAdmin>} />
-
         <Route path="/admin/sectors" element={<LayoutAdmin><Sectors /></LayoutAdmin>} />
-
-        <Route
-          path="/milliy_bayramlar"
-          element={
-            <Layout>
-              <MilliyBayramlarPage />
-            </Layout>
-          }
-        ></Route>
-
+        <Route path="/milliy_bayramlar" element={<Layout><MilliyBayramlarPage /></Layout>}></Route>
         <Route
           path="/rahbariyat"
           element={
@@ -108,7 +99,10 @@ function App() {
           setCtrlEnter={setCtrlEnter}
         />
       )}
-    </div>
+
+      {/* alert */}
+      <AlertContent alert={alert} />
+    </div >
   );
 }
 
