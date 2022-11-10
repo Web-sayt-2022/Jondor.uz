@@ -10,9 +10,10 @@ const Layout = ({ children }) => {
     <Wrapper>
       <Header />
       <main className="d-flex bg-light asosiy-main">
-        {/* <YangiliklarLeftPanel /> */}
         <VoqealarLeftPanelNew />
-        {children}
+        <div className="children">
+          {children}
+        </div>
       </main>
       <FoydaliLinkCarousel />
       <Footer />
@@ -23,5 +24,7 @@ const Layout = ({ children }) => {
 export default Layout;
 
 const Wrapper = styled.div`
-  
+  .children {
+    width: 100%;
+  }
 `
