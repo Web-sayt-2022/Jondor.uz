@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import HeaderAdmin from "../components/headerAdmin/HeaderAdmin";
 import SidebarAdmin from "../components/sidebarAdmin/SidebarAdmin";
 
 const LayoutAdmin = ({ children }) => {
+
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      document.querySelector('.sidebar').querySelector('button').addEventListener('click', () => {
+        if (!document.querySelector('.sidebar').matches('sidebar-main-resized')) {
+          console.log(1);
+          document.querySelector('.children').style.marginLeft = "5px";
+        } else {
+          document.querySelector('.children').style.marginLeft = "3.5rem";
+        }
+      })
+    }
+    return () => isMounted = false
+  }, []);
+
   return (
     <Wrapper>
       <HeaderAdmin />
       <div className="page-content">
-          <SidebarAdmin />
+        <SidebarAdmin />
         <div className="children">
           {children}
         </div>

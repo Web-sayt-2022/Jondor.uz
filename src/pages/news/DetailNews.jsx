@@ -6,9 +6,8 @@ import parse from "html-react-parser"
 
 const DetailNews = () => {
   const { id } = useParams()
-  console.log(id);
   const { state } = useLocation();
-  console.log(state);
+
   return (
     <Wrapper className='mt-3'>
       <div className="card mx-1 p-2" style={{ minHeight: "100vh" }}>

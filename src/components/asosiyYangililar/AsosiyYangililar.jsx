@@ -1,8 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { urlFile } from "../../config";
 import styled from "styled-components";
-
 
 const AsosiyYangililar = ({ news }) => {
   const navigate = useNavigate();
@@ -69,28 +68,25 @@ const AsosiyYangililar = ({ news }) => {
             </div>
 
             <div className="boxes">
-              {console.log(news)}
-              {news?.length > 0 &&
-                news.map(
-                  (dat, index) =>
-                    dat.actual && (
-                      <div
-                        key={index}
-                        className="position-relative rounded box"
-                        style={{ height: "25rem" }}
-                        onClick={() => navigateHandler(dat)}
-                      >
-                        <img
-                          src={`${urlFile}/${dat.generatedNames[0]}`}
-                          alt=""
-                          className="box-img"
-                        />
-                        <div className="paragraf">
-                          <p className="text-light">{dat.uzTitle}</p>
-                        </div>
-                      </div>
-                    )
-                )}
+              {news?.length > 0 && news.map((dat) =>
+                dat.actual && (
+                  <div
+                    key={dat.id}
+                    className="position-relative rounded box"
+                    style={{ height: "25rem" }}
+                    onClick={() => navigateHandler(dat)}
+                  >
+                    <img
+                      src={`${urlFile}/${dat.generatedNames[0]}`}
+                      alt=""
+                      className="box-img"
+                    />
+                    <div className="paragraf">
+                      <p className="text-light">{dat.uzTitle}</p>
+                    </div>
+                  </div>
+                )
+              )}
             </div>
           </div>
         </div>
@@ -99,7 +95,7 @@ const AsosiyYangililar = ({ news }) => {
   );
 };
 
-export default AsosiyYangililar;
+export default React.memo(AsosiyYangililar);
 
 const Wrapper = styled.div`
   .box-img {

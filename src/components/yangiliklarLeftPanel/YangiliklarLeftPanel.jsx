@@ -12,7 +12,6 @@ const LeftPanel = () => {
 
   useEffect(() => {
     axiosInstance.get(`news/getBySize/?size=4`).then(res => {
-      console.log(res.data);
       setData(res.data)
     })
   }, [])
@@ -30,64 +29,62 @@ const LeftPanel = () => {
         </div>
 
         <div className="row p-2">
-          {
-            data?.map((item) => {
-              return (
-                <div className="col-lg-12 px-2">
-                  <div className="card card-hover p-2">
-                    <div className="card-img-actions">
-                      <div className="img-scale">
-                        <img
-                          className="img-fluid img-fluid-hover"
-                          src={`${urlFile}/${item?.generatedNames[0]}`}
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                    <div className="card-body p-2">
-                      <h6 className="card-title text-primary font-weight-bold p-0 m-0">
-                        <i className="icon-calendar3"></i>
-                        {item?.createdDate.substr(0, 10).split("-").reverse().join(".")}
-                      </h6>
-                      <p
-                        className="card-text card-text-title mt-1 horiz-p"
-                        style={{
-                          textAlign: "justify",
-                          fontWeight: 600,
-                          textTransform: "uppercase",
-                          color: "#2a4d85",
-                          fontSize: "0.8rem",
-                        }}
-                      >
-                        {item.uzTitle}
-                      </p>
-                    </div>
-
-                    <div
-                      className="card-footer p-2 px-2 bg-white"
-                      style={{ display: "flex", justifyContent: "space-between" }}
-                    >
-                      <ul className="list-inline mb-0">
-                        <li className="list-inline-item">
-                          <a href="#1" className="text-body">
-                            <i className="icon-eye4 mr-2"></i>
-                            {item?.countView}
-                          </a>
-                        </li>
-                      </ul>
-
-                      <span onClick={() => navigate(`/news/detail/${item.id}`, { state: item })}
-                        className="text-primary font-weight-semybold"
-                        style={{ cursor: "pointer" }}>
-                        Batafsil
-                        <i className="icon-arrow-right8"></i>
-                      </span>
+          {data?.length > 0 && data?.map((item) => {
+            return (
+              <div className="col-lg-12 px-2">
+                <div className="card card-hover p-2">
+                  <div className="card-img-actions">
+                    <div className="img-scale">
+                      <img
+                        className="img-fluid img-fluid-hover"
+                        src={`${urlFile}/${item?.generatedNames[0]}`}
+                        alt=""
+                      />
                     </div>
                   </div>
+                  <div className="card-body p-2">
+                    <h6 className="card-title text-primary font-weight-bold p-0 m-0">
+                      <i className="icon-calendar3"></i>
+                      {item?.createdDate.substr(0, 10).split("-").reverse().join(".")}
+                    </h6>
+                    <p
+                      className="card-text card-text-title mt-1 horiz-p"
+                      style={{
+                        textAlign: "justify",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        color: "#2a4d85",
+                        fontSize: "0.8rem",
+                      }}
+                    >
+                      {item.uzTitle}
+                    </p>
+                  </div>
+
+                  <div
+                    className="card-footer p-2 px-2 bg-white"
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <ul className="list-inline mb-0">
+                      <li className="list-inline-item">
+                        <a href="#1" className="text-body">
+                          <i className="icon-eye4 mr-2"></i>
+                          {item?.countView}
+                        </a>
+                      </li>
+                    </ul>
+
+                    <span onClick={() => navigate(`/news/detail/${item.id}`, { state: item })}
+                      className="text-primary font-weight-semybold"
+                      style={{ cursor: "pointer" }}>
+                      Batafsil
+                      <i className="icon-arrow-right8"></i>
+                    </span>
+                  </div>
                 </div>
-              )
-            })
-          }
+              </div>
+            )
+          })}
         </div>
       </section>
     </Wrapper>

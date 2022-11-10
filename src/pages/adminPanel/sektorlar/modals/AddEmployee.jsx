@@ -2,7 +2,6 @@ import React, { useCallback, useRef, useState } from 'react';
 import { axiosInstance } from '../../../../config';
 import CkeEditor from "../../../../components/ckeEditor/CkeEditor";
 
-
 const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert, setAlert }) => {
   const [file, setFile] = useState(null);
   const [newsData1, setNewsData1] = useState("");
@@ -25,9 +24,9 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
   //xodim qo'shish
   const addEmployeeFunc = async (e) => {
     e.preventDefault()
-    console.log(1);
-    console.log(file);
-    console.log(firstNameRef.current.value);
+    // console.log(1);
+    // console.log(file);
+    // console.log(firstNameRef.current.value);
     if (file?.length > 0) {
       try {
         let formData = new FormData();
@@ -35,7 +34,7 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
           formData.append("images", f);
         });
         const allFilesId = await axiosInstance.post("file/uploads", formData);
-        console.log(allFilesId);
+        // console.log(allFilesId);
         try {
           const sendingData = {
             firstName: firstNameRef.current.value,
@@ -57,9 +56,9 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
             imageID: allFilesId.data[0],
             submenuID: addEmployee.id
           }
-          console.log(sendingData);
+          // console.log(sendingData);
           const res = await axiosInstance.post(`stateEmployee/createForSector`, sendingData);
-          console.log(res.data);
+          // console.log(res.data);
           Alert(setAlert, "success", "Muvafaqqiyatli qo'shildi");
           const newGovGroup = govGroup.filter((gov) => {
             if (gov.id === addEmployee.id) {
@@ -362,15 +361,13 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
                           alt="uz"
                         />
                         Qisqacha ma'lumot{" "}
-                        {
-                          (newsData1) ? (
-                            <i className="icon-stack-text ml-2 text-success"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          ) : (
-                            <i className="icon-stack-empty ml-2 text-danger"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          )
-                        }
+                        {newsData1 ? (
+                          <i className="icon-stack-text ml-2 text-success"
+                            style={{ fontSize: "1.5rem" }}></i>
+                        ) : (
+                          <i className="icon-stack-empty ml-2 text-danger"
+                            style={{ fontSize: "1.5rem" }}></i>
+                        )}
                       </a>
                     </li>
                     <li className="nav-item mt-2">
@@ -385,15 +382,13 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
                           alt="uz"
                         />
                         Қисқача маълумот
-                        {
-                          (newsData2) ? (
-                            <i className="icon-stack-text ml-2 text-success"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          ) : (
-                            <i className="icon-stack-empty ml-2 text-danger"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          )
-                        }
+                        {newsData2 ? (
+                          <i className="icon-stack-text ml-2 text-success"
+                            style={{ fontSize: "1.5rem" }}></i>
+                        ) : (
+                          <i className="icon-stack-empty ml-2 text-danger"
+                            style={{ fontSize: "1.5rem" }}></i>
+                        )}
                       </a>
                     </li>
                     <li className="nav-item mt-2">
@@ -408,15 +403,13 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
                           alt="ru"
                         />
                         Краткая информация{" "}
-                        {
-                          (newsData3) ? (
-                            <i className="icon-stack-text ml-2 text-success"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          ) : (
-                            <i className="icon-stack-empty ml-2 text-danger"
-                              style={{ fontSize: "1.5rem" }}></i>
-                          )
-                        }
+                        {newsData3 ? (
+                          <i className="icon-stack-text ml-2 text-success"
+                            style={{ fontSize: "1.5rem" }}></i>
+                        ) : (
+                          <i className="icon-stack-empty ml-2 text-danger"
+                            style={{ fontSize: "1.5rem" }}></i>
+                        )}
                       </a>{" "}
                     </li>
                   </ul>
@@ -456,7 +449,7 @@ const AddEmployee = ({ addEmployee, setAddEmployee, govGroup, setGovGroup, Alert
 
 
           <div className="modal-footer p-2" style={{ display: "flex", justifyContent: "end" }}>
-              <button className='btn btn-success py-2' type='submit' form="form1" value="Submit">Qo'shish</button>
+            <button className='btn btn-success py-2' type='submit' form="form1" value="Submit">Qo'shish</button>
           </div>
         </div>
       </div>

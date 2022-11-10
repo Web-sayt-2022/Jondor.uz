@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosInstance } from "../../config";
@@ -7,22 +6,22 @@ import language from "../../utils/img/language.png"
 import buxImg from "../../utils/img/bux.png"
 import logoNav from "../../utils/img/logo_nav.png"
 
-
 const Header = () => {
   const [menu, setMenu] = useState([])
   const [subMenu, setSubMenu] = useState([])
 
   // menularni o'qib olish
   useEffect(() => {
+    let isMounted = true;
     axiosInstance.get("menu/getForAdmin").then((res) => {
-      console.log(res.data);
-      setMenu(res.data?.menuDTOS);
-      setSubMenu(res.data?.submenuDTOS)
+      if (isMounted) {
+        setMenu(res.data?.menuDTOS);
+        setSubMenu(res.data?.submenuDTOS)
+      }
     })
-  }, [])
 
-  console.log(menu);
-  console.log(subMenu);
+    return () => isMounted = false;
+  }, [])
 
   return (
     <Wrapper>
@@ -55,10 +54,6 @@ const Header = () => {
             <a href="#1" style={{ fontSize: "16px" }}>
               Рус
             </a>
-
-            {/* <a href="#1" style={{ fontSize: "16px" }}>
-              English
-            </a> */}
           </div>
         </div>
 
@@ -84,7 +79,6 @@ const Header = () => {
             >
               <i className="icon-eye2" style={{ fontSize: "24px" }}></i>
             </a>
-
             <div
               className="dropdown-menu dropdown-menu-right dropdown-content"
               style={{ zIndex: 999, width: "350px" }}
@@ -257,22 +251,20 @@ const Header = () => {
                       {item.uzName}
                     </a>
                     <div className="dropdown-menu dropdown-menu-left">
-                      {
-                        subMenu.length > 0 && subMenu.filter((data) => data.menuId === item.id).map((item2) => {
-                          return (
-                            item2.type !== "link" ? (
-                              <Link key={item.id} to={`/${item2.type}/${item.id}/${item2.id}`} className="dropdown-item">
+                      {subMenu.length > 0 && subMenu.filter((data) => data.menuId === item.id).map((item2) => {
+                        return (
+                          item2.type !== "link" ? (
+                            <Link key={item.id} to={`/${item2.type}/${item.id}/${item2.id}`} className="dropdown-item">
+                              {item2.uzName}
+                            </Link>) :
+                            (
+                              <a href={`${item2.url}`} target="_blank" rel="noopener noreferrer"
+                                className="dropdown-item">
                                 {item2.uzName}
-                              </Link>) :
-                              (
-                                <a href={`${item2.url}`} target="_blank" rel="noopener noreferrer"
-                                  className="dropdown-item">
-                                  {item2.uzName}
-                                </a>
-                              )
-                          )
-                        })
-                      }
+                              </a>
+                            )
+                        )
+                      })}
                     </div>
                   </li>
                 )
@@ -285,7 +277,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
 
 const Wrapper = styled.div`
   .navbar-local {

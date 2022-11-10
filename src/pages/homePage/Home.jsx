@@ -4,13 +4,13 @@ import DavlatHokimiyati from "../../components/davlatHokimiyatiSection/DavlatHok
 import Footer from "../../components/footer/Footer";
 import FoydaliLinkCarousel from "../../components/foydaliLinkCarousel/FoydaliLinkCarousel";
 import Header from "../../components/header/Header";
-import Homiylar from "../../components/homiylarSection/Homiylar";
+// import Homiylar from "../../components/homiylarSection/Homiylar";
 import Tuzilish from "../../components/tuzilishSection/Tuzilish";
 import Yangiliklar from "../../components/yangiliklarSection/Yangiliklar";
-import Yonalishlar from "../../components/yonalishlarSection/Yonalishlar";
+// import Yonalishlar from "../../components/yonalishlarSection/Yonalishlar";
 import { axiosInstance } from "../../config";
 
-export default function Home() {
+const Home = () => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,6 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const res = await axiosInstance.get("/news/getForHome");
-        // console.log(res.data);
         if (isMounted) setNews(res.data);
       } catch (error) {
         console.log(error);
@@ -43,3 +42,5 @@ export default function Home() {
     </>
   );
 }
+
+export default React.memo(Home);

@@ -17,7 +17,6 @@ const SectorDetail = () => {
           <div className="card-body py-2" style={{ minHeight: "100vh" }}>
             <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>{state.uzName}</h3>
 
-
             <div id="accordion-default">
               <div className="card">
                 <div className="card-header bg-primary px-3" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -41,7 +40,6 @@ const SectorDetail = () => {
                     Qisqacha ma'lumot
                   </h6>
                 </div>
-
                 <div id={`accordion-item-default2`} className="collapse" data-parent={`#accordion-default`}>
                   <div className="card-body">
                     {parse(state.uzDescription)}
@@ -49,11 +47,9 @@ const SectorDetail = () => {
                 </div>
               </div>
             </div>
-
             <div className="mt-3">
               <Employee employee={state?.stateEmployeeDTO} />
             </div>
-
           </div>
         </div>
       </div>

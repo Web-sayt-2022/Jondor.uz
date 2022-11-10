@@ -20,7 +20,6 @@ function SidebarAdmin() {
   const [deleteModal, setDeleteModal] = useState({ isShow: false, data: {}, type: "" })
   const [sendModal, setSendModal] = useState({ isShow: false, data: {}, type: "" })
 
-
   const open = (name) => {
     if (document.querySelector(`#${name}`).querySelector('ul').style.display === "none") {
       document.querySelector(`#${name}`).querySelector('ul').style.display = "block";
@@ -31,11 +30,17 @@ function SidebarAdmin() {
 
   // menularni o'qib olish
   useEffect(() => {
+    let isMounted = true;
+
     axiosInstance.get("menu/getForAdmin").then((res) => {
-      console.log(res.data);
-      setMenu(res.data?.menuDTOS);
-      setSubMenu(res.data?.submenuDTOS)
+      // console.log(res.data);
+      if (isMounted) {
+        setMenu(res.data?.menuDTOS);
+        setSubMenu(res.data?.submenuDTOS)
+      }
     })
+
+    return () => isMounted = false;
   }, [])
 
   return (
@@ -168,87 +173,83 @@ function SidebarAdmin() {
                 </div>
               </li>
 
+              {/* reglamentlar */}
+              <li className="nav-item" style={{ fontSize: '18px' }}>
+                <Link to="/admin/hotline" className="nav-link liHover">
+                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <span>Reglamentlar</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
 
-          {
-            addMenuModal && (
-              <AddMenu
-                setAddMenuModal={setAddMenuModal}
-                Alert={Alert}
-                setAlert={setAlert}
-                menu={menu}
-                setMenu={setMenu}
-              />
-            )
-          }
+          {addMenuModal && (
+            <AddMenu
+              setAddMenuModal={setAddMenuModal}
+              Alert={Alert}
+              setAlert={setAlert}
+              menu={menu}
+              setMenu={setMenu}
+            />
+          )}
 
-          {
-            addSubMenuModal.isShow && (
-              <AddSubMenu
-                Alert={Alert}
-                setAlert={setAlert}
-                subMenu={subMenu}
-                setSubMenu={setSubMenu}
-                setAddSubMenuModal={setAddSubMenuModal}
-                addSubMenuModal={addSubMenuModal}
-              />
-            )
-          }
+          {addSubMenuModal.isShow && (
+            <AddSubMenu
+              Alert={Alert}
+              setAlert={setAlert}
+              subMenu={subMenu}
+              setSubMenu={setSubMenu}
+              setAddSubMenuModal={setAddSubMenuModal}
+              addSubMenuModal={addSubMenuModal}
+            />
+          )}
 
-          {
-            updateModal.isShow && (
-              <Update
-                Alert={Alert}
-                setAlert={setAlert}
-                updateModal={updateModal}
-                setUpdateModal={setUpdateModal}
-                subMenu={subMenu}
-                setSubMenu={setSubMenu}
-                menu={menu}
-                setMenu={setMenu}
-                setDeleteModal={setDeleteModal}
-                setSendModal={setSendModal}
-                setMenuOption={setMenuOption}
-              />
-            )
-          }
+          {updateModal.isShow && (
+            <Update
+              Alert={Alert}
+              setAlert={setAlert}
+              updateModal={updateModal}
+              setUpdateModal={setUpdateModal}
+              subMenu={subMenu}
+              setSubMenu={setSubMenu}
+              menu={menu}
+              setMenu={setMenu}
+              setDeleteModal={setDeleteModal}
+              setSendModal={setSendModal}
+              setMenuOption={setMenuOption}
+            />
+          )}
 
-          {
-            deleteModal.isShow && (
-              <Delete
-                Alert={Alert}
-                setAlert={setAlert}
-                deleteModal={deleteModal}
-                setDeleteModal={setDeleteModal}
-                subMenu={subMenu}
-                setSubMenu={setSubMenu}
-                menu={menu}
-                setMenu={setMenu}
-                setUpdateModal={setUpdateModal}
-              />
-            )
-          }
+          {deleteModal.isShow && (
+            <Delete
+              Alert={Alert}
+              setAlert={setAlert}
+              deleteModal={deleteModal}
+              setDeleteModal={setDeleteModal}
+              subMenu={subMenu}
+              setSubMenu={setSubMenu}
+              menu={menu}
+              setMenu={setMenu}
+              setUpdateModal={setUpdateModal}
+            />
+          )}
 
-          {
-            sendModal.isShow && (
-              <Send
-                Alert={Alert}
-                setAlert={setAlert}
-                sendModal={sendModal}
-                setSendModal={setSendModal}
-                subMenu={subMenu}
-                setSubMenu={setSubMenu}
-                menuOption={menuOption}
-                setUpdateModal={setUpdateModal}
-              />
-            )
-          }
+          {sendModal.isShow && (
+            <Send
+              Alert={Alert}
+              setAlert={setAlert}
+              sendModal={sendModal}
+              setSendModal={setSendModal}
+              subMenu={subMenu}
+              setSubMenu={setSubMenu}
+              menuOption={menuOption}
+              setUpdateModal={setUpdateModal}
+            />
+          )}
 
           {/* alert */}
           <AlertContent alert={alert} />
-
         </div>
       </div>
     </Wrapper>

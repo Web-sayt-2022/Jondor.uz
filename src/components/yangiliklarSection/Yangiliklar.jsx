@@ -1,5 +1,5 @@
 import React from "react";
-import { urlFile } from "../../config";
+import { axiosInstance, urlFile } from "../../config";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -9,6 +9,15 @@ const Yangiliklar = ({ news }) => {
   const navigatorPage = (dat) => {
     navigate(`/news/detail/${dat.id}`, { state: dat })
   };
+
+  const changeHandler = async (dat) => {
+    try {
+      await axiosInstance.post(`news/viewCount?code=${dat.id}`, {});
+    } catch (error) {
+      console.log(error);
+    }
+    navigate(`/news/detail/${dat.id}`, { state: dat });
+  }
 
   return (
     <Wrapper>
@@ -23,71 +32,68 @@ const Yangiliklar = ({ news }) => {
         </div>
 
         <div className="row p-2 mt-2">
-          {news?.length > 0 &&
-            news.map(
-              (dat, index) =>
-                !dat.actual && (
-                  <div
-                    key={index}
-                    className="col-xl-3 col-md-6"
-                    onClick={() => navigatorPage(dat)}
-                  >
-                    <div className="card card-hover">
-                      <div className="card-img-actions">
-                        <div className="img-scale">
-                          <img
-                            className="img-fluid img-fluid-hover"
-                            src={`${urlFile}/${dat.generatedNames[0]}`}
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <div className="card-body py-2">
-                        <h5 className="card-title text-primary font-weight-bold p-0 m-0">
-                          <i className="icon-calendar3"></i>
-                          {dat?.createdDate.substr(0, 10).split("-").reverse().join(".")}
-                        </h5>
-                        <p
-                          className="card-text card-text-title"
-                          style={{
-                            textAlign: "justify",
-                            fontWeight: 600,
-                            textTransform: "uppercase",
-                            color: "#2a4d85",
-                            fontSize: "1rem",
-                          }}
-                        >
-                          {dat.uzTitle}
-                        </p>
-                      </div>
-
-                      <div
-                        className="card-footer p-2 px-2"
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <ul className="list-inline mb-0">
-                          <li className="list-inline-item">
-                            <a href="#1" className="text-body">
-                              <i className="icon-eye4 mr-2"></i>
-                              {dat?.countView}
-                            </a>
-                          </li>
-                        </ul>
-
-                        <span onClick={() => navigate(`/news/detail/${dat.id}`, { state: dat })}
-                          className="text-primary font-weight-semybold"
-                          style={{ cursor: "pointer" }}>
-                          Batafsil
-                          <i className="icon-arrow-right8"></i>
-                        </span>
-                      </div>
+          {news?.length > 0 && news.map((dat) =>
+            !dat.actual && (
+              <div
+                key={dat.id}
+                className="col-xl-3 col-md-6"
+                onClick={() => navigatorPage(dat)}
+              >
+                <div className="card card-hover">
+                  <div className="card-img-actions">
+                    <div className="img-scale">
+                      <img
+                        className="img-fluid img-fluid-hover"
+                        src={`${urlFile}/${dat.generatedNames[0]}`}
+                        alt=""
+                      />
                     </div>
                   </div>
-                )
-            )}
+                  <div className="card-body py-2">
+                    <h5 className="card-title text-primary font-weight-bold p-0 m-0">
+                      <i className="icon-calendar3"></i>
+                      {dat?.createdDate.substr(0, 10).split("-").reverse().join(".")}
+                    </h5>
+                    <p
+                      className="card-text card-text-title"
+                      style={{
+                        textAlign: "justify",
+                        fontWeight: 600,
+                        textTransform: "uppercase",
+                        color: "#2a4d85",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {dat.uzTitle}
+                    </p>
+                  </div>
+
+                  <div
+                    className="card-footer p-2 px-2"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <ul className="list-inline mb-0">
+                      <li className="list-inline-item">
+                        <a href="#1" className="text-body">
+                          <i className="icon-eye4 mr-2"></i>
+                          {dat?.countView}
+                        </a>
+                      </li>
+                    </ul>
+                    <span onClick={() => changeHandler(dat)}
+                      className="text-primary font-weight-semybold"
+                      style={{ cursor: "pointer" }}>
+                      Batafsil
+                      <i className="icon-arrow-right8"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )
+          )}
         </div>
       </section>
     </Wrapper>
@@ -95,7 +101,7 @@ const Yangiliklar = ({ news }) => {
   );
 };
 
-export default Yangiliklar;
+export default React.memo(Yangiliklar);
 
 const Wrapper = styled.div`
   /* .yangiliklar-section {

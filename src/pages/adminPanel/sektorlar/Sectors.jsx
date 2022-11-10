@@ -37,7 +37,7 @@ const Sectors = () => {
         <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Sektorlar</h3>
 
         <div id="accordion-parent">
-          {govGroup.map((item, index) => {
+          {govGroup?.length > 0 && govGroup.map((item, index) => {
             return (
               <div className="card" key={item.id}>
                 <div className="card-header py-3 bg-primary text-white">
@@ -92,12 +92,14 @@ const Sectors = () => {
 
                   </div>
 
-                  <div className="d-flex mb-2 px-3" style={{ alignItems: "center", justifyContent: "space-between" }}>
-                    <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Xodim</h3>
-                    <button type="submit" className="btn btn-primary" onClick={() => setAddEmployee({ isShow: true, id: item.id })}>
-                      <i className="icon-plus3 mr-1" style={{ fontSize: "18px" }}></i>Xodim qo'shish
-                    </button>
-                  </div>
+                  {!item.stateEmployeeDTO && (
+                    <div className="d-flex mb-2 px-3" style={{ alignItems: "center", justifyContent: "space-between" }}>
+                      <h3 style={{ margin: "10px 0", fontWeight: "bold", textTransform: "uppercase" }}>Xodim</h3>
+                      <button type="submit" className="btn btn-primary" onClick={() => setAddEmployee({ isShow: true, id: item.id })}>
+                        <i className="icon-plus3 mr-1" style={{ fontSize: "18px" }}></i>Xodim qo'shish
+                      </button>
+                    </div>
+                  )}
 
                   <div className="px-3">
                     <table className="table table-bordered mb-3 table-striped table-hover Tab px-3">

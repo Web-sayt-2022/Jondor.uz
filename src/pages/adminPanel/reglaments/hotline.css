@@ -1,0 +1,22 @@
+.formGroup {
+  max-width: 850px;
+  margin: 5px auto;
+}
+
+.formGroup input {
+  height: 45px !important;
+}
+
+.cke_chrome {
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+}
+
+.btnSave {
+  max-width: 850px;
+  margin: 5px auto;
+}
+
+.btnSave button {
+  width: 100%;
+}

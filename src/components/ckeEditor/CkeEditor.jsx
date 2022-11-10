@@ -73,7 +73,7 @@ const CkeEditor = ({ handleFunction, initData }) => {
           // Handles beforeLoad event which is fired before an editor instance is created.
           // CKEDITOR.disableAutoInline = true
         }}
-        onInstanceReady={({ editor }) => {}}
+        onInstanceReady={({ editor }) => { }}
       />
     </div>
   );

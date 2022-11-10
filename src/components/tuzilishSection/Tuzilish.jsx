@@ -1,16 +1,21 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { axiosInstance, urlFile } from "../../config";
+import styled from "styled-components";
+
 const Tuzilish = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
+    let isMounted = true;
     axiosInstance.get(`link/list/1`).then((res) => {
-      console.log(res.data);
-      setData(res.data)
+      if (isMounted)
+        setData(res.data)
     })
+
+    return () => isMounted = false;
   }, [])
+
   return (
     <Wrapper>
       <section className="tuzilish-section bg-light">
@@ -68,32 +73,26 @@ const Tuzilish = () => {
 
 
               <div className="row px-2">
-
                 <div className="col-lg-6 mt-2 p-2 bg-white">
                   <div className="splide__track">
                     <ul className="splide__list">
-                      {
-                        data?.map((item, index) => {
-                          if (index < 5) {
-                            return (
-                              <li className="splide__slide p-1">
-                                <div className="img-div rounded">
-                                  <img
-                                    src={`${urlFile}/${item.imageID}`}
-                                    alt=""
-                                    className="image rounded"
-                                  />
-                                </div>
-                                <a href={`${item.url}`} target="_blank" rel="noopener noreferrer"
-                                  className="text-light px-2">
-                                  {item.uzName}
-                                </a>
-                              </li>
-
-                            )
-                          }
-                        })
-                      }
+                      {data?.length > 0 && data?.map((item, index) => (
+                        index < 5 && (
+                          <li key={item.imageID} className="splide__slide p-1">
+                            <div className="img-div rounded">
+                              <img
+                                src={`${urlFile}/${item.imageID}`}
+                                alt=""
+                                className="image rounded"
+                              />
+                            </div>
+                            <a href={`${item.url}`} target="_blank" rel="noopener noreferrer"
+                              className="text-light px-2">
+                              {item.uzName}
+                            </a>
+                          </li>
+                        )
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -101,33 +100,27 @@ const Tuzilish = () => {
                 <div className="col-lg-6 mt-2 p-2 bg-white" aria-label="Beautiful Images">
                   <div className="splide__track">
                     <ul className="splide__list">
-                      {
-                        data?.map((item, index) => {
-                          if ((index >= 5) && (index < 10)) {
-                            return (
-                              <li className="splide__slide p-1">
-                                <div className="img-div rounded">
-                                  <img
-                                    src={`${urlFile}/${item.imageID}`}
-                                    alt=""
-                                    className="image rounded"
-                                  />
-                                </div>
-                                <a href={`${item.url}`} target="_blank" rel="noopener noreferrer"
-                                  className="text-light px-2">
-                                  {item.uzName}
-                                </a>
-                              </li>
-                            )
-                          }
-                        })
-                      }
-
+                      {data?.length > 0 && data?.map((item, index) => (
+                        ((index >= 5) && (index < 10)) && (
+                          <li key={item.imageID} className="splide__slide p-1">
+                            <div className="img-div rounded">
+                              <img
+                                src={`${urlFile}/${item.imageID}`}
+                                alt=""
+                                className="image rounded"
+                              />
+                            </div>
+                            <a href={`${item.url}`} target="_blank" rel="noopener noreferrer"
+                              className="text-light px-2">
+                              {item.uzName}
+                            </a>
+                          </li>
+                        )
+                      ))}
                     </ul>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>

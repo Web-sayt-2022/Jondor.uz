@@ -13,19 +13,19 @@ const Employee = ({ employee }) => {
         <div className="rahbariyat-card bg-white mb-2">
           <div className="card-body body-elements ">
             <div className="img d-flex align-content-center justify-content-center">
-              <img src={`${urlFile}/${employee.imageID}`} alt="" />
+              <img src={`${urlFile}/${employee?.imageID}`} alt="" />
             </div>
             <div className="table-responsive">
               <div className="person">
                 <div className="my-3 person-info">
                   <h1 style={{ color: "#2a4d85" }}
                     className="fw-bold text-uppercase">
-                    {employee.firstName} {employee.lastName} {employee.patronymic}
+                    {employee?.firstName} {employee?.lastName} {employee?.patronymic}
                   </h1>
 
                   <p style={{ color: "#2a4d85" }}
                     className="fw-bold text-uppercase">
-                    {employee.uzPosition}
+                    {employee?.uzPosition}
                   </p>
                 </div>
 
@@ -37,19 +37,19 @@ const Employee = ({ employee }) => {
                     >
                       <tr>
                         <td>Tug'ilgan yili:</td>
-                        <td>{employee.birthDate.substr(0, 10).split("-").reverse().join(".")}</td>
+                        <td>{employee?.birthDate.substr(0, 10).split("-").reverse().join(".")}</td>
                       </tr>
                       <tr>
                         <td>Tug'ilgan joyi:</td>
-                        <td>{employee.uzBirthPlace}</td>
+                        <td>{employee?.uzBirthPlace}</td>
                       </tr>
                       <tr>
                         <td>Millati:</td>
-                        <td>{employee.nation}</td>
+                        <td>{employee?.nation}</td>
                       </tr>
                       <tr>
                         <td>Ma'lumoti:</td>
-                        <td>{employee.degree}</td>
+                        <td>{employee?.degree}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -60,29 +60,23 @@ const Employee = ({ employee }) => {
                   Qo'shimcha ma'lumot
                 </button>
 
-                {
-                  modal && (
-                    <div id="modal_large" className="modal fade show" tabindex="-1" aria-modal="true" role="dialog" style={{ display: "flex", alignItems: "center", background: "rgba(0, 0, 0, 0.5)" }}>
-                      <div style={{width: "40%", margin: "0 auto"}}>
-                        <div className="modal-content">
-                          <div className="modal-header bg-primary text-white">
-                            <h5 className="modal-title">Qo'shimcha ma'lumot</h5>
-                            <button onClick={() => setModal(false)} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
-                              &times;
-                            </button>
-                          </div>
-
-                          <div className="modal-body">
-                            <p>{employee.uzAdditionalInformation ? parse(employee.uzAdditionalInformation) : "bo'sh"}</p>
-
-                          </div>
-
-
+                {modal && (
+                  <div id="modal_large" className="modal fade show" tabindex="-1" aria-modal="true" role="dialog" style={{ display: "flex", alignItems: "center", background: "rgba(0, 0, 0, 0.5)" }}>
+                    <div style={{ width: "40%", margin: "0 auto" }}>
+                      <div className="modal-content">
+                        <div className="modal-header bg-primary text-white">
+                          <h5 className="modal-title">Qo'shimcha ma'lumot</h5>
+                          <button onClick={() => setModal(false)} type="button" className="close" data-dismiss="modal" style={{ fontSize: "24px" }}>
+                            &times;
+                          </button>
+                        </div>
+                        <div className="modal-body">
+                          <p>{employee.uzAdditionalInformation ? parse(employee.uzAdditionalInformation) : "bo'sh"}</p>
                         </div>
                       </div>
                     </div>
-                  )
-                }
+                  </div>
+                )}
               </div>
             </div>
           </div>
