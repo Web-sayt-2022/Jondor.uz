@@ -152,7 +152,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.firstName}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.firstName}
                       ref={firstNameRef}
                       required={true}
                     />
@@ -169,7 +169,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.lastName}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.lastName}
                       ref={lastNameRef}
                       required={true}
                     />
@@ -186,7 +186,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.patronymic}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.patronymic}
                       ref={middleNameRef}
                       required={true}
                     />
@@ -205,7 +205,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.uzPosition}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.uzPosition}
                       ref={uzPositionRef}
                       required={true}
                     />
@@ -222,7 +222,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.krPosition}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.krPosition}
                       ref={krPositionRef}
                       required={true}
                     />
@@ -239,7 +239,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.ruPosition}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.ruPosition}
                       ref={ruPositionRef}
                       required={true}
                     />
@@ -258,7 +258,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.birthDate.substr(0, 10)}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.birthDate?.substr(0, 10)}
                       ref={birthDateRef}
                       data-mask="9999-99-99"
                       required={true}
@@ -276,7 +276,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.uzBirthPlace}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.uzBirthPlace}
                       ref={birthPlaceRef}
                       required={true}
                     />
@@ -293,7 +293,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.nation}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.nation}
                       ref={nationRef}
                       required={true}
                     />
@@ -313,7 +313,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.phoneNumber}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.phoneNumber}
                       ref={phoneRef}
                       data-mask="+998 (99) 999-99-99"
                       required={true}
@@ -331,7 +331,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                       type="text"
                       className="form-control form-control-outline"
                       placeholder="Placeholder"
-                      defaultValue={editEmployee?.data?.degree}
+                      defaultValue={editEmployee?.data?.stateEmployeeDTO?.degree}
                       ref={degreeRef}
                       required={true}
                     />
@@ -352,7 +352,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
                             style={{ height: "56px", background: "#fff" }}
                             type="text"
                             defaultValue={
-                              file ? "Rasm tanlandi" : editEmployee.data?.imageID ? "Rasm tanlangan" : ""
+                              file ? "Rasm tanlandi" : editEmployee?.data?.stateEmployeeDTO?.imageID ? "Rasm tanlangan" : ""
                             }
                             disabled
                             accept=".png, .jpeg, .jpg"
@@ -445,7 +445,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
 
                       {/* ckeditor */}
                       <div className="templateCkeditor1">
-                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.uzAdditionalInformation || ""} />
+                        <CkeEditor handleFunction={handleFunction1} initData={editEmployee?.data?.stateEmployeeDTO?.uzAdditionalInformation || ""} />
                       </div>
                     </div>
 
@@ -454,7 +454,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
 
                       {/* ckeditor */}
                       <div className="templateCkeditor2">
-                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.krAdditionalInformation || ""} />
+                        <CkeEditor handleFunction={handleFunction2} initData={editEmployee?.data?.stateEmployeeDTO?.krAdditionalInformation || ""} />
                       </div>
                     </div>
 
@@ -463,7 +463,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
 
                       {/* ckeditor */}
                       <div className="templateCkeditor3">
-                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.ruAdditionalInformation || ""} />
+                        <CkeEditor handleFunction={handleFunction3} initData={editEmployee?.data?.stateEmployeeDTO?.ruAdditionalInformation || ""} />
                       </div>
                     </div>
                   </div>
