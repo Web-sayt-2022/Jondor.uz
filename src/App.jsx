@@ -29,6 +29,7 @@ import AlertContent, { Alert } from "./components/alert/Alert";
 import Hotline from "./pages/adminPanel/reglaments/Hotline";
 import GeneralSettings from "./pages/adminPanel/reglaments/generalSettings/GeneralSettings";
 import ElektronAddress from "./pages/adminPanel/reglaments/electronAddress/ElektronAddress";
+import Management from "./pages/adminPanel/management/Management";
 
 function App() {
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
@@ -81,6 +82,7 @@ function App() {
         <Route path="/admin/hotline" element={<LayoutAdmin><Hotline /></LayoutAdmin>} />
         <Route path="/admin/general_settings" element={<LayoutAdmin><GeneralSettings /></LayoutAdmin>} />
         <Route path="/admin/elektron_address" element={<LayoutAdmin><ElektronAddress /></LayoutAdmin>} />
+        <Route path="/admin/management" element={<LayoutAdmin><Management /></LayoutAdmin>} />
         <Route
           path="/rahbariyat"
           element={

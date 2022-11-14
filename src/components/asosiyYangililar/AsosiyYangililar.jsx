@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { urlFile } from "../../config";
+import { axiosInstance, urlFile } from "../../config";
 import styled from "styled-components";
 
 const AsosiyYangililar = ({ news }) => {
   const navigate = useNavigate();
+  const [data, setData] = useState({});
 
   const navigateHandler = (dat) => {
     navigate(`/news/detail/${dat.id}`, {
       state: dat,
     });
   };
+
+  // hokim ma'lumotlarini o'qib olish
+  useEffect(() => {
+    let isMounted = true;
+
+    const getData = async () => {
+      try {
+        const res = await axiosInstance.get("stateEmployee/getHokim");
+        if (isMounted) {
+          setData(res.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getData();
+
+    return () => {
+      isMounted = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Wrapper>
@@ -29,19 +52,25 @@ const AsosiyYangililar = ({ news }) => {
                 <div className="card-img-actions d-flex justify-content-center">
                   <img
                     className="img-fluid img-hokim"
-                    src="https://buxoro.uz/adminpanel/images/hokim/hokim.png"
+                    src={data?.imageID ? urlFile + "/" + data.imageID : "/assets/img/logo_nav.png"}
                     alt=""
                   />
 
                   <div className="profile">
-                    <i
-                      className="icon-facebook2 text-light mr-2"
-                      style={{ fontSize: "1.5rem" }}
-                    ></i>
-                    <i
-                      className="icon-envelop5 text-light"
-                      style={{ fontSize: "2rem" }}
-                    ></i>
+                    <a href={data.facebook ? data.facebook : "#1"}>
+                      <i
+                        className="icon-facebook2 text-light mr-2 cursor-pointer"
+                        style={{ fontSize: "1.5rem" }}
+                        target="_blank"
+                      ></i>
+                    </a>
+                    <a href={data.email ? data.email : "#1"}>
+                      <i
+                        className="icon-envelop5 text-light cursor-pointer"
+                        style={{ fontSize: "2rem" }}
+                        target="_blank"
+                      ></i>
+                    </a>
                   </div>
                 </div>
 
@@ -50,7 +79,7 @@ const AsosiyYangililar = ({ news }) => {
                   style={{ height: "4.375rem" }}
                 >
                   <h2 className="font-weight-semibold text-light text-center m-0">
-                    Raxmatov Keldiyor
+                    {data?.firstName} {data?.lastName}
                   </h2>
                 </div>
               </div>

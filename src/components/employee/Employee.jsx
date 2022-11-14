@@ -61,7 +61,7 @@ const Employee = ({ employee }) => {
                 </button>
 
                 {modal && (
-                  <div id="modal_large" className="modal fade show" tabindex="-1" aria-modal="true" role="dialog" style={{ display: "flex", alignItems: "center", background: "rgba(0, 0, 0, 0.5)" }}>
+                  <div id="modal_large" className="modal fade show" tabIndex="-1" aria-modal="true" role="dialog" style={{ display: "flex", alignItems: "center", background: "rgba(0, 0, 0, 0.5)" }}>
                     <div style={{ width: "40%", margin: "0 auto" }}>
                       <div className="modal-content">
                         <div className="modal-header bg-primary text-white">
@@ -71,7 +71,7 @@ const Employee = ({ employee }) => {
                           </button>
                         </div>
                         <div className="modal-body">
-                          <p>{employee.uzAdditionalInformation ? parse(employee.uzAdditionalInformation) : "bo'sh"}</p>
+                          <p>{employee?.uzAdditionalInformation ? parse(employee.uzAdditionalInformation) : "bo'sh"}</p>
                         </div>
                       </div>
                     </div>

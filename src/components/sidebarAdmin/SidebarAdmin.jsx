@@ -50,7 +50,7 @@ function SidebarAdmin() {
           <div className="sidebar-section sidebar-user">
             <div className="sidebar-user-material">
               <div className="sidebar-section-body">
-                <div className="d-flex">
+                {/* <div className="d-flex">
                   <div className={'flex-1'} />
                   <span className="text-center">
                     sadfasd
@@ -62,7 +62,7 @@ function SidebarAdmin() {
                       <i className="icon-transmission" />
                     </button>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="text-center">
                   <h6 className="mb-0 text-white text-shadow-dark mt-3 cursor-pointer"> fdsdfsd </h6>
@@ -178,6 +178,14 @@ function SidebarAdmin() {
                 <Link to="/admin/hotline" className="nav-link liHover">
                   <i className="icon-home4" style={{ color: "#0056B8" }} />
                   <span>Reglamentlar</span>
+                </Link>
+              </li>
+
+              {/* reglamentlar */}
+              <li className="nav-item" style={{ fontSize: '18px' }}>
+                <Link to="/admin/management" className="nav-link liHover">
+                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <span>Rahbariyat</span>
                 </Link>
               </li>
             </ul>

@@ -1,9 +1,48 @@
+import React, { useState, useEffect, useRef } from "react";
 import logoNav from "../../images/logo_nav.png";
 import telegramIcon from "../../images/telegram.png";
 import collectImage from "../../images/collect (1).png";
+import { MdOutlineClose } from 'react-icons/md';
 import styled from "styled-components";
+import { axiosInstance } from "../../config";
 
 const Footer = () => {
+  const [openReglaments, setOpenReglaments] = useState({ open: false, data: {} });
+  const [reglaments, setReglaments] = useState([]);
+  const selectRef = useRef();
+
+  // get all reglaments
+  useEffect(() => {
+    let isMounted = true;
+
+    const getData = async () => {
+      try {
+        const res = await axiosInstance.get("footerElement/list");
+        if (isMounted) {
+          setReglaments(res.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getData();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // choose language
+  const changeHandler = (e, data) => {
+    document.querySelector('.reglaments_data').innerHTML = data.uzRegulations;
+    if (parseInt(e.target.value) === 1) {
+      document.querySelector('.reglaments_data').innerHTML = data.uzRegulations;
+    } else if (parseInt(e.target.value) === 2) {
+      document.querySelector('.reglaments_data').innerHTML = data.krRegulations;
+    } else {
+      document.querySelector('.reglaments_data').innerHTML = data.ruRegulations;
+    }
+  }
+
   return (
     <Wrapper>
       <footer className="text-center text-lg-start bg-white text-secondary">
@@ -64,29 +103,27 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mb-4" style={{ textAlign: "center" }}>
+          <div className="mb-4" style={{ textAlign: "center", display: "flex", flexDirection: "column" }}>
             <h4 className="text-uppercase fw-bold mb-2" style={{ fontWeight: 600, fontSize: "1rem" }} >
               Ishonch telefoni
             </h4>
-            <p>
-              <a href="#link" className="btn btn-primary-100">Reglament</a>
-            </p>
+            <p className="btn btn-primary-100" onClick={() => setOpenReglaments({ open: true, data: reglaments.find(r => r.type === 1) })}>Reglament</p>
             <a href="tel:+998 (65) 222 22 22" className="text-secondary">
               <i className="icon-phone2"></i> (65) 222 22 22
             </a>
           </div>
 
-          <div className="mb-4" style={{ textAlign: "center" }}>
+          <div className="mb-4" style={{ textAlign: "center", display: "flex", flexDirection: "column" }}>
             <h4 className="text-uppercase fw-bold mb-2" style={{ fontWeight: 600, fontSize: "1rem" }} >
               Umumiy bo'lim
             </h4>
-            <p><a href="#link" className="btn btn-primary-100"> Reglament</a></p>
+            <p className="btn btn-primary-100" onClick={() => setOpenReglaments({ open: true, data: reglaments.find(r => r.type === 2) })}>Reglament</p>
             <a href="tel:+998 (65) 223 68 47" className="text-secondary">
               <i className="icon-phone2"></i> (65) 223 68 47
             </a>
           </div>
 
-          <div className="mb-4 align-left" style={{ textAlign: "center" }}>
+          <div className="mb-4 align-left" style={{ textAlign: "center", display: "flex", flexDirection: "column" }}>
             <h4
               className="text-uppercase fw-bold mb-2"
               style={{
@@ -97,19 +134,17 @@ const Footer = () => {
             >
               Elektron manzil
             </h4>
-            <p>
-              <a href="#link" className="btn btn-primary-100">
-                Reglament
+            <p className="btn btn-primary-100" onClick={() => setOpenReglaments({ open: true, data: reglaments.find(r => r.type === 3) })}>Reglament</p>
+            <div>
+              <i className="icon-envelop5"></i>{" "}
+              <a href="mail:info@buxoro.uz" className="text-secondary">
+                {" "}
+                info@buxoro.uz
               </a>
-            </p>
-            <i className="icon-envelop5"></i>{" "}
-            <a href="mail:info@buxoro.uz" className="text-secondary">
-              {" "}
-              info@buxoro.uz
-            </a>
+            </div>
           </div>
 
-          <div className="mb-4" style={{ textAlign: "left" }}>
+          <div className="mb-4" style={{ textAlign: "center", display: "flex", flexDirection: "column" }}>
             <h4
               className="text-uppercase fw-bold mb-2"
               style={{ fontWeight: 600, fontSize: "1rem" }}
@@ -149,6 +184,31 @@ const Footer = () => {
           </div>
         </div>
       </footer>
+
+      {/* reglaments modal */}
+      {(openReglaments.open && openReglaments.data?.id) && (
+        <div className="reglaments_modal_container">
+          <div className="reglaments_modal_wrapper">
+            <div className="reglaments_modal_wrapper_header">
+              <h5>{openReglaments.data.type === 1 ? "Ishonch telefoni" : openReglaments.data.type === 2 ? "Umumiy bo'lim" : "Elektron manzil"}</h5>
+              <MdOutlineClose onClick={() => setOpenReglaments({ open: false, data: {} })} />
+            </div>
+            <div className="reglaments_modal_wrapper_body">
+              <div className="reglaments_modal_wrapper_body_top">
+                <select id="chooseLanguage" className="btn btn-light" onChange={(e) => changeHandler(e, openReglaments.data)} ref={selectRef}>
+                  <option selected="selected" disabled hidden>Tilni tanlang:</option>
+                  <option value="1">Uz</option>
+                  <option value="2">Kr</option>
+                  <option value="3">Ru</option>
+                </select>
+              </div>
+              <div className="reglaments_modal_wrapper_body_bottom">
+                <p className="reglaments_data"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </Wrapper>
   );
 };
@@ -157,6 +217,49 @@ export default Footer;
 
 const Wrapper = styled.div`
     position: relative;
+
+    /* reglaments */
+    .reglaments_modal_container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4));
+      z-index: 99 !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .reglaments_modal_wrapper {
+      width: 700px;
+      border-radius: 5px !important;
+      background-color: #fff;
+      animation: reglaments_modal_container .2s;
+    }
+    .reglaments_modal_wrapper_header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #2a4d85 !important;
+      color: #fff;
+    }
+    .reglaments_modal_wrapper_header svg {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .reglaments_modal_wrapper_body {
+      padding: 10px;
+    }
+    .reglaments_data {
+      margin: 5px 0;
+    }
+    .reglaments_modal_wrapper_body_top {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
 
     .containers {
     position: relative;
@@ -282,6 +385,11 @@ const Wrapper = styled.div`
 
   .link_list a:is(:first-of-type) {
     padding-left: 0px;
+  }
+  
+  @keyframes reglaments_modal_container {
+    0% {opacity: 0}
+    100% {opacity: 1}
   }
 
 `

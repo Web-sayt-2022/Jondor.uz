@@ -19,7 +19,6 @@ const Edit = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData })
         formData.append("images", f);
       });
       const allFilesId = await axiosInstance.post("file/uploads", formData);
-      console.log(allFilesId.data);
       try {
         const sendData = {
           id: editCarousel.data?.id,
@@ -30,9 +29,9 @@ const Edit = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData })
           url: urlRef.current.value,
           imageID: allFilesId.data[0] ? allFilesId.data[0] : editCarousel.data.imageID
         }
-        console.log(sendData);
+        // console.log(sendData);
         const res = await axiosInstance.patch(`link/update`, sendData)
-        console.log(res.data);
+        // console.log(res.data);
 
         const newData = data?.map((item) => {
           if (item.id === res.data?.id) {
@@ -42,10 +41,8 @@ const Edit = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData })
             item.url = res.data?.url
             item.imageID = res.data?.imageID
           }
-
-          return item
+          return item;
         })
-        console.log(newData);
         setData(newData)
         setEditCarousel({ isShow: false, data: {} })
         Alert(setAlert, "success", "Muvafaqqiyatli o'zgartirildi")
@@ -56,7 +53,6 @@ const Edit = ({ editCarousel, setEditCarousel, Alert, setAlert, data, setData })
       console.log(error);
     }
   }
-
 
   return (
     <div id="modal_large" className="modal fade show" tabindex="-1" aria-modal="true" role="dialog" style={{ display: "flex", alignItems: "center", background: "rgba(0, 0, 0, 0.5)" }}>
