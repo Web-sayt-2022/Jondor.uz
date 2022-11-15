@@ -25,12 +25,15 @@ const GovGroup = () => {
 
   // group o'qib olish
   useEffect(() => {
-    axiosInstance.get(`subGovGroup/getBySubmenuId/?code=${subMenuId}`).then(res => {
-      setGovGroup(res.data)
-    })
-  }, [subMenuId]);
+    let isMounted = true;
 
-  console.log(govGroup);
+    axiosInstance.get(`subGovGroup/getBySubmenuId/?code=${subMenuId}`).then(res => {
+      if (isMounted)
+        setGovGroup(res.data)
+    })
+
+    return () => isMounted = false;
+  }, [subMenuId]);
 
   // change input orderNumber
   const inputChangeHandler = async (e, govId, employee) => {
