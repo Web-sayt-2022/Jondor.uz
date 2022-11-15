@@ -1,0 +1,11 @@
+.inputOrder {
+  border: none;
+  padding: 5px;
+  width: 70px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.inputOrder:focus {
+  outline-color: #2272f2;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components';
+import { MdOutlineClose } from 'react-icons/md';
 import { axiosInstance } from '../../config';
 import AlertContent, { Alert } from '../alert/Alert';
 import AddMenu from './modals/AddMenu';
@@ -33,7 +34,6 @@ function SidebarAdmin() {
     let isMounted = true;
 
     axiosInstance.get("menu/getForAdmin").then((res) => {
-      // console.log(res.data);
       if (isMounted) {
         setMenu(res.data?.menuDTOS);
         setSubMenu(res.data?.submenuDTOS)
@@ -80,85 +80,76 @@ function SidebarAdmin() {
                     <div className="btn-group position-static" style={{ justifyContent: "space-between", width: "100%" }}>
                       <div className="nav-link" style={{ fontSize: '18px', cursor: "pointer", width: "100%" }}
                         onClick={() => open(`menu${item.id}`)}>
-                        <i className="fa-solid fa-folder" style={{ color: "#0056B8" }} />
+                        <MdOutlineClose />
                         <span>{item.uzName}</span>
                       </div>
 
                       <button onClick={() => { setUpdateModal({ isShow: true, data: item, type: "menu" }) }} type="button" className="btn btn-white sub-menu-edit-button" style={{ borderRadius: "0", width: "50px" }}>
-                        <i className="fa-solid fa-pen" style={{ color: "#0056B8" }}></i>
+                        <MdOutlineClose />
                       </button>
                     </div>
 
                     <ul className="nav-item-ul m-0" style={{ display: "none", listStyle: "none" }}>
-                      {
-                        subMenu.length > 0 && subMenu.filter((data) => data.menuId === item.id).map((item2) => {
-                          return (
-                            <li key={Math.random()} className="nav-item liItem hover-menu-edit-button">
-                              <div className="btn-group position-static" style={{ justifyContent: "space-between", width: "100%" }}>
-                                {item2.type !== "link" ? (
-                                  <Link to={`/admin/${item2.type}/${item.id}/${item2.id}`} className="nav-link liHover" style={{ fontSize: '18px', width: "100%" }}>
-                                    <i className="icon-file-text3" style={{ color: "#0056B8" }} />
-                                    <span>{item2.uzName}</span>
-                                  </Link>
-                                ) : (
-                                  <a href={`${item2.url}`} target="_blank" rel="noopener noreferrer"
-                                    className="nav-link liHover" style={{ fontSize: '18px', width: "100%" }}>
-                                    <i className="icon-file-text3" style={{ color: "#0056B8" }} />
-                                    <span>{item2.uzName}</span>
-                                  </a>
-                                )
-
-                                }
-
-
-                                <button onClick={() => { setUpdateModal({ isShow: true, data: item2, type: "subMenu" }) }} type="button" className="btn btn-white menu-edit-button" style={{ borderRadius: "0", width: "50px" }}>
-                                  <i className="fa-solid fa-pen" style={{ color: "#0056B8" }}></i>
-                                </button>
-                              </div>
-                            </li>
-                          )
-                        })
-                      }
+                      {subMenu.length > 0 && subMenu.filter((data) => data.menuId === item.id).map((item2) => (
+                        <li key={Math.random()} className="nav-item liItem hover-menu-edit-button">
+                          <div className="btn-group position-static" style={{ justifyContent: "space-between", width: "100%" }}>
+                            {item2.type !== "link" ? (
+                              <Link to={`/admin/${item2.type}/${item.id}/${item2.id}`} className="nav-link liHover" style={{ fontSize: '18px', width: "100%" }}>
+                                <MdOutlineClose />
+                                <span>{item2.uzName}</span>
+                              </Link>
+                            ) : (
+                              <a href={`${item2.url}`} target="_blank" rel="noopener noreferrer"
+                                className="nav-link liHover" style={{ fontSize: '18px', width: "100%" }}>
+                                <MdOutlineClose />
+                                <span>{item2.uzName}</span>
+                              </a>
+                            )}
+                            <button onClick={() => { setUpdateModal({ isShow: true, data: item2, type: "subMenu" }) }} type="button" className="btn btn-white menu-edit-button" style={{ borderRadius: "0", width: "50px" }}>
+                              <MdOutlineClose />
+                            </button>
+                          </div>
+                        </li>
+                      ))}
 
                       <li className="nav-item"
                         style={{ paddingLeft: "16px", cursor: "pointer" }}
                         onClick={() => setAddSubMenuModal({ isShow: true, menuId: item.id })}
                       >
                         <div className="nav-link liHover" style={{ fontSize: '18px' }}>
-                          <i className="icon-file-plus2" style={{ color: "#0056B8" }} />
+                          <MdOutlineClose />
                           <span>Menu osti qo'shish</span>
                         </div>
                       </li>
-
                     </ul>
                   </li>
                 )
               })}
 
-              <li className="nav-item" style={{ fontSize: '18px' }}>
-                <Link to="/admin/sectors" className="nav-link liHover">
-                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+              <li className="nav-item " style={{ fontSize: '18px' }}>
+                <Link to="/admin/sectors" className="nav-link liHover ">
+                  <MdOutlineClose />
                   <span>Sektorlar</span>
                 </Link>
               </li>
 
               <li className="nav-item" style={{ fontSize: '18px' }}>
                 <Link to="/admin/carousel" className="nav-link liHover">
-                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <MdOutlineClose />
                   <span>Foydali manzillar</span>
                 </Link>
               </li>
 
               <li className="nav-item" style={{ fontSize: '18px' }}>
                 <Link to="/admin/good_know" className="nav-link liHover">
-                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <MdOutlineClose />
                   <span>Bilish foydali</span>
                 </Link>
               </li>
 
               <li className="nav-item" style={{ fontSize: '18px' }}>
                 <Link to="/admin/tegs" className="nav-link liHover">
-                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <MdOutlineClose />
                   <span>Teglar</span>
                 </Link>
               </li>
@@ -168,7 +159,7 @@ function SidebarAdmin() {
                 onClick={() => setAddMenuModal(true)}
               >
                 <div className="nav-link liHover">
-                  <i className="fa-solid fa-folder-plus" style={{ color: "#0056B8" }} />
+                  <MdOutlineClose />
                   <span>Menu qo'shish</span>
                 </div>
               </li>
@@ -176,7 +167,7 @@ function SidebarAdmin() {
               {/* reglamentlar */}
               <li className="nav-item" style={{ fontSize: '18px' }}>
                 <Link to="/admin/hotline" className="nav-link liHover">
-                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <MdOutlineClose />
                   <span>Reglamentlar</span>
                 </Link>
               </li>
@@ -184,7 +175,7 @@ function SidebarAdmin() {
               {/* reglamentlar */}
               <li className="nav-item" style={{ fontSize: '18px' }}>
                 <Link to="/admin/management" className="nav-link liHover">
-                  <i className="icon-home4" style={{ color: "#0056B8" }} />
+                  <MdOutlineClose />
                   <span>Rahbariyat</span>
                 </Link>
               </li>
@@ -270,6 +261,14 @@ export default SidebarAdmin
 const Wrapper = styled.div`
   .richtexteditor {
     height: 100vh;
+  }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .nav-item svg {
+    color: #0056B8;
   }
 
   .nav-tabs-solid-custom .nav-link.active {
