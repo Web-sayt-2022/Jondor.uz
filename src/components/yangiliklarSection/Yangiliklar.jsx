@@ -41,21 +41,21 @@ const Yangiliklar = ({ news }) => {
               >
                 <div className="card card-hover">
                   <div className="card-img-actions">
-                    <div className="img-scale">
+                    <div className="img-scale m-2">
                       <img
-                        className="img-fluid img-fluid-hover"
+                        className="img-fluid img-fluid-hover rounded"
                         src={`${urlFile}/${dat.generatedNames[0]}`}
                         alt=""
                       />
                     </div>
                   </div>
-                  <div className="card-body py-2">
+                  <div className="card-body pt-0 pb-2 px-2">
                     <h5 className="card-title text-primary font-weight-bold p-0 m-0">
                       <i className="icon-calendar3"></i>
                       {dat?.createdDate.substr(0, 10).split("-").reverse().join(".")}
                     </h5>
                     <p
-                      className="card-text card-text-title"
+                      className="card-text card-text-title mt-2"
                       style={{
                         textAlign: "justify",
                         fontWeight: 600,
@@ -71,14 +71,16 @@ const Yangiliklar = ({ news }) => {
                   <div
                     className="card-footer p-2 px-2"
                     style={{
+                      height: "44px",
                       display: "flex",
                       justifyContent: "space-between",
+                      background: "rgba(38, 137, 229, 0.1)"
                     }}
                   >
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item">
-                        <a href="#1" className="text-body">
-                          <i className="icon-eye4 mr-2"></i>
+                        <a href="#1" className="text-primary font-weight-semybold">
+                          <i className="icon-eye4 mr-2 text-black"></i>
                           {dat?.countView}
                         </a>
                       </li>

@@ -10,6 +10,7 @@ import EditEmployee from './modals/EditEmployee';
 const EmployeeGroup = () => {
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const [employeeGroup, setEmployeeGroup] = useState([])
+  const [parentId, setParentId] = useState("")
   const [addEmployee, setAddEmployee] = useState(false)
   const [deleteModal, setDeleteModal] = useState({ isShow: false, id: 0 })
   const [editEmployee, setEditEmployee] = useState({ isShow: false, data: {} })
@@ -21,8 +22,28 @@ const EmployeeGroup = () => {
     axiosInstance.get(`employeeGroup/getBySubmenuId/?code=${subMenuId}`).then(res => {
       console.log(res.data);
       setEmployeeGroup(res.data?.employeeDTOS)
+      setParentId(res.data?.id)
     })
   }, [subMenuId])
+
+  // change input orderNumber
+  const inputChangeHandler = async (e, employee) => {
+    console.log(employee.id);
+    console.log(parentId);
+    console.log(e.target.value);
+    if (e.keyCode === 13) {
+      try {
+        const res = await axiosInstance.post("stateEmployee/editOrderForEmployeeGroup", {
+          id: employee.id,
+          parentId: parentId,
+          order: e.target.value
+        });
+        setEmployeeGroup(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
 
   return (
     <div className="card-body p-0 pt-3 px-3">
@@ -51,7 +72,10 @@ const EmployeeGroup = () => {
               employeeGroup.map((employee, index) => {
                 return (
                   <tr key={employee.id}>
-                    <td className="text-center">{index + 1}</td>
+                    {/* <td className="text-center">{index + 1}</td> */}
+                    <td className="text-center">
+                      <input type="number" className='inputOrder' defaultValue={employee.orderNumber} onKeyDown={e => inputChangeHandler(e, employee)} />
+                    </td>
                     <td className='text-center'>
                       <img src={`${urlFile}/${employee.imageID}`} style={{ width: "50%", minWidth: "100px", }} alt="" />
                     </td>

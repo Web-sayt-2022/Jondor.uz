@@ -5,6 +5,7 @@ import collectImage from "../../images/collect (1).png";
 import { MdOutlineClose } from 'react-icons/md';
 import styled from "styled-components";
 import { axiosInstance } from "../../config";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [openReglaments, setOpenReglaments] = useState({ open: false, data: {} });
@@ -53,7 +54,10 @@ const Footer = () => {
           >
             <div className="link_list mb-lg-0 mb-3 flex-lg-row flex-column">
               <a href="#1">Web-Sayt haqida</a>
-              <a href="#1">Web-Sayt xaritasi</a>
+              <Link to={"/xarita"}>
+              Web-Sayt xaritasi
+              </Link>
+              {/* <a href="#1">Web-Sayt xaritasi</a> */}
               <a href="#1">Qayta aloqa</a>
               <a href="https://advice.uz/uz#/">Ko'p beriladigan savollar</a>
               <a href="#1">Ma'lumotlardan foydalanish shartlari</a>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import BoshSahifa from "./pages/adminPanel/bosh_sahifa/BoshSahifa";
 import Login from "./pages/adminPanel/login/Login";
@@ -30,10 +30,14 @@ import Hotline from "./pages/adminPanel/reglaments/Hotline";
 import GeneralSettings from "./pages/adminPanel/reglaments/generalSettings/GeneralSettings";
 import ElektronAddress from "./pages/adminPanel/reglaments/electronAddress/ElektronAddress";
 import Management from "./pages/adminPanel/management/Management";
+import Xarita from "./pages/xarita/Xarita";
+
+export const LanguageContext = React.createContext()
 
 function App() {
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const [ctrlEnter, setCtrlEnter] = useState({ isShow: false, data: "" });
+  const [token, setToken] = useState(0)
 
   useEffect(() => {
     let isMounted = true;
@@ -55,53 +59,67 @@ function App() {
     return () => isMounted = false;
   }, [ctrlEnter]);
 
+  console.log(token);
+
+  // language
+  const [lan, setLan] = useState("uz")
+
+  function toggle(lan) {
+    setLan(lan)
+  }
+
   return (
 
     <div style={{ backgroundColor: "#eeeded" }}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/admin_panel" element={<Login />} />
-        <Route path="/1" element={<Layout><Employee2 /></Layout>}></Route>
-        <Route path="/admin/bosh_sahifa" element={<LayoutAdmin> <BoshSahifa /></LayoutAdmin>} />
-        <Route path="/admin/news/:menuId/:subMenuId" element={<LayoutAdmin> <News /></LayoutAdmin>} />
-        <Route path="/admin/information/:menuId/:subMenuId" element={<LayoutAdmin> <Information /></LayoutAdmin>} />
-        <Route path="/admin/subGovGroup/:menuId/:subMenuId" element={<LayoutAdmin> <GovGroup /></LayoutAdmin>} />
-        <Route path="/admin/employeeGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
-        <Route path="/news/:menuId/:subMenuId" element={<Layout><UserNews /></Layout>} />
-        <Route path="/news/detail/:id" element={<LayoutNews><DetailNews /></LayoutNews>} />
-        <Route path="/information/:menuId/:subMenuId" element={<Layout><UserInformation /></Layout>} />
-        <Route path="/information/detail/:id" element={<Layout><DetailNews /></Layout>} />
-        <Route path="/subGovGroup/:menuId/:subMenuId" element={<Layout><UserGovGroup /></Layout>} />
-        <Route path="/employeeGroup/:menuId/:subMenuId" element={<Layout><UserEmployee /></Layout>} />
-        <Route path="/sector/detail/:id" element={<Layout><SectorDetail /></Layout>} />
-        <Route path="/admin/carousel" element={<LayoutAdmin><FooterCarousel /></LayoutAdmin>} />
-        <Route path="/admin/good_know" element={<LayoutAdmin><GoodKnow /></LayoutAdmin>} />
-        <Route path="/admin/tegs" element={<LayoutAdmin><Tegs /></LayoutAdmin>} />
-        <Route path="/admin/sectors" element={<LayoutAdmin><Sectors /></LayoutAdmin>} />
-        <Route path="/milliy_bayramlar" element={<Layout><MilliyBayramlarPage /></Layout>}></Route>
-        <Route path="/admin/hotline" element={<LayoutAdmin><Hotline /></LayoutAdmin>} />
-        <Route path="/admin/general_settings" element={<LayoutAdmin><GeneralSettings /></LayoutAdmin>} />
-        <Route path="/admin/elektron_address" element={<LayoutAdmin><ElektronAddress /></LayoutAdmin>} />
-        <Route path="/admin/management" element={<LayoutAdmin><Management /></LayoutAdmin>} />
-        <Route
-          path="/rahbariyat"
-          element={
-            <Layout>
-              <RahbariyatPage />
-            </Layout>
-          }
-        ></Route>
+      <LanguageContext.Provider value={{lan: lan, func: toggle}}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/xarita" element={<Layout><Xarita /></Layout>} />
+          <Route path="/admin_panel" element={<Login token={"sss"} />} />
+          <Route path="/1" element={<Layout><Employee2 /></Layout>}></Route>
+          <Route path="/admin/bosh_sahifa" element={<LayoutAdmin><BoshSahifa /></LayoutAdmin>} />
+          {/* <Route path="/admin/bosh_sahifa" element={token ? <LayoutAdmin><BoshSahifa /></LayoutAdmin> : <Login />} /> */}
+          <Route path="/admin/news/:menuId/:subMenuId" element={<LayoutAdmin> <News /></LayoutAdmin>} />
+          <Route path="/admin/information/:menuId/:subMenuId" element={<LayoutAdmin> <Information /></LayoutAdmin>} />
+          <Route path="/admin/subGovGroup/:menuId/:subMenuId" element={<LayoutAdmin> <GovGroup /></LayoutAdmin>} />
+          <Route path="/admin/employeeGroup/:menuId/:subMenuId" element={<LayoutAdmin> <EmployeeGroup /></LayoutAdmin>} />
+          <Route path="/news/:menuId/:subMenuId" element={<Layout><UserNews /></Layout>} />
+          <Route path="/news/detail/:id" element={<LayoutNews><DetailNews /></LayoutNews>} />
+          <Route path="/information/:menuId/:subMenuId" element={<Layout><UserInformation /></Layout>} />
+          <Route path="/information/detail/:id" element={<Layout><DetailNews /></Layout>} />
+          <Route path="/subGovGroup/:menuId/:subMenuId" element={<Layout><UserGovGroup /></Layout>} />
+          <Route path="/employeeGroup/:menuId/:subMenuId" element={<Layout><UserEmployee /></Layout>} />
+          <Route path="/sector/detail/:id" element={<Layout><SectorDetail /></Layout>} />
+          <Route path="/admin/carousel" element={<LayoutAdmin><FooterCarousel /></LayoutAdmin>} />
+          <Route path="/admin/good_know" element={<LayoutAdmin><GoodKnow /></LayoutAdmin>} />
+          <Route path="/admin/tegs" element={<LayoutAdmin><Tegs /></LayoutAdmin>} />
+          <Route path="/admin/sectors" element={<LayoutAdmin><Sectors /></LayoutAdmin>} />
+          <Route path="/milliy_bayramlar" element={<Layout><MilliyBayramlarPage /></Layout>}></Route>
+          <Route path="/admin/hotline" element={<LayoutAdmin><Hotline /></LayoutAdmin>} />
+          <Route path="/admin/general_settings" element={<LayoutAdmin><GeneralSettings /></LayoutAdmin>} />
+          <Route path="/admin/elektron_address" element={<LayoutAdmin><ElektronAddress /></LayoutAdmin>} />
+          <Route path="/admin/management" element={<LayoutAdmin><Management /></LayoutAdmin>} />
+          <Route
+            path="/rahbariyat"
+            element={
+              <Layout>
+                <RahbariyatPage />
+              </Layout>
+            }
+          ></Route>
 
-        <Route
-          path="/xalq_deputatlari"
-          element={
-            <Layout>
-              <XalqDeputatlariPage />
-            </Layout>
-          }
-        ></Route>
+          <Route
+            path="/xalq_deputatlari"
+            element={
+              <Layout>
+                <XalqDeputatlariPage />
+              </Layout>
+            }
+          ></Route>
 
-      </Routes>
+        </Routes>
+      </LanguageContext.Provider>
+
 
       {ctrlEnter.isShow && (
         <CtrlEnter

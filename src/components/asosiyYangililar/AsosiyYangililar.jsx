@@ -97,12 +97,12 @@ const AsosiyYangililar = ({ news }) => {
             </div>
 
             <div className="boxes">
-              {news?.length > 0 && news.map((dat) =>
+              {news?.length > 0 && news.map((dat, index) =>
                 dat.actual && (
                   <div
                     key={dat.id}
                     className="position-relative rounded box"
-                    style={{ height: "25rem" }}
+                    style={{ gridRow: index === 1 ? "1/3" : "" }}
                     onClick={() => navigateHandler(dat)}
                   >
                     <img
@@ -138,11 +138,16 @@ const Wrapper = styled.div`
   }
 
   .paragraf {
+    height: 70px;
     width: 100%;
     position: absolute;
     bottom: 0;
     margin: 0;
     background-color: rgba(69, 116, 138, 0.6);
+    padding: 0.75rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .paragraf p {
@@ -151,7 +156,6 @@ const Wrapper = styled.div`
     -webkit-box-orient: vertical;
     text-align: justify;
     margin-bottom: 0;
-    padding: 0.5rem;
     overflow: hidden;
   }
 
@@ -199,7 +203,7 @@ const Wrapper = styled.div`
   }
 
   .boxes a:nth-child(1) {
-    grid-row: 1/3;
+    grid-row: 1/3 !important;
   }
 
   .profile {

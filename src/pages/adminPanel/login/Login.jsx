@@ -3,11 +3,13 @@ import React, { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AlertContent, { Alert } from '../../../components/alert/Alert';
 
-function Login() {
+const Login = ({props}) => {
   const [alert, setAlert] = useState({ open: false, color: "", text: "" });
   const navigate = useNavigate()
   const userNameRef = useRef()
   const passwordRef = useRef()
+
+  console.log(props);
 
   const submitHandler = () => {
     axios.post(`http://192.168.30.104:9090/buxoroUZ/api/v1/auth/login`, {

@@ -32,9 +32,9 @@ const LeftPanel = () => {
           {data?.length > 0 && data?.map((item) => {
             return (
               <div className="col-lg-12 px-2">
-                <div className="card card-hover p-2">
+                <div className="card card-hover">
                   <div className="card-img-actions">
-                    <div className="img-scale">
+                    <div className="img-scale m-2">
                       <img
                         className="img-fluid img-fluid-hover"
                         src={`${urlFile}/${item?.generatedNames[0]}`}
@@ -42,13 +42,13 @@ const LeftPanel = () => {
                       />
                     </div>
                   </div>
-                  <div className="card-body p-2">
+                  <div className="card-body px-2 py-0 pb-2">
                     <h6 className="card-title text-primary font-weight-bold p-0 m-0">
                       <i className="icon-calendar3"></i>
                       {item?.createdDate.substr(0, 10).split("-").reverse().join(".")}
                     </h6>
                     <p
-                      className="card-text card-text-title mt-1 horiz-p"
+                      className="card-text card-text-title mt-2 horiz-p"
                       style={{
                         textAlign: "justify",
                         fontWeight: 600,
@@ -62,13 +62,17 @@ const LeftPanel = () => {
                   </div>
 
                   <div
-                    className="card-footer p-2 px-2 bg-white"
-                    style={{ display: "flex", justifyContent: "space-between" }}
+                    className="card-footer p-2 px-2"
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      background: "rgba(38, 137, 229, 0.1)"
+                    }}
                   >
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item">
-                        <a href="#1" className="text-body">
-                          <i className="icon-eye4 mr-2"></i>
+                        <a href="#1" className="text-primary font-weight-semybold">
+                          <i className="icon-eye4 mr-2 text-black"></i>
                           {item?.countView}
                         </a>
                       </li>

@@ -34,7 +34,7 @@ const DetailNews = () => {
         <div className="card-body px-2">
           <CarouselNews state={state?.generatedNames} />
 
-          <p className='detail-p px-2'>{parse(state.uzBody)}</p>
+          <p className='detail-p px-0'>{parse(state.uzBody)}</p>
         </div>
 
         <div

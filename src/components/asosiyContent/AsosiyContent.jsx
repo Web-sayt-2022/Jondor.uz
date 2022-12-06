@@ -9,7 +9,9 @@ const AsosiyContent = () => {
   return (
     <>
       <Wrapper className="asosiy-content container-fluid">
-        <YangiliklarLeftPanel />
+        <div className="left-panel">
+          <YangiliklarLeftPanel />
+        </div>
         <RightPanel />
       </Wrapper>
     </>
@@ -23,7 +25,19 @@ const Wrapper = styled.div`
     display: flex;
     background-color: #eee;
   }
-`;
+  
+  @media(max-width: 992px) {
+    .asosiy-content {
+      grid-template-columns: 1fr !important;
+    }
+
+    .left-panel {
+      display: none !important;
+    }
+  }
+`
+
+
 
 /* .asosiy-content {
   display: grid;

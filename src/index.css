@@ -352,6 +352,12 @@ footer .karvon {
   }
 }
 
+@media(max-width: 992px) {
+  .asosiy-main .yangiliklar-section-left {
+    display: none;
+  }
+}
+
 
 /* file upload */
 .border_dash {
@@ -467,4 +473,8 @@ footer .karvon {
 
 .nav-tabs-solid-custom .nav-link.active .nav-tabs-solid-custom .nav-link.active span {
   color: red !important;
+}
+
+.page-content {
+  overflow-y: auto;
 }

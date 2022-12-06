@@ -45,7 +45,7 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
       console.log(allFilesId);
       try {
         const sendingData = {
-          id: editEmployee.data.id,
+          id: editEmployee.data.stateEmployeeDTO.id,
           firstName: firstNameRef.current.value,
           lastName: lastNameRef.current.value,
           patronymic: middleNameRef.current.value,
@@ -59,42 +59,38 @@ const EditEmployee = ({ govGroup, setGovGroup, editEmployee, setEditEmployee, Al
           nation: nationRef.current.value,
           degree: degreeRef.current.value,
           phoneNumber: phoneRef.current.value,
-          uzAdditionalInformation: newsData1 ? newsData1 : editEmployee.data.uzAdditionalInformation,
-          krAdditionalInformation: newsData2 ? newsData2 : editEmployee.data.krAdditionalInformation,
-          ruAdditionalInformation: newsData3 ? newsData3 : editEmployee.data.ruAdditionalInformation,
-          imageID: allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.imageID,
-          parentId: editEmployee.id
+          uzAdditionalInformation: newsData1 ? newsData1 : editEmployee.data.stateEmployeeDTO.uzAdditionalInformation,
+          krAdditionalInformation: newsData2 ? newsData2 : editEmployee.data.stateEmployeeDTO.krAdditionalInformation,
+          ruAdditionalInformation: newsData3 ? newsData3 : editEmployee.data.stateEmployeeDTO.ruAdditionalInformation,
+          imageID: allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.stateEmployeeDTO.imageID,
+          parentId: editEmployee.data.id
         }
         console.log(sendingData);
         const res = await axiosInstance.patch("stateEmployee/update", sendingData);
         console.log(res.data);
+        console.log(govGroup);
         const newGovGroup = govGroup?.map(gov => {
-          if (gov.id === editEmployee.id) {
-            gov?.orderList?.map(item => {
-              if (item.id === editEmployee.data.id) {
-                item.firstName = res.data.firstName;
-                item.lastName = lastNameRef.current.value;
-                item.patronymic = middleNameRef.current.value;
-                item.uzPosition = uzPositionRef.current.value;
-                item.krPosition = krPositionRef.current.value;
-                item.ruPosition = ruPositionRef.current.value;
-                item.birthDate = birthDateRef.current.value;
-                item.uzBirthPlace = birthPlaceRef.current.value;
-                item.krBirthPlace = birthPlaceRef.current.value;
-                item.ruBirthPlace = birthPlaceRef.current.value;
-                item.nation = nationRef.current.value;
-                item.degree = degreeRef.current.value;
-                item.phoneNumber = phoneRef.current.value;
-                item.uzAdditionalInformation = newsData1 ? newsData1 : editEmployee.data.uzAdditionalInformation;
-                item.krAdditionalInformation = newsData2 ? newsData2 : editEmployee.data.krAdditionalInformation;
-                item.ruadditionalInformation = newsData3 ? newsData3 : editEmployee.data.ruadditionalInformation;
-                item.imageID = allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.imageID;
-                item.parentId = editEmployee.id
-              }
-
-              return item
-            })
+          if (gov.id === editEmployee.data.id) {
+            gov.stateEmployeeDTO.firstName = res.data.firstName;
+            gov.stateEmployeeDTO.lastName = lastNameRef.current.value;
+            gov.stateEmployeeDTO.patronymic = middleNameRef.current.value;
+            gov.stateEmployeeDTO.uzPosition = uzPositionRef.current.value;
+            gov.stateEmployeeDTO.krPosition = krPositionRef.current.value;
+            gov.stateEmployeeDTO.ruPosition = ruPositionRef.current.value;
+            gov.stateEmployeeDTO.birthDate = birthDateRef.current.value;
+            gov.stateEmployeeDTO.uzBirthPlace = birthPlaceRef.current.value;
+            gov.stateEmployeeDTO.krBirthPlace = birthPlaceRef.current.value;
+            gov.stateEmployeeDTO.ruBirthPlace = birthPlaceRef.current.value;
+            gov.stateEmployeeDTO.nation = nationRef.current.value;
+            gov.stateEmployeeDTO.degree = degreeRef.current.value;
+            gov.stateEmployeeDTO.phoneNumber = phoneRef.current.value;
+            gov.stateEmployeeDTO.uzAdditionalInformation = newsData1 ? newsData1 : editEmployee.data.stateEmployeeDTO.uzAdditionalInformation;
+            gov.stateEmployeeDTO.krAdditionalInformation = newsData2 ? newsData2 : editEmployee.data.stateEmployeeDTO.krAdditionalInformation;
+            gov.stateEmployeeDTO.ruadditionalInformation = newsData3 ? newsData3 : editEmployee.data.stateEmployeeDTO.ruadditionalInformation;
+            gov.stateEmployeeDTO.imageID = allFilesId.data.length > 0 ? allFilesId.data[0] : editEmployee.data.stateEmployeeDTO.imageID;
+            gov.stateEmployeeDTO.parentId = editEmployee.data.id
           }
+
           return gov
         })
 

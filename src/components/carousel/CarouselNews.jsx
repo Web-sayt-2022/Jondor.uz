@@ -120,7 +120,7 @@ const CarouselNews = ({ state }) => {
         )}
         dotsClass="slick-dots custom-indicator"
       >
-        {state?.length > 0 &&
+        {state?.length >= 0 &&
           state.map((src, index) => (
             <div key={index}>
               <img

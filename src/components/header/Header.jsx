@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { axiosInstance } from "../../config";
 import language from "../../utils/img/language.png"
 import buxImg from "../../utils/img/bux.png"
 import logoNav from "../../utils/img/logo_nav.png"
+import { LanguageContext } from "../../App";
 
 const Header = () => {
   const [menu, setMenu] = useState([])
   const [subMenu, setSubMenu] = useState([])
+  const lan = useContext(LanguageContext)
+  console.log(lan.lan);
 
   // menularni o'qib olish
   useEffect(() => {
@@ -41,19 +44,28 @@ const Header = () => {
               fontSize: "16px",
               marginLeft: "10px",
               textTransform: "capitalize",
+              display: "flex",
+              gap: "8px"
             }}
           >
-            <a href="#1" style={{ fontSize: "16px" }} className="lan_active">
+            <span style={{ fontSize: "16px", cursor: "pointer" }}
+              className={lan.lan === "uz" ? "lan_active" : ""}
+              onClick={() => lan.func("uz")}>
               O'z
-            </a>{" "}
+            </span>
 
-            <a href="#1" style={{ fontSize: "16px" }}>
+            <span style={{ fontSize: "16px", cursor: "pointer" }}
+               className={lan.lan === "kr" ? "lan_active" : ""}
+               onClick={() => lan.func("kr")}>
               Ўз
-            </a>{" "}
+            </span>
 
-            <a href="#1" style={{ fontSize: "16px" }}>
+            <span style={{ fontSize: "16px", cursor: "pointer" }}
+               className={lan.lan === "ru" ? "lan_active" : ""}
+               onClick={() => lan.func("ru")}>
               Рус
-            </a>
+            </span>
+
           </div>
         </div>
 
@@ -332,5 +344,11 @@ const Wrapper = styled.div`
     transition: 0.2s;
     cursor: pointer;
     opacity: 0;
+  }
+
+  .lan_active {
+    color: #2196f3 !important;
+    font-weight: 600;
+    transition: .3s
   }
 `;
