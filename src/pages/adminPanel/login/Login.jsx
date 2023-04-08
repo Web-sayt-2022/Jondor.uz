@@ -12,7 +12,7 @@ const Login = ({props}) => {
   console.log(props);
 
   const submitHandler = () => {
-    axios.post(`http://192.168.30.104:9090/buxoroUZ/api/v1/auth/login`, {
+    axios.post(`http://95.46.96.60:9090/buxoroUZ/api/v1/auth/login`, {
       username: userNameRef.current.value,
       password: passwordRef.current.value
     }).then((res) => {
